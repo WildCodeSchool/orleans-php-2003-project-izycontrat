@@ -24,4 +24,4 @@ branches:
     only:
         - master
         - dev
-        - S00US00_Bootstrap #Tu peux pas test Travis !
+        - /.*/ #Tu peux pas test Travis !
