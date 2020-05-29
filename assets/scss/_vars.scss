@@ -1,3 +1,23 @@
-$primary-color: #f76c6c;
-$secondary-color: #f99797;
-$warm-color: #ffd64f;
+$primary-color: #042A5F;
+$primary-lighter: #053477;
+$primary-darker: #03224C;
+$secondary-color: #F44B80;
+$secondary-lighter: #F996B5;
+$secondary-darker: #F00F56;
+$error-color: #FF566B;
+$success-color: #9DDEA4;
+$light-color: #E1E6EC;
+$shadow-color: rgba(0, 10, 22, 0.38);
+$dark-color: #000A16;
+
+$font-text: 'Montserrat', sans-serif;
+$font-title: 'Playfair Display SC', serif;
+$font-size: 16pt;
+$font-size-title: 36pt;
+$font-size-sub-title: 24pt;
+
+$spacing: 16px;
+$spacing-xs: $spacing / 4;
+$spacing-s: $spacing / 2;
+$spacing-l: $spacing * 2;
+$spacing-xl: $spacing * 4;
