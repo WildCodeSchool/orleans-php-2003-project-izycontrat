@@ -1,9 +1,3 @@
 @import "vars";
-
-body {
-    background-color: $secondary-color;
-}
-
-a {
-    color: $warm-color;
-}
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display+SC&display=swap');
