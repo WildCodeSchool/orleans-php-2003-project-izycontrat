@@ -1,0 +1,28 @@
+@import "vars";
+.dashboard{
+    padding: $spacing 0 0 0;
+    font-family: $font-text;
+    color: $light-color;
+    text-decoration: none;
+    height: auto;
+    bottom: 0;
+    top: 0;
+    width: 275px;
+    overflow: hidden;
+    text-align: left;
+    background: $primary-darker;
+}
+.dashboard a{
+    vertical-align: middle;
+}
+.dashboard .svg-inline--fa{
+    padding-top: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 40px;
+    font-size: 10px;
+}
+.nav-link{
+    text-decoration: none;
+    color: $light-color;
+}

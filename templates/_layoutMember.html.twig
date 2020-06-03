@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{% endblock %}
+{% block dashboard %}
+<div class="row m-0 p-0">
+    <nav class="container dashboard flex-column position-fixed bg col-12 col-lg-2">
+            <a class="nav-link active" href="#"><i class="far fa-id-badge"></i> Mon profil</a>
+        {% if auth == 'admin' %}
+            <a class="nav-link active" href="#"><i class="fas fa-scroll"></i> Gestion du blog</a>
+            <a class="nav-link" href="#"><i class="fas fa-gavel"></i> Gestion des avocats</a>
+            <a class="nav-link" href="#"><i class="fas fa-users"></i> Gestion des clients</a>
+            <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> Gestion des documents</a>
+        {% elseif auth == 'lawyer' %}
+            <a class="nav-link active" href="#"><i class="fas fa-users"></i> Mes clients</a>
+            <a class="nav-link" href="#"><i class="fas fa-briefcase"></i> Dossiers en cours</a>
+        {% else %}
+            <a class="nav-link" href="#"><i class="fas fa-file-invoice"></i> Mes documents</a>
+            <a class="nav-link" href="#"><i class="fas fa-briefcase"></i> Dossier en cours</a>
+        {% endif %}
+            <a class="nav-link signout" href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+{% endblock %}
+{% block body %}
+</div>
+{% endblock %}
+
