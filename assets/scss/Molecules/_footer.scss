@@ -1,3 +1,105 @@
 .bg-footer{
   background-color: $primary-color;
+  padding: $spacing;
+}
+.footer-element{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.footer-element ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.footer-element a{
+  font-family: $font-text;
+  text-decoration: none;
+  color: $light-color;
+  text-shadow: 1px 1px 2px $shadow-color;
+  font-weight: 800;
+}
+.footer-element a:hover{
+  text-decoration: none;
+  color: $secondary-lighter;
+}
+.footer-element h2{
+  font-family: $font-title;
+  font-size: $font-size;
+  color: $light-color;
+  margin: $spacing 0 $spacing 0;
+}
+.footer-element h2 a{
+  font-family: $font-title;
+}
+.social-button a{
+  text-decoration: none;
+  display: block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  transition: .5s;
+  margin: 0 $spacing;
+}
+.social-button a span{
+  position: absolute;
+  transition: transform .5s;
+}
+.social-button a span:nth-child(1),
+.social-button a span:nth-child(3){
+  width: 100%;
+  height: 1px;
+  background: $light-color;
+}
+.social-button a span:nth-child(1){
+  top: 0;
+  left: 0;
+  transform-origin: right;
+}
+.social-button a:hover span:nth-child(1){
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s;
+}
+.social-button a span:nth-child(3){
+  bottom: 0;
+  left: 0;
+  transform-origin: left;
+}
+.social-button a:hover span:nth-child(3){
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s;
+}
+
+.social-button a span:nth-child(2),
+.social-button a span:nth-child(4){
+  width: 1px;
+  height: 100%;
+  background: $light-color;
+}
+.social-button a span:nth-child(2){
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+.social-button a:hover span:nth-child(2){
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform .5s;
+}
+.social-button a span:nth-child(4){
+  top: 0;
+  right: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.social-button a:hover span:nth-child(4){
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform .5s;
 }
