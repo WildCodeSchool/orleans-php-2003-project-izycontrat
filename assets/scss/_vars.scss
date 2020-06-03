@@ -24,9 +24,9 @@ $spacing-xl: $spacing * 4;
 
 
 //Cette animation fonctionne avec 4 "span" vides au dessus du lien du bouton
-//Vous n'avez ensuite qu'a appeler l'animation dans votre fichier SCSS :
+//Vous n'avez ensuite qu'à appeler l'animation dans votre fichier SCSS :
 //
-//Des attributs optionels sont présent
+//Des attributs optionel sont présent
 //
 @mixin animateLines($width:50px, $height:50px, $font-size:20px, $time:.5s) {
     text-decoration: none;
