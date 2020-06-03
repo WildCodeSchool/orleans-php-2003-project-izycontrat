@@ -24,20 +24,7 @@ $spacing-xl: $spacing * 4;
 
 
 //Cette animation fonctionne avec 4 <span></span> vides au dessus du lien du bouton
-// ex :
-//  <a class="nom-de-classe" href="">
-//    <span></span>
-//    <span></span>
-//    <span></span>
-//    <span></span>
-//    <i class="fab fa-twitter-square"></i>
-//  </a>
-//
 //Vous n'avez ensuite qu'a appeler l'animation dans votre fichier SCSS :
-//
-//  .nom-de-classe{
-//    @include animateLines();
-//  }
 //
 //Des attributs optionels sont présent
 //
