@@ -13,20 +13,21 @@
     </section>
 
     {% if partners is not empty %}
-    <section class="partners">
-        <h2>Nos partenaires</h2>
+    <section class="partners container-fluid">
+        <h2 class="text-center">Nos partenaires</h2>
+        <div class="d-flex flex-column align-items-center flex-md-row justify-content-md-around flex-wrap">
         {% for partner in partners %}
-            <div class="partner">
+            <div class="partner d-flex flex-column align-items-center">
                 {% if partner.link is not empty %}
                     <a href="{{ partner.link }}">
-                        <img src="{{ partner.picture }}" alt="Image {{ partner.name }}">
+                        <img class="partner-pic hvr-grow" src="{{ partner.picture }}" alt="Image {{ partner.name }}">
                     </a>
                 {% else %}
-                    <img src="{{ partner.picture }}" alt="Image {{ partner.name }}">
+                    <img class="partner-pic hvr-grow" src="{{ partner.picture }}" alt="Image {{ partner.name }}">
                 {% endif %}
-                <p>{{ partner.name }}</p>
             </div>
         {% endfor %}
+        </div>
     </section>
     {% endif %}
 {% endblock %}
