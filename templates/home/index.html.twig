@@ -11,4 +11,22 @@
             <button class="btn-primary btnHome">Je crée mon entreprise !</button>
         </div>
     </section>
+
+    {% if partners is not empty %}
+    <section class="partners">
+        <h2>Nos partenaires</h2>
+        {% for partner in partners %}
+            <div class="partner">
+                {% if partner.link is not empty %}
+                    <a href="{{ partner.link }}">
+                        <img src="{{ partner.picture }}" alt="Image {{ partner.name }}">
+                    </a>
+                {% else %}
+                    <img src="{{ partner.picture }}" alt="Image {{ partner.name }}">
+                {% endif %}
+                <p>{{ partner.name }}</p>
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
 {% endblock %}
