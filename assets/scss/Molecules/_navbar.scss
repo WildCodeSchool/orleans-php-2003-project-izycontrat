@@ -1,0 +1,28 @@
+nav {
+    margin: 0;
+    padding: 0;
+    font-family: $font-text;
+}
+
+.portrait {
+    border-radius: $spacing-xs;
+    width: 30px;
+}
+
+.nav-link {
+    color: $dark-color;
+    margin-left: $spacing;
+    margin-right: $spacing;
+}
+
+.nav-item {
+    padding: $spacing-s;
+}
+
+.contact {
+    color: $secondary-color;
+}
+
+.fa-phone {
+    color: $secondary-color;
+}
