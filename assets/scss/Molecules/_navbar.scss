@@ -4,6 +4,10 @@ nav {
     font-family: $font-text;
 }
 
+.navbar-brand img {
+    width: 200px;
+}
+
 .portrait {
     border-radius: $spacing-xs;
     width: 30px;
