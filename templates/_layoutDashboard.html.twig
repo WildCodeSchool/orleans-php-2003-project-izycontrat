@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block dashboard %}
+<div class="row m-0 p-0 page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-darker" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+            <div class="sidebar-brand">
+                <a href="#">Dashboard {{ auth }}</a>
+                <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="header-menu">
+                        <span>Général</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-address-card"></i>
+                            <span>Mon profil</span>
+                        </a>
+                    </li>
+                    {% if auth == 'admin' %}
+                        <li class="header-menu">
+                            <span>Administration</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-rss-square"></i>
+                                <span>Gestion du blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-gavel"></i>
+                                <span>Gestion des avocats</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Gestion des clients</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-folder"></i>
+                                <span>Gestion des documents</span>
+                            </a>
+                        </li>
+                    {% elseif auth == 'lawyer' %}
+                        <li class="header-menu">
+                            <span>Espace de travail</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-users"></i>
+                                <span>Mes clients</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Jean Dupond</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-folder-open"></i>
+                                <span>Dossiers en cours</span>
+                                <span class="badge badge-pill badge-danger">1</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Création SAS - Jean Dupond (04/06/2020)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    {%  else %}
+                        <li class="header-menu">
+                            <span>Espace de travail</span>
+                        </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Mes documents</span>
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="#">Document 1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-dropdown">
+                        <a href="#">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Dossiers en cours</span>
+                            <span class="badge badge-pill badge-danger">1</span>
+                        </a>
+                        <div class="sidebar-submenu">
+                            <ul>
+                                <li>
+                                    <a href="#">Création SAS (04/06/2020)</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- sidebar-menu  -->
+        </div>
+        <!-- sidebar-content  -->
+        <div class="sidebar-footer">
+            <a href="#">
+                <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+    </nav>
+    {% endblock %}
+    {% block body %}
+</div>
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('dashboard') }}
+    {% endblock %}
+

@@ -11,4 +11,28 @@
             <button class="btn-primary btnHome">Je crée mon entreprise !</button>
         </div>
     </section>
+
+    {% if partners is not empty %}
+    <section class="partners container-fluid">
+        <h2 class="text-center">Nos partenaires</h2>
+        <div class="d-flex flex-column align-items-center flex-md-row justify-content-md-around flex-wrap">
+        {% for partner in partners %}
+            <div class="partner d-flex flex-column align-items-center">
+                {% if partner.link is not empty %}
+                    <a href="{{ partner.link }}">
+                        <img class="partner-pic hvr-grow" src="{{ partner.picture }}" alt="Image {{ partner.name }}">
+                    </a>
+                {% else %}
+                    <img class="partner-pic hvr-grow" src="{{ partner.picture }}" alt="Image {{ partner.name }}">
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent () }}
+    {{ encore_entry_script_tags('navbar') }}
 {% endblock %}
