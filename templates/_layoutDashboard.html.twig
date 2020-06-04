@@ -4,6 +4,7 @@
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
+    {{ encore_entry_link_tags('style_dashboard') }}
 {% endblock %}
 {% block dashboard %}
 <div class="row m-0 p-0 page-wrapper chiller-theme toggled">
@@ -147,6 +148,6 @@
     {% endblock %}
     {% block javascripts %}
         {{ parent() }}
-        {{ encore_entry_script_tags('dashboard') }}
+        {{ encore_entry_script_tags('js_dashboard') }}
     {% endblock %}
 
