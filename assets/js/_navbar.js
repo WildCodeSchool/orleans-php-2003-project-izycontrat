@@ -1,3 +1,6 @@
+global.$ = require('jquery');
+global.$ = global.jQuery = $;
+
 $(document).ready(function () {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
