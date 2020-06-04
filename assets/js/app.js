@@ -8,6 +8,7 @@ const $ = require('jquery');
 // any CSS you require will output into a single css file (app.css in this case)
 require('bootstrap');
 require('../scss/app.scss');
+require('../scss/home.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');

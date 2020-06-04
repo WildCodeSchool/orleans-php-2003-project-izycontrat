@@ -1,0 +1,35 @@
+@import '_vars';
+
+.homeTop{
+  height:100vh;
+  width:100%;
+  background: rgba(0,0,0,0.6);
+  img{
+    position:absolute;
+    height:100vh;
+    width:100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    z-index: -1;
+    opacity: 1;
+  }
+  .homeTxt{
+    width:40%;
+  }
+  .homeTxt *{
+    margin-top:$spacing;
+    margin-bottom:$spacing;
+    color:$light-color;
+    text-align: center;
+  }
+  p{
+    font-size: $font-size-sub-title;
+  }
+  .btnHome{
+    margin-top: $spacing-xl;
+    width:400px;
+    height:75px;
+  }
+}

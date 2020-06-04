@@ -10,11 +10,17 @@ $light-color: #E1E6EC;
 $shadow-color: rgba(0, 10, 22, 0.38);
 $dark-color: #000A16;
 
+$theme-colors: (
+        "primary": $primary-color,
+        "danger": $error-color
+);
+
 $font-text: 'Montserrat', sans-serif;
 $font-title: 'Playfair Display SC', serif;
 $font-size: 16pt;
-$font-size-title: 36pt;
 $font-size-sub-title: 24pt;
+$font-size-title: 36pt;
+$font-size-h1: 60pt;
 
 $spacing: 16px;
 $spacing-xs: $spacing / 4;

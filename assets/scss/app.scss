@@ -1,3 +1,36 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display+SC&display=swap');
+
+body{
+  margin:0;
+  font-family: $font-text;
+  font-size: $font-size;
+}
+
+.btn-primary{
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+h1,h2,h3,h4{
+  font-family: $font-title;
+}
+
+h1{
+  font-size: $font-size-h1;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+h2{
+  font-size: $font-size-title;
+}
+
+h3{
+  font-size: $font-size-sub-title;
+}
+
+p{
+  font-size: $font-size;
+}
