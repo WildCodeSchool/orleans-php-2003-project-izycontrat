@@ -31,3 +31,8 @@
     </section>
     {% endif %}
 {% endblock %}
+
+{% block stylesheets %}
+    {{ parent () }}
+    {{ encore_entry_script_tags('navbar') }}
+{% endblock %}
