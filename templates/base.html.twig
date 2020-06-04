@@ -4,16 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
         {% include '_navbar.html.twig' %}
         {% block dashboard %}{% endblock %}
         {% block body %}{% endblock %}
-        {{ encore_entry_script_tags('app') }}
         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
         {% include '_footer.html.twig' %}
     </body>
