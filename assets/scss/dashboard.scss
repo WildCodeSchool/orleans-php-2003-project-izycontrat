@@ -109,6 +109,9 @@
     .page-wrapper.toggled .page-content {
         padding: 0 0 0 250px;
     }
+    .footer.toggled{
+        padding: 0 0 0 250px;
+    }
 }
 
 /*----------------show sidebar button----------------*/
@@ -130,9 +133,8 @@
 .sidebar-wrapper {
     font-size: 0.9rem;
     width: 260px;
-    height: calc(100% - 330px);
+    min-height: calc(100% - 80px);
     padding-bottom: 50px;
-    max-height: calc(100% - 330px);
     position: fixed;
     top: 80px;
     left: -300px;

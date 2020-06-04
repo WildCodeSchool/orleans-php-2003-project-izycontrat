@@ -1,9 +1,14 @@
 .bg-footer{
+    position: relative;
+    bottom: 0;
     background-color: $primary-color;
     padding: $spacing;
     height: 250px;
     width: 100%;
     margin: 0;
+}
+.row div.container-fluid{
+    min-height: 100vh;
 }
 
 .footer-element{

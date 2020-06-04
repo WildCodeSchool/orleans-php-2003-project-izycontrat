@@ -26,8 +26,10 @@ $(() => {
 
     $('#close-sidebar').click(() => {
         $('.page-wrapper').removeClass('toggled');
+        $('.footer').removeClass('toggled');
     });
     $('#show-sidebar').click(() => {
         $('.page-wrapper').addClass('toggled');
+        $('.footer').addClass('toggled');
     });
 });
