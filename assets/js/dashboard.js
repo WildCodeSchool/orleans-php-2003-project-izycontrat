@@ -1,16 +1,15 @@
 const $ = require('jquery');
 
-$(function dashboard()
-{
-    $('.sidebar-dropdown > a').click(function dropDown()
-    {
+$(() => {
+    // eslint-disable-next-line func-names
+    $('.sidebar-dropdown > a').click(function () {
         $('.sidebar-submenu').slideUp(200);
         if (
             $(this)
                 .parent()
                 .hasClass('active')
         ) {
-            $(".sidebar-dropdown").removeClass('active');
+            $('.sidebar-dropdown').removeClass('active');
             $(this)
                 .parent()
                 .removeClass('active');
@@ -25,14 +24,10 @@ $(function dashboard()
         }
     });
 
-    $('#close-sidebar').click(function remove()
-    {
+    $('#close-sidebar').click(() => {
         $('.page-wrapper').removeClass('toggled');
     });
-    $('#show-sidebar').click(function add()
-    {
+    $('#show-sidebar').click(() => {
         $('.page-wrapper').addClass('toggled');
     });
-
-
 });
