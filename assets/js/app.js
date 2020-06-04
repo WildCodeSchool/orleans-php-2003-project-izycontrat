@@ -10,6 +10,7 @@ require('bootstrap');
 require('../scss/app.scss');
 require('../scss/dashboard.scss');
 require('../scss/home.scss');
+require('../scss/blog.scss');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 

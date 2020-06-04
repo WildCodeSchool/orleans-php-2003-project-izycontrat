@@ -1,0 +1,16 @@
+@import "_vars";
+
+.card{
+    margin-top:$spacing-l;
+    margin-bottom:$spacing-l;
+    box-shadow: 0px 1px 5px 0px $primary-color;
+}
+
+.card *{
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+}
+
+.sign{
+    font-size: 12pt;
+}
