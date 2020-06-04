@@ -5,12 +5,15 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 // any CSS you require will output into a single css file (app.css in this case)
-import('./_navbar.js');
+const $ = require('jquery');
+global.$ = global.jQuery = $;
+
 require('bootstrap');
 require('../scss/app.scss');
 require('../scss/home.scss');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
+import('./_navbar.js');
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-const $ = require('jquery');
+
+
