@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Partner;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,8 +16,12 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        $partners = $this->getDoctrine()
+            ->getRepository(Partner::class)
+            ->findAll();
+
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'partners' => $partners,
         ]);
     }
 }
