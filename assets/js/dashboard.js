@@ -1,5 +1,3 @@
-global.$ = require('jquery');
-
 $(function () {
     $(".sidebar-dropdown > a").click(function () {
         $(".sidebar-submenu").slideUp(200);
