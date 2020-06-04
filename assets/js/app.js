@@ -4,9 +4,8 @@
  * We recommend including the built version of this JavaScript file
  * (and its CSS file) in your base layout (base.html.twig).
  */
-let $ = require('jquery');
+global.$ = global.jQuery = require('jquery');
 
-global.$ = global.jQuery = $;
 // any CSS you require will output into a single css file (app.css in this case)
 require('bootstrap');
 require('../scss/app.scss');
