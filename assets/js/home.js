@@ -1,1 +1,1 @@
-require('../scss/home.scss')
+require('../scss/home.scss');
