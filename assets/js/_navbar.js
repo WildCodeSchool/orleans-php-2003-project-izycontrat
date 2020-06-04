@@ -1,5 +1,4 @@
-global.$ = require('jquery');
-global.$ = global.jQuery = $;
+const $ = require('jquery');
 
 $(document).ready(function () {
     $(window).scroll(function () {
