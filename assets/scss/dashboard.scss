@@ -1,3 +1,4 @@
+@import "vars";
 @keyframes swing {
     0% {
         transform: rotate(0deg);
@@ -38,6 +39,17 @@
         opacity: 0;
     }
 }
+.btn-darker{
+    color: $light-color;
+    background-color: $primary-darker;
+    border-color: $primary-darker;
+}
+.btn-darker:hover{
+    color: $secondary-lighter;
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-brand > a,
 .sidebar-wrapper .sidebar-dropdown > a:after,
@@ -71,18 +83,19 @@
 }
 
 .page-wrapper .theme.chiller-theme {
-    background: #1e2229;
+    background: $primary-darker;
 }
+
 
 /*----------------toggeled sidebar----------------*/
 
 .page-wrapper.toggled .sidebar-wrapper {
-    left: 0px;
+    left: 0;
 }
 
 @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content {
-        padding-left: 300px;
+        padding: 0 0 0 250px;
     }
 }
 /*----------------show sidebar button----------------*/
@@ -90,7 +103,7 @@
     position: fixed;
     left: 0;
     top: 10px;
-    border-radius: 0 4px 4px 0px;
+    border-radius: 0 4px 4px 0;
     width: 35px;
     transition-delay: 0.3s;
 }
@@ -100,9 +113,11 @@
 /*----------------sidebar-wrapper----------------*/
 
 .sidebar-wrapper {
+    font-size: 0.9rem;
     width: 260px;
-    height: 100%;
-    max-height: 77%;
+    height: calc(100% - 250px);
+    padding-bottom: 50px;
+    max-height: calc(100% - 250px);
     position: fixed;
     top: 0;
     left: -300px;
@@ -195,6 +210,7 @@
     color: #5cb85c;
 }
 
+
 /*-----------------------sidebar-search------------------------*/
 
 .sidebar-wrapper .sidebar-search > div {
@@ -238,12 +254,11 @@
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free", serif;
     font-weight: 900;
     content: "\f105";
     font-style: normal;
     display: inline-block;
-    font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -266,7 +281,7 @@
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
     content: "\f111";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free", serif;
     font-weight: 400;
     font-style: normal;
     display: inline-block;
@@ -288,7 +303,7 @@
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .badge,
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .label {
     float: right;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-submenu {
@@ -350,7 +365,7 @@
 .page-wrapper .page-content {
     display: inline-block;
     width: 100%;
-    padding-left: 0px;
+    padding-left: 0;
     padding-top: 20px;
 }
 
@@ -369,23 +384,23 @@
     height: 7px;
 }
 ::-webkit-scrollbar-button {
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
 }
 ::-webkit-scrollbar-thumb {
-    background: #525965;
-    border: 0px none #ffffff;
-    border-radius: 0px;
+    background: $primary-color;
+    border: 0 none $light-color;
+    border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #525965;
+    background: $primary-color;
 }
 ::-webkit-scrollbar-thumb:active {
-    background: #525965;
+    background: $primary-color;
 }
 ::-webkit-scrollbar-track {
     background: transparent;
-    border: 0px none #ffffff;
+    border: 0 none $light-color;
     border-radius: 50px;
 }
 ::-webkit-scrollbar-track:hover {
@@ -402,13 +417,7 @@
 /*-----------------------------chiller-theme-------------------------------------------------*/
 
 .chiller-theme .sidebar-wrapper {
-    background: #31353D;
-}
-
-.chiller-theme .sidebar-wrapper .sidebar-header,
-.chiller-theme .sidebar-wrapper .sidebar-search,
-.chiller-theme .sidebar-wrapper .sidebar-menu {
-    border-top: 1px solid #3a3f48;
+    background: $primary-darker;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
@@ -424,7 +433,7 @@
 .chiller-theme .sidebar-wrapper .sidebar-brand>a,
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
 .chiller-theme .sidebar-footer>a {
-    color: #818896;
+    color: $light-color;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
@@ -432,40 +441,43 @@
 .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
 .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
 .chiller-theme .sidebar-footer>a:hover i {
-    color: #b8bfce;
+    color: $secondary-lighter;
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar {
-    color: #bdbdbd;
+    color: $light-color;
 }
 
 .page-wrapper.chiller-theme.toggled #close-sidebar:hover {
-    color: #ffffff;
-}
-
-.chiller-theme .sidebar-wrapper ul li:hover a i,
-.chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
-.chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
-.chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
-    color: #16c7ff;
-    text-shadow:0px 0px 10px rgba(22, 199, 255, 0.5);
+    color: $secondary-lighter;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a i,
 .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
 .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
-    background: #3a3f48;
+    background: $primary-color;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
-    color: #6c7b88;
+    color: $secondary-color;
 }
 
 .chiller-theme .sidebar-footer {
-    background: #3a3f48;
-    box-shadow: 0px -1px 5px #282c33;
-    border-top: 1px solid #464a52;
+    background: $primary-color;
+    box-shadow: 0px -1px 5px $primary-darker;
+}
+.chiller-theme .sidebar-footer a{
+    border-top: 1px solid $primary-color;
+    border-left: 1px solid $primary-color;
+    border-right: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+}
+.chiller-theme .sidebar-footer a:hover {
+    border-top: 1px solid $primary-darker;
+    border-left: 1px solid $primary-darker;
+    border-right: 1px solid $primary-darker;
+    border-bottom: 1px solid $primary-lighter;
 }
 
 .chiller-theme .sidebar-footer>a:first-child {
