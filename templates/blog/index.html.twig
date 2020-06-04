@@ -1,18 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends '_layout.html.twig' %}
 
 {% block title %}Izy Contrat - Blog{% endblock %}
 
 {% block body %}
-<section class="blog">
-    {% for post in posts %}
-        <div class="card col-6 offset-3">
-            <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}">
-            <div class="card-body">
-                <h3 class="card-title">{{ post.title }}</h3>
-                <p class="card-text">{{ post.text }}</p>
-                <a href="" class="btn btn-primary">Voir l'article</a>
+    <section class="blog">
+        {% for post in posts %}
+            <div class="card col-6 offset-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{ post.title }}</h3>
+                    <p class="card-text">{{ post.text }}</p>
+                    <a href="" class="btn btn-primary offset-6 offset-lg-9">Voir l'article</a>
+                    <p class="sign">Le {{ post.date|date("d/m/Y") }} écrit par {{ post.lawyer }}</p>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-</section>
+        {% endfor %}
+    </section>
 {% endblock %}
