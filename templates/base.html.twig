@@ -9,6 +9,7 @@
         {% endblock %}
     </head>
     <body>
+        {% include '_navbar.html.twig' %}
         {% block dashboard %}{% endblock %}
         {% block body %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
