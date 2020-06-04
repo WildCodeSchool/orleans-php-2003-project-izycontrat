@@ -1,6 +1,7 @@
 const $ = require('jquery');
 
-$(document).ready(function () {
+$(document).ready(() => {
+    // eslint-disable-next-line func-names
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.navbar').css('background-color', '#042A5F');
