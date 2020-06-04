@@ -5,8 +5,6 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 // any CSS you require will output into a single css file (app.css in this case)
-import './_navbar';
-
 require('bootstrap');
 require('../scss/app.scss');
 require('../scss/home.scss');
