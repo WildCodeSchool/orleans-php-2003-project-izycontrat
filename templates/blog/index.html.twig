@@ -11,7 +11,7 @@
                     <h3 class="card-title">{{ post.title }}</h3>
                     <p class="card-text">{{ post.text }}</p>
                     <a href="" class="btn btn-primary offset-6 offset-lg-9">Voir l'article</a>
-                    <p class="sign">Le {{ post.date|date("d/m/Y") }} écrit par {{ post.lawyer }}</p>
+                    <p class="sign">Le {{ post.date|date("d/m/Y") }} écrit par <span class="gold">{{ post.lawyer }}</span></p>
                 </div>
             </div>
         {% endfor %}

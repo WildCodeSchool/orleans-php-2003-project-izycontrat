@@ -15,7 +15,7 @@ class DashboardController extends AbstractController
      */
     public function index()
     {
-        $userAuth = 'lawyer';
+        $userAuth = 'admin'; //member //lawyer
         return $this->render('dashboard/index.html.twig', [
             'auth' => $userAuth,
         ]);
