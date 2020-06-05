@@ -1,4 +1,4 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
 
 Encore
     // directory where compiled assets will be stored
@@ -7,6 +7,7 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
+    .addStyleEntry('style_dashboard', './assets/scss/dashboard.scss')
 
     /*
      * ENTRY CONFIG
@@ -18,6 +19,10 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('js_dashboard', './assets/js/dashboard.js')
+    .addEntry('navbar', './assets/js/_navbar.js')
+    .addEntry('home', './assets/js/home.js')
+    .addEntry('blog', './assets/js/blog.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

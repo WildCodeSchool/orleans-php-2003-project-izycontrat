@@ -1,3 +1,117 @@
-$primary-color: #f76c6c;
-$secondary-color: #f99797;
-$warm-color: #ffd64f;
+$primary-color: #042A5F;
+$primary-lighter: #053477;
+$primary-darker: #03224C;
+$secondary-color: #F44B80;
+$secondary-lighter: #F996B5;
+$secondary-darker: #F00F56;
+$error-color: #FF566B;
+$success-color: #9DDEA4;
+$light-color: #E1E6EC;
+$shadow-color: rgba(0, 10, 22, 0.38);
+$dark-color: #000A16;
+
+$theme-colors: (
+    "primary": $primary-color,
+    "danger": $error-color
+);
+
+$font-text: 'Montserrat', sans-serif;
+$font-title: 'Playfair Display SC', serif;
+$font-size: 16pt;
+$font-size-sub-title: 24pt;
+$font-size-title: 36pt;
+$font-size-h1: 60pt;
+
+$spacing: 16px;
+$spacing-xs: $spacing / 4;
+$spacing-s: $spacing / 2;
+$spacing-l: $spacing * 2;
+$spacing-xl: $spacing * 4;
+
+
+//Cette animation fonctionne avec 4 "span" vides au dessus du lien du bouton
+//Vous n'avez ensuite qu'à appeler l'animation dans votre fichier SCSS :
+//
+//Des attributs optionel sont présent
+//
+@mixin animateLines($width:50px, $height:50px, $font-size:20px, $time:.5s) {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    width: $width;
+    height: $height;
+    line-height: $height;
+    font-size: $font-size;
+    text-align: center;
+    transition: $time;
+    margin: 0 $spacing;
+
+    & span {
+        position: absolute;
+        transition: transform $time;
+    }
+
+    & span:nth-child(1),
+    span:nth-child(3) {
+        width: 100%;
+        height: 1px;
+        background: $light-color;
+    }
+
+    & span:nth-child(1) {
+        top: 0;
+        left: 0;
+        transform-origin: right;
+    }
+
+    &:hover span:nth-child(1) {
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform $time;
+    }
+
+    & span:nth-child(3) {
+        bottom: 0;
+        left: 0;
+        transform-origin: left;
+    }
+
+    &:hover span:nth-child(3) {
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform $time;
+    }
+
+    & span:nth-child(2),
+    span:nth-child(4) {
+        width: 1px;
+        height: 100%;
+        background: $light-color;
+    }
+
+    & span:nth-child(2) {
+        top: 0;
+        left: 0;
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+
+    &:hover span:nth-child(2) {
+        transform: scaleY(1);
+        transform-origin: top;
+        transition: transform $time;
+    }
+
+    & span:nth-child(4) {
+        top: 0;
+        right: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    &:hover span:nth-child(4) {
+        transform: scaleY(1);
+        transform-origin: bottom;
+        transition: transform $time;
+    }
+}

@@ -1,0 +1,53 @@
+.bg-footer{
+    position: relative;
+    bottom: 0;
+    background-color: $primary-color;
+    padding: $spacing;
+    height: 250px;
+    width: 100%;
+    margin: 0;
+}
+
+.row div.container-fluid{
+    min-height: 100vh;
+}
+
+.footer-element{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-element ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-element a{
+    font-family: $font-text;
+    text-decoration: none;
+    color: $light-color;
+    text-shadow: 1px 1px 2px $shadow-color;
+    font-weight: 800;
+}
+
+.footer-element a:hover{
+    text-decoration: none;
+    color: $secondary-lighter;
+}
+
+.footer-element h2{
+    font-family: $font-title;
+    font-size: $font-size;
+    color: $light-color;
+    margin: $spacing 0 $spacing 0;
+}
+
+.footer-element h2 a{
+    font-family: $font-title;
+}
+
+.social-button a{
+    @include animateLines();
+}

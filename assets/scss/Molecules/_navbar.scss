@@ -1,0 +1,41 @@
+nav {
+    margin: 0;
+    padding: 0;
+    font-family: $font-text;
+}
+
+.navbar {
+    background-color: $primary-color;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-brand img {
+    width: 200px;
+}
+
+.portrait {
+    border-radius: $spacing-xs;
+    width: 30px;
+}
+
+.nav-link {
+    color: $light-color;
+    margin-left: $spacing;
+    margin-right: $spacing;
+}
+
+.nav-item {
+    padding: $spacing-s;
+}
+
+.contact {
+    color: $secondary-color;
+}
+
+.fa-phone {
+    color: $secondary-color;
+}
