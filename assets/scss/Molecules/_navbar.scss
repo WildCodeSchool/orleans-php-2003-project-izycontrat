@@ -30,6 +30,10 @@ nav {
 
 .nav-item {
     padding: $spacing-s;
+
+    & :hover{
+        color: $secondary-color;
+    }
 }
 
 .contact {
