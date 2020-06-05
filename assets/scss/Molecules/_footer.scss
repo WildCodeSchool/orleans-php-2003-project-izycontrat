@@ -1,11 +1,12 @@
 .bg-footer{
     position: relative;
     bottom: 0;
-    background-color: $primary-color;
+    background-color: $light-color;
     padding: $spacing;
     height: 250px;
     width: 100%;
     margin: 0;
+    box-shadow: -1px -1px 3px $secondary-color;
 }
 
 .row div.container-fluid{
@@ -27,13 +28,13 @@
 .footer-element a{
     font-family: $font-text;
     text-decoration: none;
-    color: $light-color;
+    color: $primary-darker;
     text-shadow: 1px 1px 2px $shadow-color;
 }
 
 .footer-element a:hover{
     text-decoration: none;
-    color: $secondary-lighter;
+    color: $secondary-color;
 }
 
 .footer-element h2{

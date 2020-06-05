@@ -2,11 +2,11 @@ $primary-color: #2d2d2d;
 $primary-lighter: #383838;
 $primary-darker: #212121;
 $secondary-color: #BEA058;
-$secondary-lighter: #c2ac6f;
+$secondary-lighter: #cdc3a9;
 $secondary-darker: #8e7b45;
 $error-color: #FF566B;
 $success-color: #9DDEA4;
-$light-color: #E1E6EC;
+$light-color: #eeeeee;
 $shadow-color: rgba(0, 10, 22, 0.38);
 $dark-color: #000A16;
 
@@ -55,7 +55,7 @@ $spacing-xl: $spacing * 4;
     span:nth-child(3) {
         width: 100%;
         height: 1px;
-        background: $light-color;
+        background: $primary-darker;
     }
 
     & span:nth-child(1) {
@@ -86,7 +86,7 @@ $spacing-xl: $spacing * 4;
     span:nth-child(4) {
         width: 1px;
         height: 100%;
-        background: $light-color;
+        background: $primary-darker;
     }
 
     & span:nth-child(2) {
