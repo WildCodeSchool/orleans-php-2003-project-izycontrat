@@ -8,6 +8,16 @@ body {
     margin: 0;
     font-family: $font-text;
     font-size: $font-size;
+    background: url("/images/creampaper.png") repeat;
+    color: $primary-darker;
+}
+
+.gold, .btn:hover{
+    color: $secondary-color;
+}
+
+.card{
+    background-color: $light-color;
 }
 
 .btn-primary {
@@ -17,6 +27,7 @@ body {
 
 h1, h2, h3, h4 {
     font-family: $font-title;
+    color: $secondary-color;
 }
 
 h1 {

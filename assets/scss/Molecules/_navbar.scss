@@ -5,7 +5,8 @@ nav {
 }
 
 .navbar {
-    background-color: $primary-color;
+    background-color: $light-color;
+    box-shadow: 1px 1px 3px #BEA058;
     -webkit-transition: background-color 0.2s ease-in-out;
     -moz-transition: background-color 0.2s ease-in-out;
     -ms-transition: background-color 0.2s ease-in-out;
@@ -23,13 +24,17 @@ nav {
 }
 
 .nav-link {
-    color: $light-color;
+    color: $primary-darker;
     margin-left: $spacing;
     margin-right: $spacing;
 }
 
 .nav-item {
     padding: $spacing-s;
+
+    & :hover{
+        color: $secondary-color;
+    }
 }
 
 .contact {
