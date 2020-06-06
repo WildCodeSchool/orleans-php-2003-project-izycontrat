@@ -186,6 +186,7 @@
 /*----------------sidebar-wrapper----------------*/
 
 .sidebar-wrapper {
+    border-top-right-radius: $spacing;
     font-size: 1rem;
     width: 60px;
     min-height: calc(100% - 80px);
