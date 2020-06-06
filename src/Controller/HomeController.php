@@ -21,6 +21,7 @@ class HomeController extends AbstractController
             ->findAll();
 
         return $this->render('home/index.html.twig', [
+            'auth' => 'admin',
             'partners' => $partners,
         ]);
     }
