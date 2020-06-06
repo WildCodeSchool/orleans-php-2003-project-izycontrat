@@ -73,23 +73,24 @@
 .page-wrapper {
     height: 100vh;
 }
-.sidebar-footer a:hover{
+
+.sidebar-footer a:hover {
     color: $secondary-color;
 }
 
-.page-wrapper ul li span{
+.page-wrapper ul li span {
     display: none;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.page-wrapper .sidebar-brand a{
+.page-wrapper .sidebar-brand a {
     display: none;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.page-wrapper .sidebar-content .sidebar-menu .header-menu{
+.page-wrapper .sidebar-content .sidebar-menu .header-menu {
     background-color: $primary-color;
     height: 2px;
     -webkit-transition: all 0.3s ease;
@@ -97,7 +98,8 @@
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    & span{
+
+    & span {
         display: none;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -119,21 +121,21 @@
 }
 
 .page-wrapper.toggled {
-    & #show-sidebar{
+    & #show-sidebar {
         display: none;
     }
 
-    & #close-sidebar{
+    & #close-sidebar {
         display: block;
     }
 }
 
 .page-wrapper {
-    & #show-sidebar{
+    & #show-sidebar {
         display: block;
     }
 
-    & #close-sidebar{
+    & #close-sidebar {
         display: none;
     }
 }
@@ -145,7 +147,7 @@
     width: 260px;
 }
 
-.page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu{
+.page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu {
     height: 45px;
 }
 
@@ -154,25 +156,25 @@
         padding: 0 0 0 250px;
     }
 
-    .footer.toggled{
+    .footer.toggled {
         padding: 0 0 0 250px;
     }
 }
 
-.page-wrapper.toggled ul li span{
+.page-wrapper.toggled ul li span {
     display: inline;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.page-wrapper.toggled .sidebar-brand a{
+.page-wrapper.toggled .sidebar-brand a {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu{
-    & span{
+.page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu {
+    & span {
         display: block;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -237,6 +239,7 @@
     cursor: pointer;
     font-size: 20px;
 }
+
 .sidebar-wrapper .sidebar-brand #show-sidebar {
     cursor: pointer;
     font-size: 20px;
@@ -522,36 +525,41 @@
     color: $secondary-color;
 }
 
-.page-wrapper.chiller-theme.toggled{
+.page-wrapper.chiller-theme.toggled {
     & #close-sidebar {
         color: $light-color;
     }
+
     & #show-sidebar {
         color: $primary-darker;
     }
 }
-.page-wrapper.chiller-theme{
+
+.page-wrapper.chiller-theme {
     & #close-sidebar {
         color: $primary-darker;
     }
+
     & #show-sidebar {
         color: $light-color;
     }
 }
 
-.page-wrapper.chiller-theme.toggled{
+.page-wrapper.chiller-theme.toggled {
     & #close-sidebar:hover {
         color: $secondary-color;
     }
+
     & #show-sidebar:hover {
         color: $light-color;
     }
 }
 
-.page-wrapper.chiller-theme{
+.page-wrapper.chiller-theme {
     & #close-sidebar:hover {
         color: $light-color;
     }
+
     & #show-sidebar:hover {
         color: $secondary-color;
     }
