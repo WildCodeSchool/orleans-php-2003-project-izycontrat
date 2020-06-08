@@ -50,18 +50,6 @@
     }
 }
 
-.btn-darker {
-    color: $light-color;
-    background-color: $primary-darker;
-    border-color: $primary-darker;
-}
-
-.btn-darker:hover {
-    color: $secondary-lighter;
-    background-color: $primary-color;
-    border-color: $primary-color;
-}
-
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-brand > a,
 .sidebar-wrapper .sidebar-dropdown > a:after,
@@ -86,59 +74,126 @@
     height: 100vh;
 }
 
+.sidebar-footer a:hover {
+    color: $secondary-color;
+}
+
+.page-wrapper ul li span {
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-wrapper .sidebar-brand a {
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-wrapper .sidebar-content .sidebar-menu .header-menu {
+    background-color: $primary-color;
+    height: 2px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    & span {
+        display: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
 .page-wrapper .theme {
     width: 40px;
     height: 40px;
     display: inline-block;
     border-radius: 4px;
     margin: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .page-wrapper .theme.chiller-theme {
     background: $primary-darker;
 }
 
+.page-wrapper.toggled {
+    & #show-sidebar {
+        display: none;
+    }
+
+    & #close-sidebar {
+        display: block;
+    }
+}
+
+.page-wrapper {
+    & #show-sidebar {
+        display: block;
+    }
+
+    & #close-sidebar {
+        display: none;
+    }
+}
 
 /*----------------toggeled sidebar----------------*/
 
 .page-wrapper.toggled .sidebar-wrapper {
     left: 0;
+    width: 260px;
+}
+
+.page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu {
+    height: 45px;
 }
 
 @media screen and (min-width: 768px) {
-    .page-wrapper.toggled .page-content {
+    .page-wrapper.toggled .page-content, .page-wrapper.toggled section:not(.homeTop), .page-wrapper.toggled .homeTxt {
         padding: 0 0 0 250px;
     }
 
-    .footer.toggled{
+    .footer.toggled {
         padding: 0 0 0 250px;
+    }
+}
+
+.page-wrapper.toggled ul li span {
+    display: inline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-wrapper.toggled .sidebar-brand a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu {
+    & span {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
 /*----------------show sidebar button----------------*/
-#show-sidebar {
-    position: fixed;
-    left: 0;
-    top: 80px;
-    border-radius: 0 4px 4px 0;
-    width: 35px;
-    transition-delay: 0.3s;
-}
-
-.page-wrapper.toggled #show-sidebar {
-    left: -40px;
-}
 
 /*----------------sidebar-wrapper----------------*/
 
 .sidebar-wrapper {
-    font-size: 0.9rem;
-    width: 260px;
+    border-top-right-radius: $spacing;
+    font-size: 1rem;
+    width: 60px;
     min-height: calc(100% - 80px);
     padding-bottom: 50px;
     position: fixed;
     top: 80px;
-    left: -300px;
+    left: 0;
     z-index: 999;
 }
 
@@ -150,6 +205,8 @@
 
 .sidebar-wrapper a {
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /*----------------sidebar-content----------------*/
@@ -180,6 +237,11 @@
 }
 
 .sidebar-wrapper .sidebar-brand #close-sidebar {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.sidebar-wrapper .sidebar-brand #show-sidebar {
     cursor: pointer;
     font-size: 20px;
 }
@@ -227,13 +289,6 @@
     font-size: 8px;
     margin-right: 4px;
     color: #5cb85c;
-}
-
-
-/*-----------------------sidebar-search------------------------*/
-
-.sidebar-wrapper .sidebar-search > div {
-    padding: 10px 20px;
 }
 
 /*----------------------sidebar-menu-------------------------*/
@@ -468,15 +523,47 @@
 .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
 .chiller-theme .sidebar-wrapper .sidebar-brand > a:hover,
 .chiller-theme .sidebar-footer > a:hover i {
-    color: $secondary-lighter;
+    color: $secondary-color;
 }
 
-.page-wrapper.chiller-theme.toggled #close-sidebar {
-    color: $light-color;
+.page-wrapper.chiller-theme.toggled {
+    & #close-sidebar {
+        color: $light-color;
+    }
+
+    & #show-sidebar {
+        color: $primary-darker;
+    }
 }
 
-.page-wrapper.chiller-theme.toggled #close-sidebar:hover {
-    color: $secondary-lighter;
+.page-wrapper.chiller-theme {
+    & #close-sidebar {
+        color: $primary-darker;
+    }
+
+    & #show-sidebar {
+        color: $light-color;
+    }
+}
+
+.page-wrapper.chiller-theme.toggled {
+    & #close-sidebar:hover {
+        color: $secondary-color;
+    }
+
+    & #show-sidebar:hover {
+        color: $light-color;
+    }
+}
+
+.page-wrapper.chiller-theme {
+    & #close-sidebar:hover {
+        color: $light-color;
+    }
+
+    & #show-sidebar:hover {
+        color: $secondary-color;
+    }
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu ul li a i,
