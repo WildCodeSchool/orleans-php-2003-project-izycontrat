@@ -78,7 +78,7 @@
     color: $secondary-color;
 }
 
-.page-wrapper ul li span {
+.page-wrapper ul li span:not(.animated-line){
     display: none;
     overflow: hidden;
     text-overflow: ellipsis;
