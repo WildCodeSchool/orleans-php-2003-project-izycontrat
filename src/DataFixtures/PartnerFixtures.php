@@ -19,7 +19,7 @@ class PartnerFixtures extends Fixture
             $partner = new Partner();
             $partner->setName($faker->sentence(rand(1, 5)));
             $partner->setLink('https://www.google.com');
-            $partner->setPicture("https://via.placeholder.com/" . rand(200, 500) . 'x' . rand(200, 500));
+            $partner->setPicture('https://via.placeholder.com/' . rand(200, 500) . 'x' . rand(200, 500));
             $manager->persist($partner);
         }
 
