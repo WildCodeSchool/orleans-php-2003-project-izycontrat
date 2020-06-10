@@ -19,15 +19,60 @@
                     <i class="contact">06 20 16 45 85</i>
                 </a>
             </li>
+            {% if app.user %}
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('area_member') }}">
+                <a class="nav-link" id="connexion" href="{{ path('area_member') }}">
                     <img class="portrait"
                          src="https://www.agence-spoutnik.com/wp-content/uploads/2011/04/silhouette-portrait-femme-280x280.jpg"
                          alt="Logo Izy-Contrat">
                     Mon compte
                 </a>
             </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" id="connexion" href="" data-toggle="modal" data-target=".bd-example-modal-lg">
+                        Connection/Inscription
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
 </nav>
+<div class="modal fade bd-example-modal-lg w-100" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg d-flex flex-row">
+        <div class="modal-content d-flex flex-column w-50">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Inscription</h5>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" form="logout">S'enregistrer</button>
+            </div>
+        </div>
+        <div class="modal-content d-flex flex-column w-50">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Connection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="login">
+                    <div class="form-group d-flex flex-column">
+                        <label for="email" class="col-form-label">Email :</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group d-flex flex-column">
+                        <label for="password" class="col-form-label"> Mot de pass :</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" form="login">Se connecter</button>
+            </div>
+        </div>
+    </div>
+</div>
