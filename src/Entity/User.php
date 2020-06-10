@@ -22,6 +22,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255")
      * @Assert\Email(
      *     message = "'{{ value }}' n'est pas un email valide."
      * )
@@ -29,6 +31,7 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -36,7 +39,8 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\Length(min="6", max="50")
+     * @Assert\NotBlank()
+     * @Assert\Length(min="8", max="255")
      * @SecurityAssert\UserPassword(
      *     message = "Le mot de passe n'est pas valide.")
      */
