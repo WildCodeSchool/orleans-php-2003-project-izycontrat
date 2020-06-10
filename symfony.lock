@@ -114,6 +114,9 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "fzaninotto/faker": {
+        "version": "v1.9.1"
+    },
     "gitonomy/gitlib": {
         "version": "v1.0.4"
     },
