@@ -20,7 +20,7 @@ class TeamMemberRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TeamMember[] Returns an array of TeamMember objects
+    //  * @return TeamMemberFixtures[] Returns an array of TeamMemberFixtures objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TeamMemberRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TeamMember
+    public function findOneBySomeField($value): ?TeamMemberFixtures
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')
