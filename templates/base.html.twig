@@ -13,9 +13,11 @@
         {% block dashboard %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}
+            {{ encore_entry_script_tags('login') }}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
         {% block footer %}
         {% endblock %}
+        {{ render(controller('App\\Controller\\SecurityController::login', {  } )) }}
     </body>
 </html>
