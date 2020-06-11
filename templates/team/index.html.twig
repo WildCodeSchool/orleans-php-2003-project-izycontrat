@@ -10,7 +10,13 @@
         <div class="d-flex flex-column align-items-center flex-md-row justify-content-md-around flex-wrap">
         {% for member in members %}
             <div class="member d-flex flex-column align-items-center">
-                <img class="member-pic hvr-grow" src="{{ member.picture }}" alt="Photo {{ member.name }}" />
+                {% if member.sociallink is not empty %}
+                    <a href="{{ member.sociallink }}">
+                        <img class="member-pic hvr-grow" src="{{ member.picture }}" alt="Photo {{ member.name }}" />
+                    </a>
+                {% else %}
+                    <img class="member-pic hvr-grow" src="{{ member.picture }}" alt="Photo {{ member.name }}" />
+                {% endif %}
                 <h3 class="text-center">{{ member.name }}</h3>
                 <p class="member-role text-center">{{ member.role }}</p>
                 <p class="member-description text-center d-none d-md-inline">{{ member.description }}</p>

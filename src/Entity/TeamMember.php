@@ -37,6 +37,11 @@ class TeamMember
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $socialLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class TeamMember
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getSocialLink(): ?string
+    {
+        return $this->socialLink;
+    }
+
+    public function setSocialLink(?string $socialLink): self
+    {
+        $this->socialLink = $socialLink;
 
         return $this;
     }

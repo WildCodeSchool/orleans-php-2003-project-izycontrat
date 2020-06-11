@@ -21,6 +21,9 @@ class TeamMemberFixtures extends Fixture
             $teamMember->setRole(ucfirst(implode(' ', $faker->words())));
             $teamMember->setDescription($faker->realText());
             $teamMember->setPicture('https://via.placeholder.com/500x1000');
+            if (rand(0, 1)) {
+                $teamMember->setSocialLink('https://www.linkedin.com/');
+            }
 
             $manager->persist($teamMember);
         }
