@@ -3,11 +3,24 @@
 {% block title %}Izy Contrat - Équipe{% endblock %}
 
 {% block body %}
-
+    <section class="team container-fluid">
+        <h2 class="text-center">L'équipe Izy Contrat</h2>
+        <p class="hook container text-center">L'équipe d'Izy Contrat est au service de ses clients pour les accompagner
+        dans leurs démarches, pour que la création d'entreprise soit à la portée de tous.</p>
+        <div class="d-flex flex-column align-items-center flex-md-row justify-content-md-around flex-wrap">
+        {% for member in members %}
+            <div class="member d-flex flex-column align-items-center">
+                <img class="member-pic hvr-grow" src="{{ member.picture }}" alt="Photo {{ member.name }}" />
+                <h3 class="text-center">{{ member.name }}</h3>
+                <p class="member-role text-center">{{ member.role }}</p>
+                <p class="member-description text-center d-none d-md-inline">{{ member.description }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent () }}
-    {{ encore_entry_script_tags('navbar') }}
     {{ encore_entry_link_tags('team') }}
 {% endblock %}
