@@ -8,12 +8,13 @@
 {% endblock %}
 {% block dashboard %}
 {% if app.user %}
+        {% set auth = 'ROLE_ADMIN' in app.user.roles ? 'Administrateur' : 'ROLE_LAWYER' in app.user.roles ? 'Avocat' : 'ROLE_USER' in app.user.roles ? 'Utilisateur' : '' %}
 <div class="row m-0 p-0 page-wrapper chiller-theme">
     {% if auth is defined %}
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
-                    <a href="">Dashboard {{ auth }}</a>
+                    <a href="">Menu {{ auth }}</a>
                     <div id="show-sidebar">
                         <i class="fas fa-arrow-circle-right"></i>
                     </div>
@@ -38,7 +39,7 @@
                                 <span>Mon profil</span>
                             </a>
                         </li>
-                        {% if auth == 'admin' %}
+                        {% if 'ROLE_ADMIN' in app.user.roles %}
                             <li class="header-menu">
                                 <span>Administration</span>
                             </li>
@@ -66,7 +67,7 @@
                                     <span>Gestion des documents</span>
                                 </a>
                             </li>
-                        {% elseif auth == 'lawyer' %}
+                        {% elseif 'ROLE_LAWYER' in app.user.roles %}
                             <li class="header-menu">
                                 <span>Espace de travail</span>
                             </li>
@@ -97,7 +98,7 @@
                                     </ul>
                                 </div>
                             </li>
-                        {%  else %}
+                        {%  elseif 'ROLE_ADMIN' not in app.user.roles and 'ROLE_LAWYER' not in app.user.roles %}
                             <li class="header-menu">
                                 <span>Espace de travail</span>
                             </li>
@@ -115,7 +116,7 @@
                                 </div>
                             </li>
                             <li class="sidebar-dropdown">
-                                <a href="">
+                                <a href="#">
                                     <i class="fas fa-folder-open"></i>
                                     <span>Dossiers en cours</span>
                                     <span class="badge badge-pill badge-danger">1</span>
@@ -141,7 +142,7 @@
             </div>
         </nav>
     {% endif %}
-    {%  endif %}
+    {% endif %}
     {% endblock %}
     {% block body %}
 
