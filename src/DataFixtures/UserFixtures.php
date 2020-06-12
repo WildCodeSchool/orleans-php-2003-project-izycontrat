@@ -19,10 +19,14 @@ class UserFixtures extends Fixture
                 "jane.doe@gmail.com",
                 ['ROLE_USER']
             ]
+        ],
+        'Janine Doe' => [
+            'infos' => [
+                "janine.doe@gmail.com",
+                ['ROLE_ADMIN']
+            ]
         ]
     ];
-
-
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
