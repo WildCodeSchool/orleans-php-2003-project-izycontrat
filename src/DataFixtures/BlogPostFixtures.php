@@ -13,13 +13,13 @@ class BlogPostFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $faker = Factory::create();
+        $faker = Factory::create('fr_FR');
 
         for ($i = 0; $i < self::NB_POSTS; $i++) {
             $blogPost = new BlogPost();
             $blogPost->setDate($faker->dateTimeThisDecade());
             $blogPost->setLawyer($faker->name());
-            $blogPost->setTitle($faker->sentence(rand(1, 10)));
+            $blogPost->setTitle($faker->sentence(rand(1, 5)));
             $blogPost->setText($faker->realText(1000));
             if (rand(0, 1)) {
                 $blogPost->setImage('https://via.placeholder.com/' . rand(500, 2000) . 'x' . rand(500, 2000));
