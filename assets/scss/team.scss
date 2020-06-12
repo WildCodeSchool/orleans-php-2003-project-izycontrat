@@ -1,0 +1,35 @@
+@import "vars";
+
+.team{
+    padding-bottom: $spacing-l;
+    margin-top: 81px + $spacing-l;
+
+    h2{
+        margin-bottom: $spacing-l;
+    }
+
+    .hook{
+        margin-bottom: $spacing-xl;
+        font-size: 20pt;
+    }
+
+    .member{
+        width: 30%;
+        margin-bottom: $spacing-xl;
+
+        .member-pic{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h3, p {
+            margin-top: $spacing;
+        }
+
+        .member-role{
+            font-size: 18pt;
+        }
+    }
+}
