@@ -343,9 +343,11 @@
     right: 15px;
     top: 14px;
 }
+
 .page-wrapper:not(.toggled) .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after{
     display: none;
 }
+
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
     padding: 5px 0;
 }
