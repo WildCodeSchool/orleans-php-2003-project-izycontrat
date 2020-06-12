@@ -13,6 +13,17 @@ class UserFixtures extends Fixture
 {
      private $passwordEncoder;
 
+    const USERS = [
+        'Jane Doe' => [
+            'infos' => [
+                "jane.doe@gmail.com",
+                ['ROLE_USER']
+            ]
+        ]
+    ];
+
+
+
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->passwordEncoder = $passwordEncoder;
@@ -20,6 +31,16 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        foreach (self::USERS as $infos) {
+            $user = new user();
+            $user->setEmail(($infos['infos'][0]));
+            $user->setRoles(($infos['infos'][1]));
+            $user->setPassword($this->passwordEncoder->encodePassword(
+                $user,
+                'password'
+            ));
+            $manager->persist($user);
+        }
 
         for ($i=1; $i<=50; $i++) {
             $user = new User();
