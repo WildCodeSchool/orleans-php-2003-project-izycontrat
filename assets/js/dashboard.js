@@ -27,6 +27,15 @@ $(() => {
     $('#close-sidebar').click(() => {
         $('.page-wrapper').removeClass('toggled');
         $('.footer').removeClass('toggled');
+        $('.sidebar-submenu').slideUp(200);
+        $('.sidebar-dropdown').removeClass('active');
+        $(this)
+            .parent()
+            .removeClass('active');
+    });
+    $('.sidebar-wrapper .sidebar-menu ul .sidebar-dropdown a').click(() => {
+        $('.page-wrapper').addClass('toggled');
+        $('.footer').addClass('toggled');
     });
     $('#show-sidebar').click(() => {
         $('.page-wrapper').addClass('toggled');

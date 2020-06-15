@@ -144,7 +144,7 @@
 
 .page-wrapper.toggled .sidebar-wrapper {
     left: 0;
-    width: 260px;
+    width: 300px;
 }
 
 .page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu {
@@ -153,11 +153,11 @@
 
 @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content, .page-wrapper.toggled section:not(.homeTop), .page-wrapper.toggled .homeTxt {
-        padding: 0 0 0 250px;
+        padding: 0 0 0 300px;
     }
 
     .footer.toggled {
-        padding: 0 0 0 250px;
+        padding: 0 0 0 300px;
     }
 }
 
@@ -342,6 +342,10 @@
     position: absolute;
     right: 15px;
     top: 14px;
+}
+
+.page-wrapper:not(.toggled) .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after{
+    display: none;
 }
 
 .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
