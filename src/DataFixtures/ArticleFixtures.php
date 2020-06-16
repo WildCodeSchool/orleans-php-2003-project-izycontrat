@@ -17,7 +17,7 @@ class ArticleFixtures extends Fixture
 
         for ($i = 0; $i < self::NB_POSTS; $i++) {
             $blogPost = new Article();
-            $blogPost->setDate($faker->dateTimeThisDecade());
+            $blogPost->setCreatedAt($faker->dateTimeThisDecade());
             $blogPost->setLawyer($faker->name());
             $blogPost->setTitle($faker->sentence(rand(1, 5)));
             $blogPost->setText($faker->realText(1000));

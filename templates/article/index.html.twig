@@ -25,7 +25,7 @@
                 <td>{{ article.image }}</td>
                 <td>{{ article.text }}</td>
                 <td>{{ article.lawyer }}</td>
-                <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
+                <td>{{ article.createdAt|date("m/d/Y") }}</td>
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
                     <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
@@ -40,4 +40,6 @@
     </table>
 
     <a href="{{ path('article_new') }}">Create new</a>
+
+
 {% endblock %}

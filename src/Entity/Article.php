@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeInterface;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -38,9 +40,10 @@ class Article
     private $lawyer;
 
     /**
-     * @ORM\Column(type="date")
+     * @var DateTime
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $date;
+    private $createdAt;
 
     public function getId(): ?int
     {
@@ -79,7 +82,9 @@ class Article
     public function setText(string $text): self
     {
         $this->text = $text;
-
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new DateTime('now'));
+        }
         return $this;
     }
 
@@ -95,14 +100,14 @@ class Article
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTime
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setCreatedAt(DateTime $createdAt): self
     {
-        $this->date = $date;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
