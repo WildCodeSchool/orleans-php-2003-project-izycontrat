@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\BlogPostRepository;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BlogPostRepository::class)
+ * @ORM\Entity(repositoryClass=ArticleRepository::class)
  */
-class BlogPost
+class Article
 {
     /**
      * @ORM\Id()
