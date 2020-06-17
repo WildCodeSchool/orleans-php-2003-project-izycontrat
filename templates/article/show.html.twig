@@ -25,11 +25,15 @@
             </tr>
             <tr>
                 <th>Lawyer</th>
-                <td>{{ article.lawyer }}</td>
+                <td>
+                    {% for user in article.createdBy %}
+                    {{ user.email }}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
+                <td>{{ article.createdAt|date("m/d/Y") }}</td>
             </tr>
         </tbody>
     </table>

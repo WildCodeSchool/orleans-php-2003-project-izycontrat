@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
-use DateTimeInterface;
 use DateTime;
 
 /**
@@ -35,15 +34,15 @@ class Article
     private $text;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $lawyer;
-
-    /**
      * @var DateTime
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
+     */
+    private $createdBy;
 
     public function getId(): ?int
     {
@@ -88,18 +87,6 @@ class Article
         return $this;
     }
 
-    public function getLawyer(): ?string
-    {
-        return $this->lawyer;
-    }
-
-    public function setLawyer(string $lawyer): self
-    {
-        $this->lawyer = $lawyer;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?DateTime
     {
         return $this->createdAt;
@@ -108,6 +95,18 @@ class Article
     public function setCreatedAt(DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $createdBy): self
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }

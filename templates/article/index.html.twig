@@ -24,7 +24,7 @@
                 <td>{{ article.title }}</td>
                 <td>{{ article.image }}</td>
                 <td>{{ article.text }}</td>
-                <td>{{ article.lawyer }}</td>
+                <td>{{ article.createdBy.email is defined ? article.createdBy.email}}</td>
                 <td>{{ article.createdAt|date("m/d/Y") }}</td>
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
