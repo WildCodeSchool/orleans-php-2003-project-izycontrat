@@ -55,10 +55,12 @@ class UserFixtures extends Fixture
                 $user,
                 'password'
             ));
-            $user->setRoles(['ROLE_USER']);
+            if ($i>25) {
+                $user->setRoles(['ROLE_CLIENT']);
+            }
             $manager->persist($user);
         }
-        for ($i=1; $i<=1; $i++) {
+        for ($j=1; $j<=1; $j++) {
             $user = new User();
             $faker  =  Faker\Factory::create('fr_FR');
             $user->setEmail($faker->email);
@@ -68,6 +70,18 @@ class UserFixtures extends Fixture
                 'password'
             ));
             $user->setRoles(['ROLE_ADMIN']);
+            $manager->persist($user);
+        }
+        for ($k=1; $k<=1; $k++) {
+            $user = new User();
+            $faker  =  Faker\Factory::create('fr_FR');
+            $user->setEmail($faker->email);
+            $user->setPassword($faker->word);
+            $user->setPassword($this->passwordEncoder->encodePassword(
+                $user,
+                'password'
+            ));
+            $user->setRoles(['ROLE_LAWYER']);
             $manager->persist($user);
         }
         $manager->flush();
