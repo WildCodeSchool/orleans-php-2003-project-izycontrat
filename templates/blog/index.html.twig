@@ -5,13 +5,13 @@
 {% block body %}
     <section class="blog">
         <h2 class="offset-3">Blog</h2>
-        {% for post in posts %}
+        {% for article in articles %}
             <div class="card col-6 offset-3">
                 <div class="card-body">
-                    <h3 class="card-title">{{ post.title }}</h3>
-                    <p class="card-text">{{ post.text }}</p>
+                    <h3 class="card-title">{{ article.title }}</h3>
+                    <p class="card-text">{{ article.text }}</p>
                     <a href="" class="btn btn-primary offset-6 offset-lg-9">Voir l'article</a>
-                    <p class="sign">Le {{ post.createdAt|date("d/m/Y") }} écrit par <span class="gold">{{ post.lawyer }}</span></p>
+                    <p class="sign">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span class="gold">{{ article.createdBy.email is defined ? article.createdBy.email}}</span></p>
                 </div>
             </div>
         {% endfor %}
