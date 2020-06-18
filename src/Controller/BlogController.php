@@ -13,10 +13,10 @@ class BlogController extends AbstractController
      */
     public function index()
     {
-        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['createdAt'=>'DESC'], 5);
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['createdAt'=>'DESC'], 5);
         return $this->render('blog/index.html.twig', [
             'auth' => 'admin',
-            "posts" => $posts
+            "articles" => $articles
         ]);
     }
 }

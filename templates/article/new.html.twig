@@ -1,22 +1,16 @@
 {% extends '_layout.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Nouvelle Article{% endblock %}
 
 {% block body %}
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2"></div>
-            <h2 class="article col-8">Create new Article</h2>
-            <div class="col-2"></div>
+            <h2 class="article col-8 offset-2">Créer un nouvel article</h2>
         </div>
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">{{ include('article/_form.html.twig') }}</div>
-            <div class="col-2"></div>
+            <div class="col-8 offset-2">{{ include('article/_form.html.twig') }}</div>
         </div>
+        <a href="{{ path('article_index') }}"><i class=" my-5 fas fa-undo-alt fa-5x offset-6" style="color: #bea058;"></i></a>
     </div>
-
-
-    <a href="{{ path('article_index') }}">back to list</a>
 {% endblock %}
