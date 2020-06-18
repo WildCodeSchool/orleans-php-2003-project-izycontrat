@@ -18,6 +18,13 @@
             </tr>
         </thead>
         <tbody>
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
         {% for article in articles %}
             <tr>
                 <td>{{ article.id }}</td>

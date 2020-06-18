@@ -8,6 +8,7 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
     .addStyleEntry('style_dashboard', './assets/scss/dashboard.scss')
+    .addStyleEntry('article', './assets/scss/article.scss')
 
     /*
      * ENTRY CONFIG
