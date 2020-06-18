@@ -15,7 +15,7 @@
     <h2 class="offset-2 mb-5">Articles</h2>
 
         {% for article in articles %}
-            <div class="card col-6 offset-3 mb-5">
+            <div class="card col-6 offset-3 mb-3">
                 <div class="card-body">
                     <h3 class="card-title">{{ article.title }}</h3>
                     {% if article.text|length > 300 %}
