@@ -5,42 +5,22 @@
 {% block body %}
     <h1>Article</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ article.title }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ article.image }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ article.text }}</td>
-            </tr>
-            <tr>
-                <th>Lawyer</th>
-                <td>
-                    {% for user in article.createdBy %}
-                    {{ user.email }}
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ article.createdAt|date("m/d/Y") }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card col-6 offset-3 mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ article.title }}</h3>
+                <p class="card-text">{{ article.text }}</p>
 
-    <a href="{{ path('article_index') }}">back to list</a>
+            <p class="sign">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
+                        class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
+            </p>
+            <div class="d-flex justify-content-end">
+                <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-primary mx-2"><i
+                            class="fas fa-pen"></i></a>
+            </div>
+        </div>
+    </div>
 
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+    <a href="{{ path('article_index') }}"><i class=" my-5 fas fa-arrow-alt-circle-left fa-5x offset-6"></i></a>
 
     {{ include('article/_delete_form.html.twig') }}
 {% endblock %}
