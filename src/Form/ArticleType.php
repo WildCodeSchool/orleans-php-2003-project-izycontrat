@@ -6,6 +6,7 @@ use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleType extends AbstractType
 {
@@ -13,7 +14,13 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', null, ['label' => 'Titre de l\'article'])
-            ->add('image', null, ['label' => 'Image de couverture'])
+            ->add('image', null, ['label' => 'Image de couverture (url)'])
+            ->add('imageFile', VichImageType::class, [
+                'required'      => false,
+                'allow_delete'  => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
+                'label' => 'Image de couverture (pc)',
+            ])
             ->add('text', null, ['label' => 'Article'])
         ;
     }

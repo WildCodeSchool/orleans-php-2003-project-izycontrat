@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
-                <td>{{ article.image }}</td>
+                <td><img src="{{vich_uploader_asset (article, 'imageFile', 'App\\Entity\\Article')}}"></td>
                 <td>{{ article.text }}</td>
                 <td>{{ article.createdBy.email is defined ? article.createdBy.email}}</td>
                 <td>{{ article.createdAt|date("m/d/Y") }}</td>

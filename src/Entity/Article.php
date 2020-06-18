@@ -5,9 +5,12 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -27,6 +30,12 @@ class Article
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="image_file", fileNameProperty="image")
+     * @var File|null
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text")
@@ -71,6 +80,16 @@ class Article
         $this->image = $image;
 
         return $this;
+    }
+
+    public function setImageFile(?File $image = null): void
+    {
+        $this->imageFile = $image;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getText(): ?string
