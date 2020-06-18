@@ -1,7 +1,11 @@
 @import "dashboard";
 
 .article {
-    padding: 90px 5px 80px 65px;
+    margin: 90px 5px 80px 65px;
+}
+
+.fa-5x {
+    color: $secondary-color;
 }
 
 textarea {
