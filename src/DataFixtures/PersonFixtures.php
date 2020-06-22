@@ -36,14 +36,12 @@ class PersonFixtures extends Fixture
                 $gender = 'female';
                 $user->setProfilePicture('https://www.top-metiers.fr/wp-content/uploads/2016/01/'.
                     'liste_metier-de-femme.jpg');
-
             } elseif ($genderNumber === 1) {
                 $gender = 'male';
                 $user->setProfilePicture('https://gal.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.'.
                     '2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgal.2Fvar.2Fgal.2Fstorage.2Fimages.2Fmedia.2Fmultiupl'.
                     'oad_du_10_juillet_2017.2Fcoupedecheveux.2F4118549-1-fre-FR.2Fcoupedecheveux.2Ejpg/480x480/quality'.
                     '/80/coiffures-homme-les-coupes-de-cheveux-tendances-de-l-ete-2017.jpg');
-
             } else {
                 $gender = null;
                 $user->setProfilePicture('https://statics.lesinrocks.com/content/thumbs/uploads/2018/07/'.
