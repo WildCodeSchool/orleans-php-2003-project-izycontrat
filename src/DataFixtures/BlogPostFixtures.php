@@ -20,7 +20,7 @@ class BlogPostFixtures extends Fixture
             $blogPost->setDate($faker->dateTimeThisDecade());
             $blogPost->setLawyer($faker->name());
             $blogPost->setTitle($faker->sentence(rand(1, 5)));
-            $blogPost->setText($faker->realText(1000));
+            $blogPost->setText($faker->realText(100));
             if (rand(0, 1)) {
                 $blogPost->setImage('https://via.placeholder.com/' . rand(500, 2000) . 'x' . rand(500, 2000));
             }
