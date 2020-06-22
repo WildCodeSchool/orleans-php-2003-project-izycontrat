@@ -70,6 +70,7 @@ class PersonFixtures extends Fixture
             if ($i >= self::MEMBER) {
                 $person->setCapitalAmountAdding($faker->numberBetween(1000, 10000));
                 $person->setHasCompany(true);
+                $user->setRoles(['ROLE_CLIENT']);
             }
             $manager->persist($user);
             $manager->persist($person);

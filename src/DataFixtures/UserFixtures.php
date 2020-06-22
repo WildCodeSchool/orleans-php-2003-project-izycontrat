@@ -17,13 +17,19 @@ class UserFixtures extends Fixture
         'Jane Doe' => [
             'infos' => [
                 "jane.doe@gmail.com",
-                ['ROLE_USER']
+                []
             ]
         ],
         'Janine Doe' => [
             'infos' => [
                 "janine.doe@gmail.com",
                 ['ROLE_ADMIN']
+            ]
+        ],
+        'John Doe' => [
+            'infos' => [
+                "john.doe@gmail.com",
+                ['ROLE_LAWYER']
             ]
         ]
     ];
@@ -43,21 +49,6 @@ class UserFixtures extends Fixture
                 $user,
                 'password'
             ));
-            $manager->persist($user);
-        }
-
-        for ($i=1; $i<=50; $i++) {
-            $user = new User();
-            $faker  =  Faker\Factory::create('fr_FR');
-            $user->setEmail($faker->email);
-            $user->setPassword($faker->word);
-            $user->setPassword($this->passwordEncoder->encodePassword(
-                $user,
-                'password'
-            ));
-            if ($i>25) {
-                $user->setRoles(['ROLE_CLIENT']);
-            }
             $manager->persist($user);
         }
         for ($j=1; $j<=1; $j++) {
