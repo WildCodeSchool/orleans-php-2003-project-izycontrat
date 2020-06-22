@@ -50,6 +50,11 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $profilePicture;
+
+    /**
      * @param string $email
      * @param string $password
      * @param array|null $roles
@@ -145,5 +150,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getProfilePicture(): ?string
+    {
+        return $this->profilePicture;
+    }
+
+    public function setProfilePicture(?string $profilePicture): self
+    {
+        $this->profilePicture = $profilePicture;
+
+        return $this;
     }
 }

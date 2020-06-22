@@ -8,6 +8,8 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('bootstrap');
 require('../scss/app.scss');
+require('../scss/dashboard.scss');
+require('../scss/Molecules/modal.scss');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 
