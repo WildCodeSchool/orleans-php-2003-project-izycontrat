@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\Boolean;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
@@ -50,6 +53,32 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $hasCompany = false;
+
+
+    /**
+     * @param string $email
+     * @param string $password
+     * @param array|null $roles
+     * @param bool|null $hasCompany
+     * @return User
+     * @see UserInterface
+     */
+    public function create(
+        string $email,
+        string $password,
+        array $roles = null,
+        bool $hasCompany = null
+    ): self {
+        $this->email = $email;
+        $this->password = $password;
+        if ($roles !== null) {
+            $this->roles = $roles;
+        }
+        if ($hasCompany !== null) {
+            $this->hasCompany = $hasCompany;
+        }
+        return $this;
+    }
 
     public function getId(): ?int
     {

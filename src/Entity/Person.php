@@ -36,7 +36,7 @@ class Person
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $middleName;
+    private $middleName = null;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,7 +44,7 @@ class Person
     private $lastName;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $phoneNumber;
 
@@ -128,12 +128,12 @@ class Person
         return $this;
     }
 
-    public function getPhoneNumber(): ?int
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(int $phoneNumber): self
+    public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
 

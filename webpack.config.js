@@ -6,7 +6,7 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    //.setManifestKeyPrefix('build/')
+    // .setManifestKeyPrefix('build/')
     .addStyleEntry('style_dashboard', './assets/scss/dashboard.scss')
 
     /*
@@ -25,8 +25,8 @@ Encore
     .addEntry('blog', './assets/js/blog.js')
     .addEntry('login', './assets/js/login.js')
     .addStyleEntry('team', './assets/scss/team.scss')
-    //.addEntry('page1', './assets/js/page1.js')
-    //.addEntry('page2', './assets/js/page2.js')
+    // .addEntry('page1', './assets/js/page1.js')
+    // .addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -51,25 +51,23 @@ Encore
     // enables @babel/preset-env polyfills
     .configureBabel(() => {}, {
         useBuiltIns: 'usage',
-        corejs: 3
+        corejs: 3,
     })
 
     // enables Sass/SCSS support
-    .enableSassLoader()
+    .enableSassLoader();
 
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
+// uncomment if you use TypeScript
+// .enableTypeScriptLoader()
 
-    // uncomment to get integrity="..." attributes on your script & link tags
-    // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes()
+// uncomment to get integrity="..." attributes on your script & link tags
+// requires WebpackEncoreBundle 1.4 or higher
+// .enableIntegrityHashes()
 
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+// uncomment if you're having problems with a jQuery plugin
+// .autoProvidejQuery()
 
-    // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
-;
-
+// uncomment if you use API Platform Admin (composer req api-admin)
+// .enableReactPreset()
+// .addEntry('admin', './assets/js/admin.js')
 module.exports = Encore.getWebpackConfig();
