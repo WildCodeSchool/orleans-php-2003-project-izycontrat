@@ -63,6 +63,11 @@ class Person
      */
     private $capitalAmountAdding;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $hasCompany;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,18 @@ class Person
     public function setCapitalAmountAdding(?int $capitalAmountAdding): self
     {
         $this->capitalAmountAdding = $capitalAmountAdding;
+
+        return $this;
+    }
+
+    public function getHasCompany(): ?bool
+    {
+        return $this->hasCompany;
+    }
+
+    public function setHasCompany(?bool $hasCompany): self
+    {
+        $this->hasCompany = $hasCompany;
 
         return $this;
     }

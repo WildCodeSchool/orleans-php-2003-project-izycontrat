@@ -50,32 +50,21 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $hasCompany = false;
-
-
-    /**
      * @param string $email
      * @param string $password
      * @param array|null $roles
-     * @param bool|null $hasCompany
      * @return User
      * @see UserInterface
      */
     public function create(
         string $email,
         string $password,
-        array $roles = null,
-        bool $hasCompany = null
+        array $roles = null
     ): self {
         $this->email = $email;
         $this->password = $password;
         if ($roles !== null) {
             $this->roles = $roles;
-        }
-        if ($hasCompany !== null) {
-            $this->hasCompany = $hasCompany;
         }
         return $this;
     }
@@ -156,17 +145,5 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    public function getHasCompany(): ?bool
-    {
-        return $this->hasCompany;
-    }
-
-    public function setHasCompany(?bool $hasCompany): self
-    {
-        $this->hasCompany = $hasCompany;
-
-        return $this;
     }
 }
