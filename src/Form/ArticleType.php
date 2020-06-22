@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -20,7 +21,7 @@ class ArticleType extends AbstractType
                 'download_uri' => true, // not mandatory, default is true
                 'label' => 'Image de couverture',
             ])
-            ->add('text', null, ['label' => 'Article'])
+            ->add('text', TextareaType::class, ['label' => 'Article'])
         ;
     }
 

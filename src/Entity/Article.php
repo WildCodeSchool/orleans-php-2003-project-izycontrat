@@ -4,9 +4,10 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -23,6 +24,11 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=70)
+     * @Assert\NotNull
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 70
+     * )
      */
     private $title;
 
@@ -32,12 +38,16 @@ class Article
     private $image;
 
     /**
+     * @Assert\File(
+     *     maxSize = "500k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"})
      * @Vich\UploadableField(mapping="image_file", fileNameProperty="image")
      * @var File|null
      */
     private $imageFile;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text")
      */
     private $text;
@@ -49,6 +59,7 @@ class Article
     private $createdAt;
 
     /**
+     * @Assert\Length(max="255")
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      */
     private $createdBy;

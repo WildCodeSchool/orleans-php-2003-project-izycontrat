@@ -19,6 +19,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class ArticleController extends AbstractController
 {
+
     private $security;
 
     public function __construct(Security $security)
@@ -60,7 +61,7 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $article->setCreatedBy($this->security->getUser());
+            $article->setCreatedBy($this->security->getUser);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
