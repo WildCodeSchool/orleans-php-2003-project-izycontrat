@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=BlogPostRepository::class)
  */
-class BlogPost
+class Article
 {
     /**
      * @ORM\Id()

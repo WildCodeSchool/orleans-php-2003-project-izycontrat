@@ -2,12 +2,12 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\BlogPost;
+use App\Entity\Article;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class BlogPostFixtures extends Fixture
+class ArticleFixtures extends Fixture
 {
     const NB_POSTS = 5;
 
@@ -16,7 +16,7 @@ class BlogPostFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         for ($i = 0; $i < self::NB_POSTS; $i++) {
-            $blogPost = new BlogPost();
+            $blogPost = new Article();
             $blogPost->setDate($faker->dateTimeThisDecade());
             $blogPost->setLawyer($faker->name());
             $blogPost->setTitle($faker->sentence(rand(1, 5)));
