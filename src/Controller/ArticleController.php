@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
-use App\Entity\BlogPost;
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BlogController extends AbstractController
+class ArticleController extends AbstractController
 {
     /**
      * @Route("/blog", name="blog")
      */
-    public function index()
+    public function blog()
     {
-        $posts = $this->getDoctrine()->getRepository(BlogPost::class)->findBy([], ['date'=>'DESC'], 5);
-        return $this->render('blog/index.html.twig', [
+        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['date'=>'DESC'], 5);
+        return $this->render('article/blog.html.twig', [
             'auth' => 'admin',
             "posts" => $posts
         ]);
