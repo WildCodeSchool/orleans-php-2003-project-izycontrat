@@ -78,7 +78,7 @@
     color: $secondary-color;
 }
 
-.page-wrapper ul li span:not(.animated-line){
+.page-wrapper ul li span:not(.animated-line) {
     display: none;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -153,7 +153,7 @@
 
 @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content, .page-wrapper.toggled section:not(.homeTop), .page-wrapper.toggled .homeTxt {
-        padding: 0 0 0 300px;
+        padding: 100px 0 0 300px;
     }
 
     .footer.toggled {
@@ -344,7 +344,7 @@
     top: 14px;
 }
 
-.page-wrapper:not(.toggled) .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after{
+.page-wrapper:not(.toggled) .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
     display: none;
 }
 
@@ -444,7 +444,7 @@
     display: inline-block;
     width: 100%;
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 100px;
 }
 
 .page-wrapper .page-content > div {
