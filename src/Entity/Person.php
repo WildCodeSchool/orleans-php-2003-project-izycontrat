@@ -26,10 +26,10 @@ class Person
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Type(["int", "null"], message="Mauvais format de données")
+     * @Assert\Type(type={"int", "null"}, message="Mauvais format de données")
      * @Assert\Range(
-     *      min = 0,
-     *      max = 2,
+     *      min= "1",
+     *      max = "2",
      *      notInRangeMessage = "Le Genre n'est pas valide",
      * )
      */
@@ -38,10 +38,9 @@ class Person
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\Type("string", message="Mauvais format de données")
+     * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
      * @Assert\Length(
-     *      min = 5,
      *      max = 50,
-     *      minMessage = "Le Prénom doit contenir d'au moins {{ limit }} characters",
      *      maxMessage = "Le Prénom doit contenir au maximum {{ limit }} characters",
      *      allowEmptyString = false
      * )
@@ -49,23 +48,11 @@ class Person
     private $firstName;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
-     * @Assert\Type(["string", "null"], message="Mauvais format de données")
-     * @Assert\Length(
-     *      max = 50,
-     *      maxMessage = "Le deuxième Prénom doit contenir au maximum {{ limit }} characters",
-     *      allowEmptyString = true
-     * )
-     */
-    private $middleName = null;
-
-    /**
      * @ORM\Column(type="string", length=50)
      * @Assert\Type("string", message="Mauvais format de données")
+     * @Assert\NotBlank(message="Le nom ne doit pas être vide")
      * @Assert\Length(
-     *      min = 5,
      *      max = 50,
-     *      minMessage = "Le Nom doit contenir d'au moins {{ limit }} characters",
      *      maxMessage = "Le Nom doit contenir au maximum {{ limit }} characters",
      *      allowEmptyString = false
      * )
@@ -87,10 +74,9 @@ class Person
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Type("string", message="Mauvais format de données")
+     * @Assert\NotBlank(message="L'adresse ne doit pas être vide")
      * @Assert\Length(
-     *      min = 5,
      *      max = 255,
-     *      minMessage = "L'adresse doit contenir d'au moins {{ limit }} characters",
      *      maxMessage = "L'adresse doit contenir au maximum {{ limit }} characters",
      *      allowEmptyString = false
      * )
@@ -99,26 +85,19 @@ class Person
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
-     * @Assert\Type(["string", "null"], message="Mauvais format de données")
-     * @Assert\Country(message="Ce n'est pas un pays valide")
-     * @Assert\Length(
-     *      max = 255,
-     *      maxMessage = "Le pays doit contenir au maximum {{ limit }} characters",
-     *      allowEmptyString = true
-     * )
      */
     private $country;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Type(["int", "null"], message="Mauvais format de données")
+     * @Assert\Type(type={"int", "null"}, message="Mauvais format de données")
      * @Assert\Positive(message="Le Capital apporté ne peux pas être négatif")
      */
     private $capitalAmountAdding;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
-     * @Assert\Type(["bool", "null"], message="Mauvais format de données")
+     * @Assert\Type(type={"bool", "null"}, message="Mauvais format de données")
      */
     private $hasCompany;
 
@@ -159,18 +138,6 @@ class Person
     public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    public function getMiddleName(): ?string
-    {
-        return $this->middleName;
-    }
-
-    public function setMiddleName(string $middleName): self
-    {
-        $this->middleName = $middleName;
 
         return $this;
     }

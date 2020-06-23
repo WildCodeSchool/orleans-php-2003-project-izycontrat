@@ -54,26 +54,6 @@ class User implements UserInterface
      */
     private $profilePicture;
 
-    /**
-     * @param string $email
-     * @param string $password
-     * @param array|null $roles
-     * @return User
-     * @see UserInterface
-     */
-    public function create(
-        string $email,
-        string $password,
-        array $roles = null
-    ): self {
-        $this->email = $email;
-        $this->password = $password;
-        if ($roles !== null) {
-            $this->roles = $roles;
-        }
-        return $this;
-    }
-
     public function getId(): ?int
     {
         return $this->id;
