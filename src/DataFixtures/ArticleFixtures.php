@@ -16,16 +16,16 @@ class ArticleFixtures extends Fixture
         $faker = Factory::create('fr_FR');
 
         for ($i = 0; $i < self::NB_POSTS; $i++) {
-            $blogPost = new Article();
-            $blogPost->setDate($faker->dateTimeThisDecade());
-            $blogPost->setLawyer($faker->name());
-            $blogPost->setTitle($faker->sentence(rand(1, 5)));
-            $blogPost->setText($faker->realText(100));
+            $article = new Article();
+            $article->setDate($faker->dateTimeThisDecade());
+            $article->setLawyer($faker->name());
+            $article->setTitle($faker->sentence(rand(1, 5)));
+            $article->setText($faker->realText(100));
             if (rand(0, 1)) {
-                $blogPost->setImage('https://via.placeholder.com/' . rand(500, 2000) . 'x' . rand(500, 2000));
+                $article->setImage('https://via.placeholder.com/' . rand(500, 2000) . 'x' . rand(500, 2000));
             }
 
-            $manager->persist($blogPost);
+            $manager->persist($article);
         }
 
         $manager->flush();
