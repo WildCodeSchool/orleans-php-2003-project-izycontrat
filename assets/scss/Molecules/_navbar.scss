@@ -5,6 +5,8 @@ nav {
 }
 
 .navbar {
+    height: 80px;
+    padding: 0;
     background-color: $light-color;
     box-shadow: 1px 1px 3px #BEA058;
     -webkit-transition: background-color 0.2s ease-in-out;
