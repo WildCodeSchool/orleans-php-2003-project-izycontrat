@@ -1,3 +1,5 @@
+@import "../_vars";
+
 nav {
     margin: 0;
     padding: 0;
@@ -24,12 +26,12 @@ nav {
 }
 
 .nav-link {
-    color: $primary-darker;
     margin-left: $spacing;
     margin-right: $spacing;
 }
 
 .nav-item {
+    color: $primary-darker;
     padding: $spacing-s;
 
     & :hover{
