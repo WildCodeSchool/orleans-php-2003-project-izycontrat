@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/article"), name="article_")
  */
@@ -21,7 +20,7 @@ class ArticleController extends AbstractController
      */
     public function blog()
     {
-        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['date'=>'DESC'], 5);
+        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['date' => 'DESC'], 5);
         return $this->render('article/blog.html.twig', [
             'auth' => 'admin',
             "posts" => $posts
@@ -108,7 +107,7 @@ class ArticleController extends AbstractController
      */
     public function delete(Request $request, Article $article): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);
             $entityManager->flush();
