@@ -1,43 +1,45 @@
-{% extends 'base.html.twig' %}
+{% extends '_layout.html.twig' %}
 
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Text</th>
-                <th>Lawyer</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.image }}</td>
-                <td>{{ article.text }}</td>
-                <td>{{ article.lawyer }}</td>
-                <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+<section class="article">
+    {% for category, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    {% endfor %}
+    <h2 class="offset-2 mb-5">Articles</h2>
 
-    <a href="{{ path('article_new') }}">Create new</a>
+        {% for article in articles %}
+            <div class="card col-6 offset-3 mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{ article.title }}</h3>
+                    {% if article.text|length > 300 %}
+                        <p class="card-text">{{ article.text|slice(0, 250)|raw }}...</p>
+                    {% else %}
+                        <p class="card-text">{{ article.text }}</p>
+                    {% endif %}
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-primary mx-2"><i
+                                    class="fas fa-pen"></i></a>
+                        <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary mx-2"><i
+                                    class="fas fa-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p colspan="7">no records found</p>
+        {% endfor %}
+        <a href="{{ path('article_new') }}"><i class=" my-5 fa fa-plus-circle fa-5x offset-6"></i></a>
+    </section>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('article') }}
+    {{ encore_entry_link_tags('app') }}
 {% endblock %}
