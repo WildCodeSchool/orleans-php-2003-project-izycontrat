@@ -1,9 +1,12 @@
+@media (min-width: 768px) {
+    height: 250px;
+}
+
 .bg-footer{
     position: relative;
     bottom: 0;
     background-color: $light-color;
     padding: $spacing;
-    height: 250px;
     width: 100%;
     margin: 0;
     box-shadow: -1px -1px 3px $secondary-color;
@@ -14,7 +17,6 @@
 }
 
 .footer-element{
-    height: 100%;
     padding: 0;
     margin: 0;
 }
