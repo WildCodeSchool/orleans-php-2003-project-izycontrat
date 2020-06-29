@@ -40,6 +40,6 @@
 {% endblock %}
 
 {% block stylesheets %}
+    {{ parent() }}
     {{ encore_entry_link_tags('article') }}
-    {{ encore_entry_link_tags('app') }}
 {% endblock %}
