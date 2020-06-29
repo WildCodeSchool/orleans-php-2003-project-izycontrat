@@ -61,6 +61,7 @@ class UserFixtures extends Fixture
                 'password'
             ));
             $user->setRoles(['ROLE_ADMIN']);
+            $this->addReference('user_' . $j, $user);
             $manager->persist($user);
         }
         for ($k=1; $k<=1; $k++) {
