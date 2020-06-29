@@ -24,6 +24,11 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=70)
+     * @Assert\NotNull
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 70
+     * )
      */
     private $title;
 
@@ -33,6 +38,7 @@ class Article
     private $image;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text")
      */
     private $text;
