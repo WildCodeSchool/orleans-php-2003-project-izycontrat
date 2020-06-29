@@ -15,8 +15,6 @@ class ArticleType extends AbstractType
             ->add('title')
             ->add('image')
             ->add('text')
-            ->add('lawyer')
-            ->add('date')
         ;
     }
 

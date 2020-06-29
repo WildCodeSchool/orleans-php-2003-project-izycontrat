@@ -3,7 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\BlogPostRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BlogPostRepository::class)
@@ -33,14 +37,16 @@ class Article
     private $text;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @var DateTime
+     * @ORM\Column(type="datetime")
      */
-    private $lawyer;
+    private $createdAt;
 
     /**
-     * @ORM\Column(type="date")
+     * @Assert\Length(max="255")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      */
-    private $date;
+    private $createdBy;
 
     public function getId(): ?int
     {
@@ -79,30 +85,32 @@ class Article
     public function setText(string $text): self
     {
         $this->text = $text;
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new DateTime('now'));
+        }
+        return $this;
+    }
+
+    public function getCreatedAt(): ?DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getLawyer(): ?string
+    public function getCreatedBy(): ?User
     {
-        return $this->lawyer;
+        return $this->createdBy;
     }
 
-    public function setLawyer(string $lawyer): self
+    public function setCreatedBy(?Object $createdBy): self
     {
-        $this->lawyer = $lawyer;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
