@@ -134,7 +134,7 @@ class Article
         return $this->createdBy;
     }
 
-    public function setCreatedBy(?Object $createdBy): self
+    public function setCreatedBy(?object $createdBy): self
     {
         $this->createdBy = $createdBy;
 

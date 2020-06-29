@@ -4,15 +4,15 @@
 
 {% block body %}
 
-<section class="article">
-    {% for category, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
+    <section class="article">
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
-    <h2 class="offset-2 mb-5">Articles</h2>
+        <h2 class="offset-2 mb-5">Articles</h2>
 
         {% for article in articles %}
             <div class="card col-6 offset-3 mb-3">
