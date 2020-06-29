@@ -5,6 +5,10 @@
     width: 100%;
     background: rgba(50, 50, 50, 0.6);
 
+    .homePicture{
+        object-position: center;
+        object-fit: cover;
+    }
     img {
         position: absolute;
         height: 100vh;
@@ -20,6 +24,7 @@
 
     .homeTxt {
         width: 40%;
+        padding-top: 80px;
     }
 
     .homeTxt * {
@@ -34,7 +39,7 @@
     }
 
     .btnHome {
-        margin-top: $spacing-xl;
+        margin-top: $spacing;
         width: calc(250px + (300 - 250) * ((100vw - 300px) / (1600 - 300)));
         height: calc(30px + (40 - 30) * ((100vw - 300px) / (1600 - 300)));
     }

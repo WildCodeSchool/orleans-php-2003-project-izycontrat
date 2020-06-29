@@ -71,7 +71,7 @@
 /*----------------page-wrapper----------------*/
 
 .page-wrapper {
-    height: 100vh;
+    height: 100%;
     padding: 0 0 0 60px;
 }
 
@@ -454,9 +454,6 @@
     padding-top: 100px;
 }
 
-.page-wrapper .page-content > div {
-    padding: 20px 40px;
-}
 
 .page-wrapper .page-content {
     overflow-x: hidden;
