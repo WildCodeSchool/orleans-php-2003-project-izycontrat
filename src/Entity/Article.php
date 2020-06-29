@@ -10,7 +10,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=BlogPostRepository::class)
+ * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -48,6 +49,15 @@ class Article
      */
     private $createdBy;
 
+    /**
+     * @Assert\File(
+     *     maxSize = "500k",
+     *     mimeTypes = {"image/png", "image/jpeg"})
+     * @Vich\UploadableField(mapping="image_file", fileNameProperty="image")
+     * @var File|null
+     */
+    private $imageFile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +85,16 @@ class Article
         $this->image = $image;
 
         return $this;
+    }
+
+    public function setImageFile(?File $image = null): void
+    {
+        $this->imageFile = $image;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getText(): ?string
