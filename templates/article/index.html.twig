@@ -19,29 +19,34 @@
                     <h2 class="mb-5">Articles</h2>
 
                     {% for article in articles %}
+
                         <div class="card mb-3">
-                            <div class="card-body">
-                                <h3 class="card-title">{{ article.title }}</h3>
-                                {% if article.text|length > 300 %}
-                                    <p class="card-text">{{ article.text|slice(0, 250)|raw }}...</p>
-                                {% else %}
-                                    <p class="card-text">{{ article.text }}</p>
-                                {% endif %}
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-10">
-                                            <p class="sign">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
-                                            class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
-                                            </p>
-                                        </div>
-                                        <div class="col-1">
-                                                <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-primary mx-2"><i
-                                                            class="fas fa-pen"></i></a>
-                                        </div>
-                                        <div class="col-1">
-                                            <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-primary mx-2"><i
-                                                        class="fas fa-eye"></i></a>
-                                        </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12"><h3 class="card-title mt-2 text-center">{{ article.title }}</h3></div>
+                                    <div class="col-3"><img src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                                                            alt={{ article.title }}/></div>
+                                    <div class="col-9 pl-0">{% if article.text|length > 500 %}
+                                            <p class="card-text">{{ article.text|slice(0, 500)|raw }}...</p>
+                                        {% else %}
+                                            <p class="card-text">{{ article.text }}</p>
+                                        {% endif %}</div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-10">
+                                        <p class="mb-0">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
+                                                    class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-1">
+                                        <a href="{{ path('article_edit', {'id': article.id}) }}"
+                                           class="btn btn-primary"><i
+                                                    class="fas fa-pen"></i></a>
+                                    </div>
+                                    <div class="col-1">
+                                        <a href="{{ path('article_show', {'id': article.id}) }}"
+                                           class="btn btn-primary"><i
+                                                    class="fas fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>

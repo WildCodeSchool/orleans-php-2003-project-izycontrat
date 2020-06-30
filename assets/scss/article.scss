@@ -11,3 +11,19 @@
 textarea {
     min-height: 200px;
 }
+
+.card {
+    height: auto;
+    max-height: 25%;
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        max-height: 300px;
+        width: auto;
+        max-width: 100%;
+        border-radius: 0.25rem;
+    }
+}
