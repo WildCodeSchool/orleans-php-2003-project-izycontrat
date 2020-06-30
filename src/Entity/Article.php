@@ -3,10 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\BlogPostRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=BlogPostRepository::class)
+ * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -19,6 +24,11 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=70)
+     * @Assert\NotNull
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 70
+     * )
      */
     private $title;
 
@@ -28,19 +38,31 @@ class Article
     private $image;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text")
      */
     private $text;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @var DateTime
+     * @ORM\Column(type="datetime")
      */
-    private $lawyer;
+    private $createdAt;
 
     /**
-     * @ORM\Column(type="date")
+     * @Assert\Length(max="255")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      */
-    private $date;
+    private $createdBy;
+
+    /**
+     * @Assert\File(
+     *     maxSize = "500k",
+     *     mimeTypes = {"image/png", "image/jpeg"})
+     * @Vich\UploadableField(mapping="image_file", fileNameProperty="image")
+     * @var File|null
+     */
+    private $imageFile;
 
     public function getId(): ?int
     {
@@ -71,6 +93,16 @@ class Article
         return $this;
     }
 
+    public function setImageFile(?File $image = null): void
+    {
+        $this->imageFile = $image;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
     public function getText(): ?string
     {
         return $this->text;
@@ -79,30 +111,32 @@ class Article
     public function setText(string $text): self
     {
         $this->text = $text;
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new DateTime('now'));
+        }
+        return $this;
+    }
+
+    public function getCreatedAt(): ?DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTime $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getLawyer(): ?string
+    public function getCreatedBy(): ?User
     {
-        return $this->lawyer;
+        return $this->createdBy;
     }
 
-    public function setLawyer(string $lawyer): self
+    public function setCreatedBy(?object $createdBy): self
     {
-        $this->lawyer = $lawyer;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
