@@ -1,7 +1,9 @@
 @import "vars";
+
 p{
     margin: 0;
 }
+
 .row{
     margin: 0;
     display: flex;
@@ -9,17 +11,21 @@ p{
     justify-content: start;
 
 }
+
 .card-body{
     display: flex;
     flex-direction: column;
     white-space: nowrap;
 }
+
 .card-body h5 {
     font-weight: 800;
 }
+
 .clientInformation h2{
     font-size: $font-size-title;
 }
+
 .clientInformation h3{
     font-size: $font-size;
 }
@@ -40,9 +46,11 @@ p{
     border-radius: $spacing-l;
     box-shadow: 0px 1px 1px $secondary-color;
 }
+
 .card-body a{
     white-space: nowrap;
 }
+
 .profilePicture{
     position: absolute;
     top: -120px;
@@ -56,9 +64,11 @@ p{
     -moz-box-shadow: 1px 3px 6px -1px $secondary-color;
     box-shadow: 1px 3px 6px -1px $secondary-color;
 }
+
 .clientNote{
     padding-top: 120px;
 }
+
 .clientInformation{
     padding-top: 100px;
     border-radius: $spacing;
