@@ -61,4 +61,7 @@ p{
 }
 .clientInformation{
     padding-top: 100px;
+    border-radius: $spacing;
+    margin-left: 10px;
+    box-shadow: 0 1px 6px 0px $primary-color;
 }
