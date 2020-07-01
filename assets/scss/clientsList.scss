@@ -17,6 +17,12 @@ p{
 .card-body h5 {
     font-weight: 800;
 }
+.clientInformation h2{
+    font-size: $font-size-title;
+}
+.clientInformation h3{
+    font-size: $font-size;
+}
 
 .card-body h2 {
     font-size: $font-size /2;
@@ -36,4 +42,23 @@ p{
 }
 .card-body a{
     white-space: nowrap;
+}
+.profilePicture{
+    position: absolute;
+    top: -120px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border: solid 4px $light-color;
+    border-radius: 100%;
+    -webkit-box-shadow: 1px 3px 6px -1px $secondary-color;
+    -moz-box-shadow: 1px 3px 6px -1px $secondary-color;
+    box-shadow: 1px 3px 6px -1px $secondary-color;
+}
+.clientNote{
+    padding-top: 120px;
+}
+.clientInformation{
+    padding-top: 100px;
 }
