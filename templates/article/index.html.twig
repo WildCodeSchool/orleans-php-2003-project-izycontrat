@@ -39,17 +39,18 @@
                                         </div>
                                 </div>
                                 <div class="row my-2">
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <p class="mb-0">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
                                                     class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
                                         </p>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1 p-0 text-center">{{ include('article/_delete_form.html.twig') }}</div>
+                                    <div class="col-1 p-0 text-center">
                                         <a href="{{ path('article_edit', {'id': article.id}) }}"
                                            class="btn btn-primary"><i
                                                     class="fas fa-pen"></i></a>
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1 p-0 text-center">
                                         <a href="{{ path('article_show', {'id': article.id}) }}"
                                            class="btn btn-primary"><i
                                                     class="fas fa-eye"></i></a>
