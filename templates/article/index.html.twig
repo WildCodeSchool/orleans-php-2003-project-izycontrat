@@ -39,7 +39,7 @@
                                         </div>
                                 </div>
                                 <div class="row my-2">
-                                    <div class="col-10">
+                                    <div class="col-md-10 col-sm-12">
                                         <p class="mb-0">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
                                                     class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
                                         </p>
@@ -66,13 +66,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-5">
-            </div>
-            <div class="col-2 mb-2">
-                <a href="{{ path('article_new') }}"><i class=" my-5 fa fa-plus-circle fa-5x"></i></a>
-            </div>
-            <div class="col-5">
-            </div>
+                <a class="col-12 text-center" href="{{ path('article_new') }}"><i class=" my-5 fa fa-plus-circle fa-5x"></i></a>
         </div>
     </div>
 
