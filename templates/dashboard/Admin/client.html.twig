@@ -3,25 +3,19 @@
 {% block title %}Hello DashboardAdminClientsController!{% endblock %}
 
 {% block body %}
-    <div class="page-content container-fluid col-12 col-lg-10">
-        <h1>Liste des clients</h1>
-        <div class="row col-12">
+    <div class="page-content container-fluid col-10 col-lg-10">
+        <h2>Clients</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
         {% for client in clients %}
-            <div class="col-4 pb-4">
+            <div class="col pb-4">
                 <div class="card">
                     <div class="card-body">
-                        {% if client.user.profilePicture is not empty %}
-                            <img src="{{ client.user.profilePicture }}" alt="Photo de profile de {{ client.middleName is defined ?
-                            client.firstName ~ ' ' ~ client.middleName ~ ' ' ~ client.lastName :
-                            client.firstName ~ ' ' ~ client.lastName  }}">
-                        {% endif %}
-                        <h5 class="card-title">{{ client.gender == 0 ? '' : client.gender == 1 ? 'M.' : client.gender == 2 ? 'Mme' }}
-                            {{ client.middleName is defined ?
-                            client.firstName ~ ' ' ~ client.middleName ~ ' ' ~ client.lastName :
-                            client.firstName ~ ' ' ~ client.lastName  }}</h5>
-                        <p class="card-text">Téléphone : <a href="tel:{{ client.phoneNumber }}">{{ client.phoneNumber }}</a></p>
-                        <p class="card-text">Mail : <a href="mailto:{{ client.user.email }}">{{ client.user.email }}</a></p>
-                        <a href="#" class="btn btn-primary">voir la fiche utilisateur</a>
+                        <h5 class="card-title">{{ client.firstName ~ ' ' ~ client.lastName  }}</h5>
+                        <p>Téléphone :</p>
+                        <a class="card-text" href="tel:{{ client.phoneNumber|phone }}">{{ client.phoneNumber|phone }}</a>
+                        <p>Mail :</p>
+                        <a class="card-text" href="mailto:{{ client.user.email }}">{{ client.user.email }}</a>
+                        <a href="#" class="btn btn-primary mt-3 d-inline-block">voir la fiche utilisateur</a>
                     </div>
                 </div>
             </div>
