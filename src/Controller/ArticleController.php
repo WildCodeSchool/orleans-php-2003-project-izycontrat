@@ -57,7 +57,7 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
-
+            $this->addFlash('success', 'L\'article a bien été ajouté');
             return $this->redirectToRoute('article_index');
         }
 
@@ -93,7 +93,7 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'L\'article a bien été modifié');
             return $this->redirectToRoute('article_index');
         }
 
