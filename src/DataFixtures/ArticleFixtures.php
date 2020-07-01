@@ -26,9 +26,6 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
             $article->setTitle($faker->sentence(rand(1, 5)));
             $article->setText($faker->realText(100));
             $article->setCreatedAt($faker->dateTimeThisDecade());
-            if (rand(0, 1)) {
-                $article->setImage('https://via.placeholder.com/' . rand(500, 2000) . 'x' . rand(500, 2000));
-            }
             $article->setCreatedBy($this->getReference('user_1'));
             $manager->persist($article);
         }

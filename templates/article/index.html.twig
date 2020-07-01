@@ -18,19 +18,25 @@
                     {% endfor %}
                     <h2 class="mb-5">Articles</h2>
 
-                    {% for article in articles %}
+                    {% for article in articles |sort((b, a) => a.createdAt <=> b.createdAt) %}
 
                         <div class="card mb-3">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-12"><h3 class="card-title mt-2 text-center">{{ article.title }}</h3></div>
+                                    {% if article.image is not null %}
                                     <div class="col-3"><img src="{{ vich_uploader_asset(article, 'imageFile') }}"
                                                             alt={{ article.title }}/></div>
-                                    <div class="col-9 pl-0">{% if article.text|length > 500 %}
+                                    <div class="col-9 pl-0">
+                                    {% else %}
+                                        <div class="col-12">
+                                    {% endif %}
+                                    {% if article.text|length > 500 %}
                                             <p class="card-text">{{ article.text|slice(0, 500)|raw }}...</p>
                                         {% else %}
                                             <p class="card-text">{{ article.text }}</p>
-                                        {% endif %}</div>
+                                        {% endif %}
+                                        </div>
                                 </div>
                                 <div class="row my-2">
                                     <div class="col-10">
