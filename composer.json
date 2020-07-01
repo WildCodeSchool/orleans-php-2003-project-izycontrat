@@ -27,7 +27,7 @@
         "symfony/web-link": "4.4.*",
         "symfony/webpack-encore-bundle": "^1.5",
         "symfony/yaml": "4.4.*",
-      "ext-json": "*"
+        "vich/uploader-bundle": "^1.14"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",

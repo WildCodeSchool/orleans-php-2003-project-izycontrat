@@ -1,0 +1,85 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10">
+                <section class="article">
+                    {% for category, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    <h2 class="mb-5">Articles</h2>
+
+                    {% for article in articles |sort((b, a) => a.createdAt <=> b.createdAt) %}
+
+                        <div class="card mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12"><h3 class="card-title mt-2 text-center">{{ article.title }}</h3></div>
+                                    {% if article.image is not null %}
+                                    <div class="col-3"><img src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                                                            alt={{ article.title }}/></div>
+                                    <div class="col-9 pl-0">
+                                    {% else %}
+                                        <div class="col-12">
+                                    {% endif %}
+                                    {% if article.text|length > 500 %}
+                                            <p class="card-text">{{ article.text|slice(0, 500)|raw }}...</p>
+                                        {% else %}
+                                            <p class="card-text">{{ article.text }}</p>
+                                        {% endif %}
+                                        </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-10">
+                                        <p class="mb-0">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
+                                                    class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-1">
+                                        <a href="{{ path('article_edit', {'id': article.id}) }}"
+                                           class="btn btn-primary"><i
+                                                    class="fas fa-pen"></i></a>
+                                    </div>
+                                    <div class="col-1">
+                                        <a href="{{ path('article_show', {'id': article.id}) }}"
+                                           class="btn btn-primary"><i
+                                                    class="fas fa-eye"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <p colspan="7">no records found</p>
+                    {% endfor %}
+                </section>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+            </div>
+            <div class="col-2 mb-2">
+                <a href="{{ path('article_new') }}"><i class=" my-5 fa fa-plus-circle fa-5x"></i></a>
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('article') }}
+{% endblock %}

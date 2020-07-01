@@ -6,10 +6,12 @@
 
 body {
     margin: 0;
+    height: 100vh;
     font-family: $font-text;
     font-size: $font-size;
     background: url("/images/creampaper.png") repeat;
     color: $primary-darker;
+    overflow-x: hidden;
 }
 
 .gold, .btn:hover{
@@ -21,6 +23,7 @@ body {
 }
 
 .btn {
+    font-size: $font-size;
     border-radius: 50px;
     text-transform: uppercase;
 }
