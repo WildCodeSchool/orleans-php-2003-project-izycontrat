@@ -22,7 +22,6 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('js_dashboard', './assets/js/dashboard.js')
     .addEntry('home', './assets/js/home.js')
-    .addEntry('blog', './assets/js/blog.js')
     .addEntry('login', './assets/js/login.js')
 
     .addStyleEntry('team', './assets/scss/team.scss')

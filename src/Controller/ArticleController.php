@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
-use App\Repository\BlogPostRepository;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,23 +17,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/blog", name="blog")
-     */
-    public function blog()
-    {
-        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['createdAt' => 'DESC'], 5);
-        return $this->render('article/blog.html.twig', [
-            'auth' => 'admin',
-            "posts" => $posts
-        ]);
-    }
-
-    /**
      * @Route("/", name="index", methods={"GET"})
-     * @param BlogPostRepository $blogPostRepository
+     * @param ArticleRepository $blogPostRepository
      * @return Response
      */
-    public function index(BlogPostRepository $blogPostRepository): Response
+    public function index(ArticleRepository $blogPostRepository): Response
     {
         return $this->render('article/index.html.twig', [
             'articles' => $blogPostRepository->findAll(),
