@@ -65,7 +65,7 @@ class UserFixtures extends Fixture
         }
         for ($k=1; $k<=1; $k++) {
             $user = new User();
-            $faker  =  Faker\Factory::create('fr_FR');
+            $faker = Faker\Factory::create('fr_FR');
             $user->setEmail($faker->email);
             $user->setPassword($faker->word);
             $user->setPassword($this->passwordEncoder->encodePassword(

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IzyContrat - Liste des avocats{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('lawyersList') }}
+{% endblock %}
+
+{% block body %}
+    <section class="lawyerList">
+        <h2>Liste des avocats</h2>
+        <div class="d-flex flex-wrap justify-content-center align-items-center">
+            {% for lawyer in lawyers %}
+                <div class="card col-11 offset-1 col-xl-4">
+                    <img class="card-img-top" src="{{ lawyer.user.profilePicture }}" alt="{{ lawyer.lastname }} {{ lawyer.firstname }}">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-start">
+                        <h4 class="card-title">Maitre {{ lawyer.lastname }} {{ lawyer.firstname }}</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ lawyer.address }}</p>
+                        <div class="d-flex justify-content-around align-items-center w-100">
+                            <p class="score">{{ lawyer.score }} <i class="far fa-thumbs-up"></i></p>
+                            <a href="#" class="btn btn-primary">Contacter</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
