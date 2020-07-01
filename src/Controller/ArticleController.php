@@ -69,7 +69,6 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/{id}", name="show", methods={"GET"})
-     * @IsGranted("ROLE_ADMIN")
      * @param Article $article
      * @return Response
      */
@@ -82,6 +81,7 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Article $article
      * @return Response
