@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Partner;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
+use Faker;
 
 class PartnerFixtures extends Fixture
 {
@@ -13,8 +13,7 @@ class PartnerFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $faker = Factory::create('fr_FR');
-
+        $faker = Faker\Factory::create('fr_FR');
         for ($i = 0; $i < self::NB_PARTNERS; $i++) {
             $partner = new Partner();
             $partner->setName($faker->sentence(rand(1, 5)));

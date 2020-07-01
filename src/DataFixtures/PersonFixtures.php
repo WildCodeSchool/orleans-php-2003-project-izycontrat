@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Services\NormalizePhoneNumber;
 use App\Services\RemoveAccents;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -43,7 +44,7 @@ class PersonFixtures extends Fixture
             $user->setProfilePicture($fakePerson['picture']);
             $person->setFirstName($faker->firstName($fakePerson['gender']));
             $person->setLastName($faker->lastName);
-            $person->setPhoneNumber($faker->e164PhoneNumber);
+            $person->setPhoneNumber($faker->phoneNumber);
             $person->setAddress($faker->address);
             $removeAccents = new RemoveAccents();
             $email = strtolower($removeAccents->toLower(
