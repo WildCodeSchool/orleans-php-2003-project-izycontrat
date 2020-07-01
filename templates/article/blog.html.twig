@@ -12,7 +12,7 @@
                     <p class="card-text">{{ post.text }}</p>
                 </div>
                 <a href="" class="btn btn-primary offset-3 offset-sm-6 offset-md-6 offset-lg-7">Voir l'article</a>
-                <p class="sign">Le {{ post.date|date("d/m/Y") }} écrit par <span class="gold">{{ post.lawyer }}</span></p>
+                <p class="sign">Le {{ post.createdAt|date("d/m/Y") }} écrit par <span class="gold">{{ post.createdBy.email is defined ? post.createdBy.email }}</span></p>
             </div>
         {% endfor %}
     </section>

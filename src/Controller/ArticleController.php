@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/article", name="article_")
@@ -20,7 +21,7 @@ class ArticleController extends AbstractController
      */
     public function blog()
     {
-        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['date' => 'DESC'], 5);
+        $posts = $this->getDoctrine()->getRepository(Article::class)->findBy([], ['createdAt' => 'DESC'], 5);
         return $this->render('article/blog.html.twig', [
             'auth' => 'admin',
             "posts" => $posts
@@ -41,6 +42,7 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/new", name="new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @return Response
      */
@@ -55,7 +57,7 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
-
+            $this->addFlash('success', 'L\'article a bien été ajouté');
             return $this->redirectToRoute('article_index');
         }
 
@@ -67,6 +69,7 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/{id}", name="show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Article $article
      * @return Response
      */
@@ -90,8 +93,8 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('index');
+            $this->addFlash('success', 'L\'article a bien été modifié');
+            return $this->redirectToRoute('article_index');
         }
 
         return $this->render('article/edit.html.twig', [
@@ -102,6 +105,7 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Article $article
      * @return Response
