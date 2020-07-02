@@ -1,0 +1,33 @@
+@import "vars";
+
+.lawyerList {
+    margin-top: 100px;
+
+    h2{
+        text-align: center;
+        margin: $spacing;
+    }
+
+    .card {
+        margin: $spacing;
+        flex-direction: row;
+
+        .card-img-top {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin:1.25rem;
+        }
+
+        svg{
+            margin-right: $spacing-s;
+            margin-left: $spacing-s;
+        }
+
+        .score{
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+}

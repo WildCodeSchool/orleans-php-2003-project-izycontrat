@@ -1,0 +1,25 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Fiche client - {{ client.lastName }} {{ client.firstName }}{% endblock %}
+
+{% block body %}
+    <div class="page-content container-fluid col-10 col-lg-10">
+        <div class="clientNote row row-cols-1 row-cols-md-1 row-cols-xl-3">
+            <div class="clientInformation col pb-4 bg-light d-flex flex-column">
+                <img class="profilePicture" src="{{ client.user.profilePicture }}" alt="{{ 'photo de profile de' ~ client.lastName ~ ' ' ~ client.firstName }}">
+                <h2>{{ client.lastName }}
+                    {{ client.firstName }}</h2>
+                <h3>Mail</h3>
+                {{ client.user.email }}
+                <h3>Adresse</h3>
+                {{ client.address }}
+                <h3>Téléphone</h3>
+                {{ client.phoneNumber|phone }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('clientsList') }}
+{% endblock %}
