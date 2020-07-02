@@ -27,9 +27,23 @@ textarea {
         margin-left: auto;
         margin-right: auto;
         height: auto;
-        max-height: 300px;
         width: auto;
         max-width: 100%;
         border-radius: 0.25rem;
     }
+
+    .minArticleImage {
+        max-height: 300px;
+    }
+
+    .fullArticleImage {
+        max-height: 500px;
+        float: left;
+        margin: 1%;
+    }
 }
+
+
+
+
+

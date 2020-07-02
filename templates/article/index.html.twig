@@ -19,16 +19,14 @@
                     <h2 class="mb-5">Articles</h2>
 
                     {% for article in articles |sort((b, a) => a.createdAt <=> b.createdAt) %}
-
-                    <div class="card mb-3">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12"><h3 class="card-title mt-2 text-center">{{ article.title }}</h3>
-                                </div>
-                                {% if article.image is not null %}
-                                <div class="col-3"><img src="{{ vich_uploader_asset(article, 'imageFile') }}"
-                                                        alt={{ article.title }}/></div>
-                                <div class="col-9 pl-0">
+                        <div class="card mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12"><h3 class="card-title mt-2 text-center">{{ article.title }}</h3></div>
+                                    {% if article.image is not null %}
+                                    <div class="col-3"><img class="minArticleImage" src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                                                            alt={{ article.title }}/></div>
+                                    <div class="col-9 pl-0">
                                     {% else %}
                                     <div class="col-12">
                                         {% endif %}
@@ -40,7 +38,8 @@
                                     </div>
                                 </div>
                                 <div class="row my-2">
-                                    <div class="col-9">
+                                    <div class="col-md-10 col-sm-12">
+
                                         <p class="mb-0">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
                                                     class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
                                         </p>
@@ -82,7 +81,6 @@
             </div>
         </div>
     </div>
-
 
 {% endblock %}
 
