@@ -2,8 +2,11 @@
 
 namespace App\Repository;
 
+use App\Entity\Person;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
@@ -26,8 +29,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      * Used to upgrade (rehash) the user's password automatically over time.
      * @param UserInterface $user
      * @param string $newEncodedPassword
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws ORMException
+     * @throws OptimisticLockException
      */
     public function upgradePassword(UserInterface $user, string $newEncodedPassword): void
     {
@@ -38,5 +41,18 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newEncodedPassword);
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    public function getAllLawyers()
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('p')
+            ->from(Person::class, 'p')
+            ->innerJoin(User::class, 'u', 'WITH', 'p.user = u')
+            ->where('u.roles LIKE :role')
+            ->setParameter(':role', '%ROLE_LAWYER%')
+            ->orderBy('p.score', 'DESC');
+
+        return $qb->getQuery()->getResult();
     }
 }

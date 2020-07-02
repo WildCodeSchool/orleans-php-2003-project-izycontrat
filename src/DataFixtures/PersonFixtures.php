@@ -59,6 +59,9 @@ class PersonFixtures extends Fixture
                 $person->setCapitalAmountAdding($faker->numberBetween(1000, 10000));
                 $person->setHasCompany(true);
                 $user->setRoles(['ROLE_CLIENT']);
+            } else {
+                $person->setScore(rand(0, 400));
+                $user->setRoles(['ROLE_LAWYER']);
             }
             $manager->persist($user);
             $manager->persist($person);
