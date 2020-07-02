@@ -4,6 +4,12 @@
     margin: 90px 0 30px 0;
 }
 
+.card{
+    margin-top:$spacing-l;
+    margin-bottom:$spacing-l;
+    box-shadow: 0px 1px 5px 0px $primary-color;
+}
+
 .fa-5x {
     color: $secondary-color;
 }

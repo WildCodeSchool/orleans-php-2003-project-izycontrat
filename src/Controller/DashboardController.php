@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Person;
 use App\Security\UserAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -29,5 +30,15 @@ class DashboardController extends AbstractController
             ->getRepository(Person::class)
             ->findBy(['hasCompany' => true]);
         return $this->render('dashboard/Admin/client.html.twig', ['clients' => $clients]);
+    }
+
+    /**
+     * @Route("/admin/clients/{id}", name="admin_clients_show")
+     * @param Person $client
+     * @return Response
+     */
+    public function adminClientsShow(Person $client)
+    {
+        return $this->render('dashboard/Admin/show.html.twig', ['client' => $client]);
     }
 }

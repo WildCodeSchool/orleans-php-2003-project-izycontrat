@@ -101,6 +101,11 @@ class Person
      */
     private $hasCompany;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $score;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -210,6 +215,18 @@ class Person
     public function setHasCompany(?bool $hasCompany): self
     {
         $this->hasCompany = $hasCompany;
+
+        return $this;
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(?int $score): self
+    {
+        $this->score = $score;
 
         return $this;
     }
