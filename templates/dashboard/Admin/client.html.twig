@@ -1,0 +1,29 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Liste des clients{% endblock %}
+
+{% block body %}
+    <div class="page-content container-fluid col-10 col-lg-10">
+        <h2>Clients</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+        {% for client in clients %}
+            <div class="col pb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ client.firstName ~ ' ' ~ client.lastName  }}</h5>
+                        <p>Téléphone :</p>
+                        <a class="card-text" href="tel:{{ client.phoneNumber|phone }}">{{ client.phoneNumber|phone }}</a>
+                        <p>Mail :</p>
+                        <a class="card-text" href="mailto:{{ client.user.email }}">{{ client.user.email }}</a>
+                        <a href="{{ path('dashboard_admin_clients_show', {'id': client.id}) }}" class="btn btn-primary mt-3 d-inline-block">voir la fiche utilisateur</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('clientsList') }}
+{% endblock %}

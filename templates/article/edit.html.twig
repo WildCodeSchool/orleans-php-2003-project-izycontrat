@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edition Article{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <h2 class="article col-8 offset-2">Editer votre article</h2>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-2"> {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}</div>
+    </div>
+    <a href="{{ path('article_index') }}"><i class=" my-5 fas fa-arrow-alt-circle-left fa-5x offset-6"></i></a>
+</div>
+{% endblock %}

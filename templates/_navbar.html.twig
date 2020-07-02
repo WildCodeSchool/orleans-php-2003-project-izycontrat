@@ -1,11 +1,11 @@
 <nav class="navbar fixed-top navbar-expand-md">
-    <div class="mx-auto order-0">
+    <div class="nav-content mx-auto order-0">
         <a class="navbar-brand" href="/"><img src="/images/Logo_Izy_Contrat_H.png" alt=""></a>
         <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target=".dual-collapse2">
             <span class="navbar-toggler-icon"> </span>
         </button>
     </div>
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <div class="navbar-collapse collapse w-75 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="/">Accueil</a>
@@ -21,7 +21,7 @@
             </li>
             {% if app.user %}
             <li class="nav-item">
-                <a class="nav-link" id="connexion" href="{{ path('area_member') }}">
+                <a class="nav-link" id="connexion" href="{{ path('dashboard_home') }}">
                     <img class="portrait"
                          src="https://www.agence-spoutnik.com/wp-content/uploads/2011/04/silhouette-portrait-femme-280x280.jpg"
                          alt="Logo Izy-Contrat">
@@ -31,7 +31,7 @@
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link" id="connexion" href="" data-toggle="modal" data-target=".bd-example-modal-lg">
-                        Connection/Inscription
+                        Connexion / Inscription
                     </a>
                 </li>
             {% endif %}

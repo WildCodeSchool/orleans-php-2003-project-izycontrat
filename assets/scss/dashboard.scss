@@ -71,14 +71,15 @@
 /*----------------page-wrapper----------------*/
 
 .page-wrapper {
-    height: 100vh;
+    height: 100%;
+    padding: 0 0 0 60px;
 }
 
 .sidebar-footer a:hover {
     color: $secondary-color;
 }
 
-.page-wrapper ul li span:not(.animated-line){
+.page-wrapper ul li span:not(.animated-line) {
     display: none;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -147,13 +148,21 @@
     width: 300px;
 }
 
+@media (max-width: 768px) {
+    .page-wrapper.toggled .sidebar-wrapper {
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .page-wrapper.toggled .sidebar-content .sidebar-menu .header-menu {
     height: 45px;
 }
 
 @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content, .page-wrapper.toggled section:not(.homeTop), .page-wrapper.toggled .homeTxt {
-        padding: 0 0 0 300px;
+        padding: 100px 0 0 300px;
     }
 
     .footer.toggled {
@@ -186,11 +195,10 @@
 /*----------------sidebar-wrapper----------------*/
 
 .sidebar-wrapper {
-    border-top-right-radius: $spacing;
     font-size: 1rem;
     width: 60px;
-    min-height: calc(100% - 80px);
-    padding-bottom: 50px;
+    bottom: 0;
+    height: calc(100vh - 80px);
     position: fixed;
     top: 80px;
     left: 0;
@@ -344,7 +352,7 @@
     top: 14px;
 }
 
-.page-wrapper:not(.toggled) .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after{
+.page-wrapper:not(.toggled) .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
     display: none;
 }
 
@@ -444,12 +452,9 @@
     display: inline-block;
     width: 100%;
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 100px;
 }
 
-.page-wrapper .page-content > div {
-    padding: 20px 40px;
-}
 
 .page-wrapper .page-content {
     overflow-x: hidden;

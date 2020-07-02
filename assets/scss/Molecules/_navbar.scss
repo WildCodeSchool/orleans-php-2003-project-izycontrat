@@ -1,3 +1,5 @@
+@import "../_vars";
+
 nav {
     margin: 0;
     padding: 0;
@@ -5,17 +7,19 @@ nav {
 }
 
 .navbar {
+    height: 80px;
+    padding: 0;
     background-color: $light-color;
     box-shadow: 1px 1px 3px #BEA058;
-    -webkit-transition: background-color 0.2s ease-in-out;
-    -moz-transition: background-color 0.2s ease-in-out;
-    -ms-transition: background-color 0.2s ease-in-out;
-    -o-transition: background-color 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-nav{
+    background-color: $light-color;
 }
 
 .navbar-brand img {
     width: 200px;
+    margin-left: 32px;
 }
 
 .portrait {
@@ -24,12 +28,12 @@ nav {
 }
 
 .nav-link {
-    color: $primary-darker;
     margin-left: $spacing;
     margin-right: $spacing;
 }
 
 .nav-item {
+    color: $primary-darker;
     padding: $spacing-s;
 
     & :hover{
@@ -43,4 +47,8 @@ nav {
 
 .fa-phone {
     color: $secondary-color;
+}
+
+.show{
+    padding-top: 10px;
 }

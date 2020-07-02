@@ -17,10 +17,10 @@ $theme-colors: (
 
 $font-text: 'Montserrat', sans-serif;
 $font-title: 'Playfair Display SC', serif;
-$font-size: 16pt;
-$font-size-sub-title: 24pt;
-$font-size-title: 36pt;
-$font-size-h1: 60pt;
+$font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)));
+$font-size-sub-title: calc(24px + (36 - 24) * ((100vw - 300px) / (1600 - 300)));
+$font-size-title: calc(36px + (48 - 36) * ((100vw - 300px) / (1600 - 300)));
+$font-size-h1: calc(54px + (66 - 54) * ((100vw - 300px) / (1600 - 300)));
 
 $spacing: 16px;
 $spacing-xs: $spacing / 4;

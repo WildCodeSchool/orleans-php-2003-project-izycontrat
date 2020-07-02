@@ -1,8 +1,8 @@
 @import "vars";
 
 .team{
+    padding-top: 100px;
     padding-bottom: $spacing-l;
-    margin-top: 81px + $spacing-l;
 
     h2{
         margin-bottom: $spacing-l;
@@ -18,8 +18,8 @@
         margin-bottom: $spacing-xl;
 
         .member-pic{
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             object-fit: cover;
         }

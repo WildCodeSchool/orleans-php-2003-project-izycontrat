@@ -6,10 +6,12 @@
 
 body {
     margin: 0;
+    height: 100vh;
     font-family: $font-text;
     font-size: $font-size;
     background: url("/images/creampaper.png") repeat;
     color: $primary-darker;
+    overflow-x: hidden;
 }
 
 .gold, .btn:hover{
@@ -21,6 +23,7 @@ body {
 }
 
 .btn {
+    font-size: $font-size;
     border-radius: 50px;
     text-transform: uppercase;
 }
@@ -35,17 +38,17 @@ h1, h2, h3, h4 {
     color: $secondary-color;
 }
 
-h1 {
+section h1 {
     font-size: $font-size-h1;
     font-weight: 600;
     letter-spacing: 5px;
 }
 
-h2 {
+section h2 {
     font-size: $font-size-title;
 }
 
-h3 {
+section h3 {
     font-size: $font-size-sub-title;
 }
 

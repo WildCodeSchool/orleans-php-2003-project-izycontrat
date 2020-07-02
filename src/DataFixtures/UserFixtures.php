@@ -17,13 +17,19 @@ class UserFixtures extends Fixture
         'Jane Doe' => [
             'infos' => [
                 "jane.doe@gmail.com",
-                ['ROLE_USER']
+                []
             ]
         ],
         'Janine Doe' => [
             'infos' => [
                 "janine.doe@gmail.com",
                 ['ROLE_ADMIN']
+            ]
+        ],
+        'John Doe' => [
+            'infos' => [
+                "john.doe@gmail.com",
+                ['ROLE_LAWYER']
             ]
         ]
     ];
@@ -45,21 +51,6 @@ class UserFixtures extends Fixture
             ));
             $manager->persist($user);
         }
-
-        for ($i=1; $i<=50; $i++) {
-            $user = new User();
-            $faker  =  Faker\Factory::create('fr_FR');
-            $user->setEmail($faker->email);
-            $user->setPassword($faker->word);
-            $user->setPassword($this->passwordEncoder->encodePassword(
-                $user,
-                'password'
-            ));
-            if ($i>25) {
-                $user->setRoles(['ROLE_CLIENT']);
-            }
-            $manager->persist($user);
-        }
         for ($j=1; $j<=1; $j++) {
             $user = new User();
             $faker  =  Faker\Factory::create('fr_FR');
@@ -70,11 +61,12 @@ class UserFixtures extends Fixture
                 'password'
             ));
             $user->setRoles(['ROLE_ADMIN']);
+            $this->addReference('user_' . $j, $user);
             $manager->persist($user);
         }
         for ($k=1; $k<=1; $k++) {
             $user = new User();
-            $faker  =  Faker\Factory::create('fr_FR');
+            $faker = Faker\Factory::create('fr_FR');
             $user->setEmail($faker->email);
             $user->setPassword($faker->word);
             $user->setPassword($this->passwordEncoder->encodePassword(
