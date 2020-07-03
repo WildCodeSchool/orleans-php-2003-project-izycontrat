@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => 'Louis',
@@ -32,7 +32,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('lastName', TextType::class, [
                 'label' => 'Nom',
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => 'Dupons',
@@ -41,7 +41,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Téléphone',
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => '0X XX XX XX XX',
@@ -50,7 +50,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('address', TextareaType::class, [
                 'label' => 'Adresse',
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => '15 rue de la patte d\'oie 78000 Versaille',
@@ -59,7 +59,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('country', CountryType::class, [
                 'label' => 'Pays',
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'preferred_choices' => array('FR'),
                 'required'    => true,

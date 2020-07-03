@@ -44,14 +44,14 @@ class RegistrationController extends AbstractController
             $person->setFirstName($form->get('firstName')->getData());
             $person->setLastName($form->get('lastName')->getData());
             $person->setPhoneNumber($form->get('phoneNumber')->getData());
-
-            $user->setEmail($form->get('user')->getData()->getEmail());
+            $user->setEmail($request->request->get('registration_form')['user']['email']);
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
                     $request->request->all()['registration_form']['user']['password']
                 )
             );
+            $user->setIsVerified(false);
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($user);
