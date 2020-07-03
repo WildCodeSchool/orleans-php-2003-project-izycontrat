@@ -13,17 +13,62 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class)
-            ->add('lastName', TextType::class)
-            ->add('phoneNumber', TelType::class)
-            ->add('address', TextareaType::class)
-            ->add('country', CountryType::class)
+            ->add('firstName', TextType::class, [
+                'label' => 'Prénom',
+                'mapped' => false,
+                'empty_data'  => null,
+                'attr' => array(
+                    'placeholder' => 'Louis',
+                ),
+                'required'    => false,
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => 'Nom',
+                'mapped' => false,
+                'empty_data'  => null,
+                'attr' => array(
+                    'placeholder' => 'Dupons',
+                ),
+                'required'    => false,
+            ])
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Téléphone',
+                'mapped' => false,
+                'empty_data'  => null,
+                'attr' => array(
+                    'placeholder' => '0X XX XX XX XX',
+                ),
+                'required'    => false,
+            ])
+            ->add('address', TextareaType::class, [
+                'label' => 'Adresse',
+                'mapped' => false,
+                'empty_data'  => null,
+                'attr' => array(
+                    'placeholder' => '15 rue de la patte d\'oie 78000 Versaille',
+                ),
+                'required'    => false,
+            ])
+            ->add('country', CountryType::class, [
+                'label' => 'Pays',
+                'mapped' => false,
+                'empty_data'  => null,
+                'preferred_choices' => array('FR'),
+                'required'    => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le Pays ne doit pas être vide.',
+                    ]),
+                ],
+            ])
             ->add(
                 $builder->create('user', UserType::class, ['by_reference' => true,])
             )

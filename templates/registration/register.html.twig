@@ -10,14 +10,14 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.firstName, { 'label': 'Prénom' }) }}
-        {{ form_row(registrationForm.lastName, { 'label': 'Nom' }) }}
-        {{ form_row(registrationForm.phoneNumber, { 'label': 'Téléphone' }) }}
-        {{ form_row(registrationForm.address, { 'label': 'Adresse' }) }}
-        {{ form_row(registrationForm.country, { 'label': 'Pays' }) }}
-        {{ form_row(registrationForm.user.email, { 'label': 'Mail' }) }}
-        {{ form_row(registrationForm.user.password, { 'label': 'Mot de passe' }) }}
-        {{ form_row(registrationForm.user.agreeTerms, { 'label': 'Conditions d\'utilisation' }) }}
+        {{ form_row(registrationForm.firstName) }}
+        {{ form_row(registrationForm.lastName) }}
+        {{ form_row(registrationForm.phoneNumber) }}
+        {{ form_row(registrationForm.address) }}
+        {{ form_row(registrationForm.country) }}
+        {{ form_row(registrationForm.user.email) }}
+        {{ form_row(registrationForm.user.password) }}
+        {{ form_row(registrationForm.user.agreeTerms)|replace({'#CGU#': '<a class="text-secondary" href="">Conditions Générales d’Utilisation</a>'})|raw }}
 
         <button type="submit" class="btn btn-primary">Valider l'inscription</button>
     {{ form_end(registrationForm) }}
@@ -27,4 +27,15 @@
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('register_user') }}
+{% endblock %}
+{% block javascripts %}
+    <script>
+        document.getElementById('registration_form_phoneNumber').addEventListener("keyup", function(e){
+            if (e.key !== "Backspace" || e.key !== "Delete"){
+                const txt = this.value;
+                if (txt.length===2 || txt.length===5 || txt.length===6 || txt.length===8 || txt.length===11)
+                    this.value=this.value+" ";
+            }
+        });
+    </script>
 {% endblock %}
