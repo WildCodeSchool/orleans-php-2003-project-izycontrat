@@ -29,6 +29,9 @@ class RegistrationController extends AbstractController
         GuardAuthenticatorHandler $guardHandler,
         UserAuthenticator $authenticator
     ): ?Response {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_home');
+        }
         $person = new Person();
         $user = new User();
         $person->setUser($user);
