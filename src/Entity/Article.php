@@ -64,6 +64,11 @@ class Article
      */
     private $imageFile;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -96,6 +101,9 @@ class Article
     public function setImageFile(?File $image = null): void
     {
         $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
     }
 
     public function getImageFile(): ?File
@@ -137,6 +145,18 @@ class Article
     public function setCreatedBy(?object $createdBy): self
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
