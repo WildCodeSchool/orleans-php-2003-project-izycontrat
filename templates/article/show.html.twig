@@ -28,7 +28,7 @@
                                 <div><img class="fullArticleImage" src="{{ vich_uploader_asset(article, 'imageFile') }}"
                                                         alt={{ article.title }}/></div>
                                         {% endif %}
-                                            <p class="card-text">{{ article.text }}</p>
+                                            <p class="card-text">{{ article.text|raw }}</p>
                                     </div>
                                 </div>
                                 <div class="row my-2">

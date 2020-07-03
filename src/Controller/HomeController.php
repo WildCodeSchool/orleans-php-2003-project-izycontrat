@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
- * @Route("/", name="app_")
+ * @Route(name="app_")
  */
 class HomeController extends AbstractController
 {
