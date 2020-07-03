@@ -1,0 +1,10 @@
+@import '_vars';
+
+.registerUser{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.form-control{
+  width: 400px;
+}

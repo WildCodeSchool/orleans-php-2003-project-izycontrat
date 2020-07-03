@@ -1,16 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends '_layout.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <div class="container">
-
+<section class="page-content container-fluid col-10 col-lg-10 pb-4">
+    <h2>Inscription</h2>
+    <div class="registerUser row row-cols-1 row-cols-md-2 row-cols-xl-3">
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
-    <h1 class="pt-4">Register</h1>
-
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.firstName, { 'label': 'Prénom' }) }}
         {{ form_row(registrationForm.lastName, { 'label': 'Nom' }) }}
@@ -19,9 +17,14 @@
         {{ form_row(registrationForm.country, { 'label': 'Pays' }) }}
         {{ form_row(registrationForm.user.email, { 'label': 'Mail' }) }}
         {{ form_row(registrationForm.user.password, { 'label': 'Mot de passe' }) }}
-        {{ form_row(registrationForm.user.agreeTerms) }}
+        {{ form_row(registrationForm.user.agreeTerms, { 'label': 'Conditions d\'utilisation' }) }}
 
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Valider l'inscription</button>
     {{ form_end(registrationForm) }}
     </div>
+</section>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('register_user') }}
 {% endblock %}
