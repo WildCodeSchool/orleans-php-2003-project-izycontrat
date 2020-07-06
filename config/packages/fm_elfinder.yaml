@@ -17,3 +17,18 @@ fm_elfinder:
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg'] # Fichiers autorisés
                         upload_deny: ['all'] # Fichiers interdits
                         upload_max_size: 2M # Taille maximum
+
+        form:
+            locale: fr # defaults to current request locale
+            editor: form # other choices are tinymce or simple, and form
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads/article
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M

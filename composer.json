@@ -49,6 +49,8 @@
         "symfony/web-server-bundle": "4.4.*"
     },
     "config": {
+        "bin-dir": "bin",
+        "component-dir": "public/assets",
         "preferred-install": {
             "*": "dist"
         },
