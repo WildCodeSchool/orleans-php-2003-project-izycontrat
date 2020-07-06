@@ -1,6 +1,6 @@
 language: php
 php:
-    - '7.3'
+    - '7.4'
 before_install:
     - if [ -d "./.idea" ]; then echo "Forbidden idea folder found ! Please, ignore them globaly..."; exit 2; fi
     - if [ -d "./.vscode" ]; then echo "Forbidden vscode folder found ! Please, ignore them globaly..."; exit 2; fi
