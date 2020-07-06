@@ -22,6 +22,14 @@ class DashboardController extends AbstractController
     }
 
     /**
+     * @Route("/profile", name="profile")
+     */
+    public function profile()
+    {
+        return $this->render('dashboard/profile.html.twig');
+    }
+
+    /**
      * @Route("/admin/clients", name="admin_clients")
      */
     public function adminClientsList()
