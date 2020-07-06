@@ -25,12 +25,13 @@ Encore
     .addEntry('login', './assets/js/login.js')
 
     .addStyleEntry('team', './assets/scss/team.scss')
+    .addStyleEntry('dashboardPage', './assets/scss/dashboardPage.scss')
     .addStyleEntry('clientsList', './assets/scss/clientsList.scss')
     .addStyleEntry('lawyersList', './assets/scss/lawyersList.scss')
     .addStyleEntry('register_user', './assets/scss/registerUser.scss')
 
-    // .addEntry('page1', './assets/js/page1.js')
-    // .addEntry('page2', './assets/js/page2.js')
+// .addEntry('page1', './assets/js/page1.js')
+// .addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

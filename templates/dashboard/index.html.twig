@@ -1,23 +1,29 @@
 {% extends '_layout.html.twig' %}
 
 {% block title %}{% endblock %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('dashboardPage') }}
+{% endblock %}
 {% block body %}
-    <style>
-        .avatar {
-            height: 100px;
-            border-radius: 50%;
-        }
-    </style>
-    <section class="page-content container-fluid col-12 col-lg-10">
-        <div>
-            <h3 class="col-12 col-lg-10">Profil</h3>
-            <img class="avatar" src="{{ user.profilePicture }}" alt="photo de {{ person.firstname }} {{ person.lastname }}">
-            <p>{{ person.firstname }} {{ person.lastname }}</p>
-            <p>{{ user.email }}</p>
-            <p>{{ person.phoneNumber }}</p>
-            <p>{{ person.address }}</p>
-        </div>
+    <section class="page-content container-fluid col-10">
+        <h3 class="col-10">Profil</h3>
+        <div class="profile">
+            <div class="avatar">
+                <img src="{{ user.profilePicture }}"
+                     alt="photo de {{ person.firstname }} {{ person.lastname }}">
+            </div>
+            <div class="sub">
+                <div>
+                    <div>{{ person.firstname }} {{ person.lastname }}</div>
+                    <div>{{ user.email }}</div>
+                </div>
+                <div>
+                    <div>{{ person.phoneNumber }}</div>
+                    <div>{{ person.address }}</div>
+                </div>
 
+            </div>
+        </div>
     </section>
 {% endblock %}
