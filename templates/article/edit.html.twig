@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Edition Article{% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
+
 {% block body %}
 <div class="container-fluid">
     <div class="row">
@@ -16,7 +14,4 @@
         <a href="{{ path('article_index') }}"><i class=" my-5 fas fa-arrow-alt-circle-left fa-5x"></i></a>
     </div>
 </div>
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
 {% endblock %}

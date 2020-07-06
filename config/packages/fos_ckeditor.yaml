@@ -4,22 +4,9 @@ twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
 fos_ck_editor:
-  default_config: article
-  configs:
-    article:
-      filebrowserBrowseRoute: "elfinder"
-      filebrowserBrowseRouteParameters:
-        instance: "default"
-      language: fr
-      autoload: false
-      async: true
-      toolbar: "article_toolbar"
-  toolbars:
     configs:
-      article_toolbar: ["@clipboard", "@styles", "@format", "@paragraph"]
-    items:
-      clipboard: ['Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord']
-      styles: ['Font', 'FontSize']
-      format: ['Bold', 'Italic', 'Underline', 'TextColor', 'BGColor']
-      paragraph: ['Image', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']
-      template: ['NewPage', 'Print']
+        main_config:
+            toolbar:
+                - { name: "styles", items: ['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source'] }
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
