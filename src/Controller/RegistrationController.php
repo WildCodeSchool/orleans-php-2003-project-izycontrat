@@ -4,7 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Person;
 use App\Entity\User;
-use App\Form\RegistrationFormType;
+use App\Form\RegistrationLawyerType;
+use App\Form\RegistrationUserType;
 use App\Security\UserAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,7 +36,7 @@ class RegistrationController extends AbstractController
         $person = new Person();
         $user = new User();
         $person->setUser($user);
-        $form = $this->createForm(RegistrationFormType::class, $person);
+        $form = $this->createForm(RegistrationUserType::class, $person);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -92,7 +93,7 @@ class RegistrationController extends AbstractController
         $person = new Person();
         $user = new User();
         $person->setUser($user);
-        $form = $this->createForm(RegistrationFormType::class, $person);
+        $form = $this->createForm(RegistrationLawyerType::class, $person);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
