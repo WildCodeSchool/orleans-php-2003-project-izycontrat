@@ -52,8 +52,7 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true,
-        "component-dir": "public/assets"
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {

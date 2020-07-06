@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Article;
-use FM\ElfinderBundle\ElFinder\ElFinder;
-use FM\ElfinderBundle\Form\Type\ElFinderType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,16 +16,13 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', null, ['label' => 'Titre de l\'article'])
-            ->add('imageFile', ElFinderType::class, [
-                'mapped' => true,
+            ->add('imageFile', VichImageType::class, [
                 'required' => false,
-                'instance'=>'form',
+                'allow_delete' => true, // not mandatory, default is true
+                'download_uri' => true, // not mandatory, default is true
                 'label' => 'Image de couverture',
-                'enable'=>true])
-            ->add('text', CKEditorType::class, [
-                'config_name' => 'article',
-                'label' => 'Article'
-            ]);
+            ])
+            ->add('text', CKEditorType::class, ['label' => 'Article']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

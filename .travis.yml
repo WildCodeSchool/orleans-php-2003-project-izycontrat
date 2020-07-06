@@ -1,6 +1,6 @@
 language: php
 php:
-    - '7.4'
+    - '7.3'
 before_install:
     - if [ -d "./.idea" ]; then echo "Forbidden idea folder found ! Please, ignore them globaly..."; exit 2; fi
     - if [ -d "./.vscode" ]; then echo "Forbidden vscode folder found ! Please, ignore them globaly..."; exit 2; fi
@@ -14,6 +14,8 @@ script:
     - ./bin/phpcs
     - ./bin/phpstan analyse src --level max
     - ./bin/phpmd src text phpmd.xml
+    - ./bin/eslint assets/js
+    - ./bin/sass-lint -c sass-linter.yml -v
 notifications:
     email:
         - TRAINER@wildcodeschool.fr
