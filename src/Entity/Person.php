@@ -101,6 +101,16 @@ class Person
      */
     private $score;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Type("string", message="Mauvais format de données")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le domaine d'expertise doit contenir au maximum {{ limit }} characters"
+     * )
+     */
+    private $specialization;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -222,6 +232,18 @@ class Person
     public function setScore(?int $score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getSpecialization(): ?string
+    {
+        return $this->specialization;
+    }
+
+    public function setSpecialization(?string $specialization): self
+    {
+        $this->specialization = $specialization;
 
         return $this;
     }

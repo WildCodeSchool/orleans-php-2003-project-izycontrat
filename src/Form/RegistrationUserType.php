@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class RegistrationFormType extends AbstractType
+class RegistrationUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -53,7 +53,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
-                    'placeholder' => '15 rue de la patte d\'oie 78000 Versaille',
+                    'placeholder' => '15 rue de la patte d\'oie 78000 Versailles',
                 ),
                 'required'    => false,
             ])
