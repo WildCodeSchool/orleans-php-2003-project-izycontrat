@@ -1,17 +1,10 @@
 {
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.0",
-        "@symfony/webpack-encore": "^0.27.0",
-        "bootstrap": "^4.5.0",
+        "@symfony/webpack-encore": "^0.30.0",
         "core-js": "^3.0.0",
-        "eslint": "^6.1.0",
-        "eslint-config-airbnb": "^17.1.1",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-react": "^7.14.3",
-        "jquery": "^3.5.1",
-        "popper.js": "^1.16.1",
-        "sass-lint": "^1.13.1",
+        "node-sass": "^4.14.1",
+        "regenerator-runtime": "^0.13.2",
+        "sass-loader": "^8.0.0",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -21,10 +14,5 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
-    },
-    "dependencies": {
-        "node-sass": "^4.14.1",
-        "sass-loader": "^8.0.0",
-        "serialize-javascript": "^3.0.0"
     }
 }
