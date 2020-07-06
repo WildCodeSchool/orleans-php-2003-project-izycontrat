@@ -39,6 +39,15 @@ class RegistrationFormType extends AbstractType
                 ),
                 'required'    => false,
             ])
+            ->add('specialization', TextType::class, [
+                'label' => 'Domaine d\'expertise',
+                'mapped' => true,
+                'empty_data'  => null,
+                'attr' => array(
+                    'placeholder' => 'Droit des entreprises',
+                ),
+                'required'    => false,
+            ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Téléphone',
                 'mapped' => true,
@@ -53,7 +62,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
-                    'placeholder' => '15 rue de la patte d\'oie 78000 Versaille',
+                    'placeholder' => '15 rue de la patte d\'oie 78000 Versailles',
                 ),
                 'required'    => false,
             ])
