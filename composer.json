@@ -49,12 +49,12 @@
         "symfony/web-server-bundle": "4.4.*"
     },
     "config": {
-        "bin-dir": "bin",
-        "component-dir": "public/assets",
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "bin-dir": "bin",
+        "component-dir": "public/assets"
     },
     "autoload": {
         "psr-4": {
