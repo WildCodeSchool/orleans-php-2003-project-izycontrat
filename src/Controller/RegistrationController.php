@@ -101,6 +101,7 @@ class RegistrationController extends AbstractController
             $person->setFirstName($form->get('firstName')->getData());
             $person->setLastName($form->get('lastName')->getData());
             $person->setPhoneNumber($form->get('phoneNumber')->getData());
+            $person->setSpecialization($form->get('specialization')->getData());
             $user->setEmail($request->request->get('registration_form')['user']['email']);
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -109,6 +110,7 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setIsVerified(false);
+            $user->setRoles(['ROLE_LAWYER']);
             $entityManager = $this->getDoctrine()->getManager();
 
             $entityManager->persist($user);
