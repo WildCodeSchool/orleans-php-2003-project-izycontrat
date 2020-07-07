@@ -23,8 +23,13 @@
             <li class="nav-item">
                 <a class="nav-link" id="connexion" href="{{ path('dashboard_home') }}">
                     <img class="portrait"
+                         {% if app.user.profilePicture %}
+                         src="{{ app.user.profilePicture }}"
+                         {% else %}
                          src="https://www.agence-spoutnik.com/wp-content/uploads/2011/04/silhouette-portrait-femme-280x280.jpg"
-                         alt="Logo Izy-Contrat">
+                         {% endif %}
+                         alt="user picture"
+                    >
                     Mon compte
                 </a>
             </li>
