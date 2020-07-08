@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
+const Translator = require('bazinga-translator');
 
 Encore
     // directory where compiled assets will be stored
@@ -23,14 +24,17 @@ Encore
     .addEntry('js_dashboard', './assets/js/dashboard.js')
     .addEntry('home', './assets/js/home.js')
     .addEntry('login', './assets/js/login.js')
+    .addEntry('documentJs', './assets/js/documentJs.js')
 
     .addStyleEntry('team', './assets/scss/team.scss')
     .addStyleEntry('clientsList', './assets/scss/clientsList.scss')
     .addStyleEntry('lawyersList', './assets/scss/lawyersList.scss')
     .addStyleEntry('register_user', './assets/scss/registerUser.scss')
+    .addStyleEntry('editor', './assets/scss/editor.scss')
+    .addStyleEntry('document', './assets/scss/document.scss')
 
-    // .addEntry('page1', './assets/js/page1.js')
-    // .addEntry('page2', './assets/js/page2.js')
+// .addEntry('page1', './assets/js/page1.js')
+// .addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
