@@ -3,7 +3,24 @@
 {% block title %}Mon profil{% endblock %}
 
 {% block body %}
-    <section class="page-content container-fluid col-12 col-lg-10">
+    <section class="page-content container-fluid col-10 col-lg-10 pb-4">
+        <h2>Inscription</h2>
+        <div class="">
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+            {{ form_start(form) }}
+            {{ form_row(form.firstName) }}
+            {{ form_row(form.lastName) }}
+            {{ form_row(form.phoneNumber) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.country) }}
+            {{ form_row(form.user.email) }}
+            {{ form_row(form.user.password) }}
+            {{ form_row(form.user.agreeTerms)|replace({'#CGU#': '<a class="text-secondary" href="">Conditions Générales d’Utilisation</a>'})|raw }}
 
+            <button type="submit" class="btn btn-primary">Valider l'inscription</button>
+            {{ form_end(form) }}
+        </div>
     </section>
 {% endblock %}

@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Person;
+use App\Form\RegistrationUserType;
 use App\Security\UserAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -31,10 +33,19 @@ class DashboardController extends AbstractController
 
     /**
      * @Route("/profile", name="profile")
+     * @param Request $request
+     * @return Response
      */
-    public function profile()
+    public function profile(Request $request): Response
     {
-        return $this->render('dashboard/profile.html.twig');
+        $user = $this->getUser();
+        $person = $this->getDoctrine()->getRepository(Person::class)->findOneBy(['user' => $user]);
+        $form = $this->createForm(RegistrationUserType::class, $person);
+        $form->handleRequest($request);
+        return $this->render(
+            'dashboard/profile.html.twig',
+            ['form' => $form->createView(),]
+        );
     }
 
     /**

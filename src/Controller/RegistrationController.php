@@ -45,11 +45,11 @@ class RegistrationController extends AbstractController
             $person->setFirstName($form->get('firstName')->getData());
             $person->setLastName($form->get('lastName')->getData());
             $person->setPhoneNumber($form->get('phoneNumber')->getData());
-            $user->setEmail($request->request->get('registration_form')['user']['email']);
+            $user->setEmail($request->request->get('registration_user')['user']['email']);
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $request->request->all()['registration_form']['user']['password']
+                    $request->request->all()['registration_user']['user']['password']
                 )
             );
             $user->setIsVerified(false);
@@ -103,11 +103,11 @@ class RegistrationController extends AbstractController
             $person->setLastName($form->get('lastName')->getData());
             $person->setPhoneNumber($form->get('phoneNumber')->getData());
             $person->setSpecialization($form->get('specialization')->getData());
-            $user->setEmail($request->request->get('registration_form')['user']['email']);
+            $user->setEmail($request->request->get('registration_user')['user']['email']);
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
-                    $request->request->all()['registration_form']['user']['password']
+                    $request->request->all()['registration_user']['user']['password']
                 )
             );
             $user->setIsVerified(false);
