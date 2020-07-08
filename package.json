@@ -23,6 +23,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "bazinga-translator": "^3.0.1",
         "node-sass": "^4.14.1",
         "sass-loader": "^8.0.0",
         "serialize-javascript": "^3.0.0"

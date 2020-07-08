@@ -1,0 +1,26 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Liste des documents{% endblock %}
+
+{% block body %}
+    <section class="page-content container-fluid col-12 col-lg-10">
+        <h1>Liste des documents</h1>
+        <table class="table">
+            <thead class="bg-primary text-light">
+            <tr>
+                <th scope="col">Document</th>
+                <th scope="col">Option</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for document in documents %}
+                {% set doc = document.fileName|split('_', 2) %}
+                <tr>
+                    <th scope="row">{{ doc.0 }}</th>
+                    <td></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

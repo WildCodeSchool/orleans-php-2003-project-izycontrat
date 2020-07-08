@@ -33,7 +33,7 @@
                                         {% if article.text|length > 500 %}
                                             <p class="card-text">{{ article.text|slice(0, 500)|raw }}...</p>
                                         {% else %}
-                                            <p class="card-text">{{ article.text }}</p>
+                                            <p class="card-text">{{ article.text|raw }}</p>
                                         {% endif %}
                                     </div>
                                 </div>

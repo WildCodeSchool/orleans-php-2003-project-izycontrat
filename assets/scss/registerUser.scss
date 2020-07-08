@@ -1,0 +1,15 @@
+@import '_vars';
+
+.page-content h2{
+    text-align: center;
+}
+
+.registerUser{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.form-control{
+    width: 525px;
+}

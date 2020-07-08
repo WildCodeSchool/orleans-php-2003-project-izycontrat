@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="{{ path('dashboard_profile') }}">
                                 <i class="fas fa-address-card"> </i>
                                 <span>Mon profil</span>
                             </a>
@@ -71,11 +71,21 @@
                                     <span>Gestion des clients</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
+                            <li class="sidebar-dropdown">
+                                <a href="#">
                                     <i class="fas fa-folder"> </i>
                                     <span>Gestion des documents</span>
                                 </a>
+                                <div class="sidebar-submenu">
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('document_home') }}">Voir tous les documents</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('document_new') }}">Ajouter un document</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         {% elseif 'ROLE_LAWYER' in app.user.roles %}
                             <li class="header-menu">

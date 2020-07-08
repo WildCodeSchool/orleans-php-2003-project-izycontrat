@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Person;
+use App\Entity\User;
 use App\Security\UserAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +19,23 @@ class DashboardController extends AbstractController
      */
     public function index()
     {
-        return $this->render('dashboard/index.html.twig');
+        $user = $this->getUser();
+        $person = $this->getDoctrine()->getRepository(Person::class)->findOneBy(['user' => $user]);
+        return $this->render(
+            'dashboard/index.html.twig',
+            [
+            'user' => $user,
+            'person' => $person
+            ]
+        );
+    }
+
+    /**
+     * @Route("/profile", name="profile")
+     */
+    public function profile()
+    {
+        return $this->render('dashboard/profile.html.twig');
     }
 
     /**

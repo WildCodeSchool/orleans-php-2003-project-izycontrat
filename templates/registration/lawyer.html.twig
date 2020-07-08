@@ -1,0 +1,42 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Inscription avocat{% endblock %}
+
+{% block body %}
+    <section class="page-content container-fluid col-10 col-lg-10 pb-4">
+        <h2>Inscription d'un avocat</h2>
+        <div class="registerUser row row-cols-1 row-cols-md-2 row-cols-xl-3">
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.firstName) }}
+            {{ form_row(registrationForm.lastName) }}
+            {{ form_row(registrationForm.specialization) }}
+            {{ form_row(registrationForm.phoneNumber) }}
+            {{ form_row(registrationForm.address) }}
+            {{ form_row(registrationForm.country) }}
+            {{ form_row(registrationForm.user.email) }}
+            {{ form_row(registrationForm.user.password) }}
+            {{ form_row(registrationForm.user.agreeTerms)|replace({'#CGU#': '<a class="text-secondary" href="">Conditions Générales d’Utilisation</a>'})|raw }}
+
+            <button type="submit" class="btn btn-primary">Valider l'inscription</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </section>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('register_user') }}
+{% endblock %}
+{% block javascripts %}
+    <script>
+        document.getElementById('registration_form_phoneNumber').addEventListener("keyup", function(e){
+            if (e.key !== "Backspace" || e.key !== "Delete"){
+                const txt = this.value;
+                if (txt.length===2 || txt.length===5 || txt.length===6 || txt.length===8 || txt.length===11)
+                    this.value=this.value+" ";
+            }
+        });
+    </script>
+{% endblock %}

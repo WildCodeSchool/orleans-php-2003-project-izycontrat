@@ -1,0 +1,16 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    default_config: main_config
+    configs:
+        main_config:
+            toolbar: "Articles"
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
+    toolbars:
+        configs:
+            Articles: [['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', 'HorizontalRule', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source']]
+            Documents: [['Save', 'Print',  'Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', 'HorizontalRule', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source']]

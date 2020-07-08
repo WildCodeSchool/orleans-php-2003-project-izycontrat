@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +22,7 @@ class ArticleType extends AbstractType
                 'download_uri' => true, // not mandatory, default is true
                 'label' => 'Image de couverture',
             ])
-            ->add('text', TextareaType::class, ['label' => 'Article']);
+            ->add('text', CKEditorType::class, ['label' => 'Article']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
