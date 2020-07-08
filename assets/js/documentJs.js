@@ -1,5 +1,8 @@
 const $ = require('jquery');
-$(document).ready(function ($) {
+
+let CKEDITOR;
+
+$(document).ready(() => {
     const editor = CKEDITOR;
     editor.config.forcePasteAsPlainText = false;
     editor.config.toolbar = 'Documents';

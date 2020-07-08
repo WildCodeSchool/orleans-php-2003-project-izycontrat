@@ -65,28 +65,33 @@ p{
     padding-top: 1vw * 100vw / 100vw;
     position: fixed;
   }
+
 }
+
 span.h-card{
-  background-color: $primary-lighter;
-  color: $light-color;
-  border-radius: $spacing-s;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 100px;
-  text-align: center;
-  margin: auto;
-  position: relative;
-  z-index: 10;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  &:hover{
-    background-color: $error-color;
-    cursor: pointer;
-  }
-  .hide{
-    display: none;
-  }
+    background-color: $primary-lighter;
+    color: $light-color;
+    border-radius: $spacing-s;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover{
+      background-color: $error-color;
+      cursor: pointer;
+    }
+
+    .hide{
+      display: none;
+    }
+
 }

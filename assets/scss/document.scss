@@ -1,32 +1,35 @@
 @import "vars";
 
 .container-fluid{
-  margin: auto;
+    margin: auto;
 }
+
 .page-content{
-  margin: auto;
-  padding-top: 5vw;
+    margin: auto;
+    padding-top: 5vw;
 }
+
 .page-wrapper .page-content{
-  padding-left: 5vw !important;
+    padding-left: 5vw !important;
 }
 
 @media screen and (min-width: 768px) {
-  .page-wrapper.toggled .page-content {
-    padding-left: 300px !important;
-  }
+    .page-wrapper.toggled .page-content {
+      padding-left: 300px !important;
+    }
 }
 
 .drag_element{
-  color: #eeeeee;
-  display: flex;
-  padding-top: 10px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    color: #eeeeee;
+    display: flex;
+    padding-top: 10px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
 .drag_element p{
   text-align: center;
   padding-left: 10px;
@@ -36,6 +39,7 @@
   border-radius: $spacing-s;
   background-color: $primary-lighter;
   z-index: 10;
+
   .drag{
     position: absolute;
     left: 0;
@@ -44,4 +48,5 @@
     z-index: 11;
   }
 }
+
 
