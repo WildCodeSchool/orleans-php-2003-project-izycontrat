@@ -312,7 +312,7 @@
     display: inline-block;
 }
 
-.sidebar-wrapper .sidebar-menu ul li a {
+.sidebar-wrapper .sidebar-menu ul li a:not(.drag) {
     display: inline-block;
     width: 100%;
     text-decoration: none;

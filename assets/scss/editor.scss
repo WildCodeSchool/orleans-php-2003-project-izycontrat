@@ -1,0 +1,97 @@
+@import "vars";
+
+$zoom: 100;
+
+.cke_editable
+{
+    line-height: 1.2;
+}
+
+html{
+    background-color: #cdc3a9;
+    background-image: url("/public/images/creampaper.png");
+}
+
+.cke_panel_list{
+    background-color: #eeeeee;
+    width: 300px;
+}
+
+body:not(.cke_ltr){
+    position: relative;
+    bottom: 0 * 100vw / 100vw;
+    margin: 20px auto auto;
+    padding: 5vw;
+    min-height: 84.29vw * 100vw / 100vw;
+    background-color: #eeeeee;
+    width: 60vw * 100vw / 100vw;
+}
+
+p{
+    margin: 0.1vw * 100vw / 100vw;
+}
+
+.cke_top{
+    padding-top: 1vw * 100vw / 100vw;
+    padding-bottom: 1vw * 100vw / 100vw;
+}
+
+@media screen and (max-width: 428px) {
+    .cke_editable{
+        line-height: 1.2;
+    }
+
+    html{
+        background-color: #cdc3a9;
+        background-image: url("/public/images/creampaper.png");
+    }
+
+    body{
+        position: relative;
+        bottom: 0 * 100vw / 100vw;
+        margin: 20px auto 20px auto;
+        padding: 7vw * 100vw / 100vw;
+        min-height: 112.38vw * 100vw / 100vw;
+        background-color: #eeeeee;
+        width: 80vw * 100vw / 100vw;
+    }
+
+    p{
+        font-size: 1vw * 100vw / 100vw;
+        margin: 1vw * 100vw / 100vw;
+    }
+
+    .cke_top{
+        padding-top: 1vw * 100vw / 100vw;
+        position: fixed;
+    }
+
+}
+
+span.h-card{
+    background-color: $primary-lighter;
+    color: $light-color;
+    border-radius: $spacing-s;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover{
+        background-color: $error-color;
+        cursor: pointer;
+    }
+
+    .hide{
+        display: none;
+    }
+
+}

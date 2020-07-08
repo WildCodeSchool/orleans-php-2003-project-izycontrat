@@ -194,11 +194,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->getUsername();
-    }
-
     public function isVerified(): bool
     {
         return $this->isVerified;
@@ -209,5 +204,11 @@ class User implements UserInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        //Les noms des champs à afficher dans l'éditeur de document.
+        return "email";
     }
 }

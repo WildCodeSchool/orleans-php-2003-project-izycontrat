@@ -1,0 +1,124 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Créer un document{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('document') }}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="page-content container-fluid col-12 col-lg-12">
+        <h2>Créer un document</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.fileName) }}
+        {{ form_row(form.content) }}
+        {{ form_end(form) }}
+    </section>
+{% endblock %}
+{% block dashboard %}
+
+{% if app.user %}
+        {% set auth = 'ROLE_ADMIN' in app.user.roles ? 'Administrateur' : 'ROLE_LAWYER' in app.user.roles ? 'Avocat' : 'ROLE_CLIENT' in app.user.roles ? 'Entreprise' : 'Membre' %}
+<div class="row page-wrapper chiller-theme toggled">
+    {% if auth is defined %}
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a>Menu Creation</a>
+                </div>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li>
+                            <a href="{{ path('document_home') }}">
+                                <i class="fas fa-caret-square-left"> </i>
+                                <span>Retourner à la liste</span>
+                            </a>
+                        </li>
+                        {% if 'ROLE_ADMIN' in app.user.roles %}
+                            <li class="header-menu">
+                                <span>Champs de Publipostage</span>
+                            </li>
+                            <div class="contacts">
+                                <ul id="contactList"></ul>
+                            </div>
+                            {% for person in persons %}
+                                {% if
+                                    person == 'id' or
+                                    person == 'user' or
+                                    person == 'gender' or
+                                    person == 'hasCompany' or
+                                    person == 'score' or
+                                    person == 'specialization'
+                                %}
+                                {% else %}
+                                <li class="text-light drag_element"><p>{{ person|trans }}
+                                        <a class="drag" href=""><span hidden>{{ '{{ person.' ~ person ~ ' }}' }}</span></a></p>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% for user in users %}
+                                {% if
+                                    user == 'id' or
+                                    user == 'salt' or
+                                    user == 'profilePicture' or
+                                    user == 'articles' or
+                                    user == 'verified' or
+                                    user == 'isVerified' or
+                                    user == 'password' or
+                                    user == 'roles' or
+                                    user == 'username'
+                                %}
+                                {% else %}
+                                <li class="text-light drag_element"><p>{{ user|trans }}
+                                        <a class="drag" href=""><span hidden>{{ '{{ person.' ~ 'user.' ~ user ~ ' }}' }}</span></a></p>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="{{ path('app_logout') }}">
+                    <i class="fa fa-power-off"> </i>
+                </a>
+            </div>
+        </nav>
+    {% endif %}
+    {% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ url('bazinga_jstranslation_js') }}"></script>
+    <script>
+        'use strict';
+        CKEDITOR.disableAutoInline = true;
+
+        // Implements a simple widget that represents contact details (see http://microformats.org/wiki/h-card).
+        CKEDITOR.plugins.add('hcard', {
+
+            init: function(editor) {
+                editor.on('paste', function(evt) {
+                    let regexp1 = / \}\}<[^>]*>/g;
+                    let regexp2 = /<[^>]*>\{\{ /g;
+                    let target = /<a href="http:\/\/.*">/g;
+                    let data = evt.data.dataValue;
+                    let preResult = evt.data.dataValue.replace(regexp1, '');
+                    const result = preResult.replace(regexp2, '').split('.');
+                    if (!target.test(data)) {
+                        return;
+                    }
+                    evt.data.dataValue = '<span id="' +
+                        result[1] + '" class="h-card">' + Translator.trans(result[1]) + '<a class="hide">' + '\{\{ ' +
+                        preResult.replace(regexp2, '') + ' \}\}' + '</a>' + '</span>\n';
+                });
+            }
+        });
+    </script>
+{% endblock %}
