@@ -22,7 +22,13 @@ class DocumentType extends AbstractType
             ->add('content', CKEditorType::class, [
                 'config' => array(
                     'toolbar' => 'Documents',
-                    'customConfig' => '/build/documentJs.js',
+                    'forcePasteAsPlainText' => false,
+                    'height' => '60vh',
+                    'width' => '95%',
+                    'contentsCss' => '/build/editor.css',
+                    'extraPlugins' => 'hcard, templates',
+                    'allowedContent' => true,
+                    'requiredContent' => 'span[id](h-card); a(test)',
                 ),
                 'label' => false,
                 'mapped' => true,
