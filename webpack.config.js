@@ -27,6 +27,7 @@ Encore
     .addEntry('documentJs', './assets/js/documentJs.js')
 
     .addStyleEntry('team', './assets/scss/team.scss')
+    .addStyleEntry('dashboardPage', './assets/scss/dashboardPage.scss')
     .addStyleEntry('clientsList', './assets/scss/clientsList.scss')
     .addStyleEntry('lawyersList', './assets/scss/lawyersList.scss')
     .addStyleEntry('register_user', './assets/scss/registerUser.scss')

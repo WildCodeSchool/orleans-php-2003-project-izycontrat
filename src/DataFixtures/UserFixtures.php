@@ -11,24 +11,28 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
-     private $passwordEncoder;
+    private $passwordEncoder;
 
     const USERS = [
         'Jane Doe' => [
             'infos' => [
-                "jane.doe@gmail.com",
-                []
+                'jane.doe@gmail.com',
+                'https://www.cs.cornell.edu/sites/default/files/styles/'.
+                'icon-100x100/public/mru8-profile.jpg?itok=tD3kKqTY',
+                ['ROLE_CLIENT']
             ]
         ],
         'Janine Doe' => [
             'infos' => [
-                "janine.doe@gmail.com",
+                'janine.doe@gmail.com',
+                'https://g1dpicorivera.org/wp-content/uploads/2017/04/Diana-WEB.jpg',
                 ['ROLE_ADMIN']
             ]
         ],
         'John Doe' => [
             'infos' => [
-                "john.doe@gmail.com",
+                'john.doe@gmail.com',
+                'https://www.mylan.com/-/media/mylancom/images/leadership/r-coury-july-2019.jpg',
                 ['ROLE_LAWYER']
             ]
         ]
@@ -41,19 +45,24 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $refNumber = 0;
+
         foreach (self::USERS as $infos) {
             $user = new user();
             $user->setEmail(($infos['infos'][0]));
-            $user->setRoles(($infos['infos'][1]));
+            $user->setProfilePicture(($infos['infos'][1]));
+            $user->setRoles(($infos['infos'][2]));
             $user->setPassword($this->passwordEncoder->encodePassword(
                 $user,
                 'password'
             ));
+            $this->addReference('person_' . $refNumber, $user);
             $manager->persist($user);
+            $refNumber++;
         }
-        for ($j=1; $j<=1; $j++) {
+        for ($j = 1; $j <= 1; $j++) {
             $user = new User();
-            $faker  =  Faker\Factory::create('fr_FR');
+            $faker = Faker\Factory::create('fr_FR');
             $user->setEmail($faker->email);
             $user->setPassword($faker->word);
             $user->setPassword($this->passwordEncoder->encodePassword(
@@ -64,7 +73,7 @@ class UserFixtures extends Fixture
             $this->addReference('user_' . $j, $user);
             $manager->persist($user);
         }
-        for ($k=1; $k<=1; $k++) {
+        for ($k = 1; $k <= 1; $k++) {
             $user = new User();
             $faker = Faker\Factory::create('fr_FR');
             $user->setEmail($faker->email);
