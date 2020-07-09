@@ -10,16 +10,9 @@
                 <div class="alert alert-danger" role="alert">{{ flashError }}</div>
             {% endfor %}
             {{ form_start(form) }}
-            {{ form_row(form.firstName) }}
-            {{ form_row(form.lastName) }}
-            {{ form_row(form.phoneNumber) }}
-            {{ form_row(form.address) }}
-            {{ form_row(form.country) }}
-            {{ form_row(form.user.email) }}
-            {{ form_row(form.user.password) }}
-            {{ form_row(form.user.agreeTerms)|replace({'#CGU#': '<a class="text-secondary" href="">Conditions Générales d’Utilisation</a>'})|raw }}
+            {{ form_widget(form) }}
 
-            <button type="submit" class="btn btn-primary">Valider l'inscription</button>
+            <button class="btn btn-secondary offset-11">{{ button_label|default('Valider') }}</button>
             {{ form_end(form) }}
         </div>
     </section>

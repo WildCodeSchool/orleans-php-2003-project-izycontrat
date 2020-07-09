@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Person;
+use App\Form\ClientType;
+use App\Form\LawyerType;
 use App\Form\RegistrationUserType;
 use App\Security\UserAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,7 +42,12 @@ class DashboardController extends AbstractController
     {
         $user = $this->getUser();
         $person = $this->getDoctrine()->getRepository(Person::class)->findOneBy(['user' => $user]);
-        $form = $this->createForm(RegistrationUserType::class, $person);
+
+        if ($this->isGranted(['ROLE_LAWYER'])) {
+            $form = $this->createForm(LawyerType::class, $person);
+        } else {
+            $form = $this->createForm(ClientType::class, $person);
+        }
         $form->handleRequest($request);
         return $this->render(
             'dashboard/profile.html.twig',
