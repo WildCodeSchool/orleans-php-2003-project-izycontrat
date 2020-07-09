@@ -8,7 +8,6 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     // .setManifestKeyPrefix('build/')
-    .addStyleEntry('style_dashboard', './assets/scss/dashboard.scss')
 
     /*
      * ENTRY CONFIG
@@ -19,13 +18,13 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
-    .addStyleEntry('article', './assets/scss/article.scss')
     .addEntry('app', './assets/js/app.js')
     .addEntry('js_dashboard', './assets/js/dashboard.js')
     .addEntry('home', './assets/js/home.js')
     .addEntry('login', './assets/js/login.js')
-    .addEntry('documentJs', './assets/js/documentJs.js')
 
+    .addStyleEntry('style_dashboard', './assets/scss/dashboard.scss')
+    .addStyleEntry('article', './assets/scss/article.scss')
     .addStyleEntry('team', './assets/scss/team.scss')
     .addStyleEntry('dashboardPage', './assets/scss/dashboardPage.scss')
     .addStyleEntry('clientsList', './assets/scss/clientsList.scss')
@@ -37,6 +36,7 @@ Encore
 // .addEntry('page1', './assets/js/page1.js')
 // .addEntry('page2', './assets/js/page2.js')
 
+    .addEntry('fields', './assets/js/fields.js')
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
