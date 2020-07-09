@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Person;
+use App\Entity\User;
 use App\Form\ClientType;
 use App\Form\LawyerType;
 use App\Form\RegistrationUserType;
@@ -27,8 +28,8 @@ class DashboardController extends AbstractController
         return $this->render(
             'dashboard/index.html.twig',
             [
-            'user' => $user,
-            'person' => $person
+                'user' => $user,
+                'person' => $person
             ]
         );
     }
