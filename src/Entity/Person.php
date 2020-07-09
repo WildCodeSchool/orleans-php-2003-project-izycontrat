@@ -247,4 +247,10 @@ class Person
 
         return $this;
     }
+
+    public function __toString()
+    {
+        //Les noms des champs à afficher dans l'éditeur de document.
+        return "firstName,lastName,phoneNumber,address,country,capitalAmountAdding";
+    }
 }
