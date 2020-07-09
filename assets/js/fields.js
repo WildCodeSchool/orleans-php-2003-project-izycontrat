@@ -11,7 +11,7 @@ function toCamelCase(str) {
     }).join('');
 }
 const $fieldEntity = $('#field_entity');
-$fieldEntity.change(function () {
+$fieldEntity.change(function fonction() {
     const $form = $(this).closest('entities');
     const data = {};
     data[$fieldEntity.attr('name')] = $fieldEntity.val();
@@ -28,6 +28,7 @@ $fieldEntity.change(function () {
                 .find('option')
                 .remove()
                 .end();
+            // eslint-disable-next-line guard-for-in,no-restricted-syntax
             for (const value in html) {
                 const o = new Option(toCamelCase(value), toCamelCase(value));
                 $(o).html(toCamelCase(value));

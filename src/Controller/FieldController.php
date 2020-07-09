@@ -4,9 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Field;
 use App\Form\FieldType;
-use App\Repository\FieldRepository;
 use Doctrine\ORM\EntityManager;
-use Monolog\Handler\IFTTTHandler;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Exception\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,10 +18,10 @@ class FieldController extends AbstractController
     /**
      * @Route("/field", name="field", methods={"GET", "POST"})
      * @param Request $request
-     * @param EntityManager $entityManager
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function index(Request $request, EntityManager $entityManager)
+    public function index(Request $request, EntityManagerInterface $entityManager)
     {
         $field = new Field();
         $schemaManager = $entityManager->getConnection()->getSchemaManager();
@@ -60,10 +59,11 @@ class FieldController extends AbstractController
 
     /**
      * @Route("/getFields", name="getFields")
-     * @param EntityManager $entityManager
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
      * @return JsonResponse
      */
-    public function getFields(EntityManager $entityManager): JsonResponse
+    public function getFields(Request $request, EntityManagerInterface $entityManager): JsonResponse
     {
         $schemaManager = $entityManager->getConnection()->getSchemaManager();
         return new JsonResponse($schemaManager->listTableColumns($_POST['entity']));
