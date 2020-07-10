@@ -15,7 +15,8 @@
     {% endblock %}
 </head>
 <body>
-{% include '_navbar.html.twig' %}
+{% block navbar %}{% include '_navbar.html.twig' %}{% endblock %}
+
 
 {% block dashboard %}{% endblock %}
 

@@ -3,8 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Document;
-use App\Entity\Person;
-use App\Entity\User;
+use App\Entity\Field;
 use App\Form\DocumentType;
 use App\Repository\DocumentRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -28,7 +27,7 @@ class DocumentController extends AbstractController
      */
     public function index(DocumentRepository $documents)
     {
-        return $this->render('document/index.html.twig', [
+        return $this->render('dashboard/Admin/document/index.html.twig', [
             'documents' => $documents->findAll(),
         ]);
     }
@@ -42,36 +41,64 @@ class DocumentController extends AbstractController
     public function new(Request $request, SluggerInterface $slugger)
     {
         $document = new Document();
-        $persons = new Person();
-        $user = new User();
+        $entityManager = $this->getDoctrine()->getManager();
+        $fields = $entityManager->getRepository(Field::class)->findAll();
         $filesystem = new Filesystem();
         try {
             $filesystem->mkdir($this->getParameter('document_directory'));
         } catch (IOExceptionInterface $exception) {
             echo "An error occurred while creating your directory at ".$exception->getPath();
         }
-        $persons->setUser(new User());
         $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $originalFilename = $form->getData()['fileName'];
+            $originalFilename = $form->getData()->getFileName();
             // this is needed to safely include the file name as part of the URL
             $safeFilename = $slugger->slug($originalFilename);
             $newFilename = $safeFilename.'_'.uniqid().'.'.'html.twig';
             // updates the 'brochureFilename' property to store the PDF file name
             // instead of its contents
             $document->setFileName($newFilename);
-            $file = $this->getParameter('document_directory') . '/' . $document->getFileName();
-            $filesystem->dumpFile($file, $document->getContent());
             $entityManager->persist($document);
             $entityManager->flush();
             return $this->redirectToRoute('document_home');
         }
-        return $this->render('document/editor.html.twig', [
+        return $this->render('dashboard/Admin/document/editor.html.twig', [
             'form' => $form->createView(),
-            'persons' => explode(',', $persons),
-            'users' => explode(',', $user),
+            'fields' => $fields,
+        ]);
+    }
+
+    /**
+     * @Route("/document/{id}/edit", name="edit")
+     * @param Request $request
+     * @param SluggerInterface $slugger
+     * @param Document $document
+     * @return Response
+     */
+    public function edit(Request $request, SluggerInterface $slugger, Document $document)
+    {
+        $document->setFileName(explode('_', (string)$document->getFileName())[0]);
+        $entityManager = $this->getDoctrine()->getManager();
+        $fields = $entityManager->getRepository(Field::class)->findAll();
+        $form = $this->createForm(DocumentType::class, $document);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $originalFilename = $document->getFileName();
+            // this is needed to safely include the file name as part of the URL
+            $safeFilename = $slugger->slug((string)$originalFilename);
+            $newFilename = $safeFilename.'_'.uniqid().'.'.'html.twig';
+            // updates the 'brochureFilename' property to store the PDF file name
+            // instead of its contents
+            $document->setFileName($newFilename);
+            $entityManager->persist($document);
+            $entityManager->flush();
+            return $this->redirectToRoute('document_home');
+        }
+        return $this->render('dashboard/Admin/document/editor.html.twig', [
+            'form' => $form->createView(),
+            'fields' => $fields,
         ]);
     }
 
