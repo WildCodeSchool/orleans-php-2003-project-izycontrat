@@ -36,15 +36,15 @@ class FieldController extends AbstractController
         if ($fields->isSubmitted()) {
             if (!$this->getDoctrine()->getRepository(
                 Field::class
-            )->findOneBy(['fieldName' => $_POST['field']['fieldName']])) {
-                $field->setLabel($_POST['field']['label']);
-                $field->setEntity($_POST['field']['entity']);
-                $field->setFieldName($_POST['field']['fieldName']);
+            )->findOneBy(['fieldName' => $request->request->get('field')['fieldName']])) {
+                $field->setLabel($request->request->get('field')['label']);
+                $field->setEntity($request->request->get('field')['entity']);
+                $field->setFieldName($request->request->get('field')['fieldName']);
                 $entityManager->persist($field);
                 $entityManager->flush();
             } else {
                 throw new InvalidArgumentException(sprintf(
-                    'Le Champ ' . $_POST['field']['fieldName'] . ' existe déjà',
+                    'Le Champ ' . $request->request->get('field')['fieldName'] . ' existe déjà',
                     get_called_class()
                 ));
             }
@@ -65,7 +65,8 @@ class FieldController extends AbstractController
      */
     public function getFields(Request $request, EntityManagerInterface $entityManager): JsonResponse
     {
+
         $schemaManager = $entityManager->getConnection()->getSchemaManager();
-        return new JsonResponse($schemaManager->listTableColumns($_POST['entity']));
+        return new JsonResponse($schemaManager->listTableColumns($request->request->get('entity')));
     }
 }

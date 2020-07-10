@@ -19,16 +19,22 @@ class Field
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\NotNull()
      * @ORM\Column(type="string", length=255)
      */
     private $label;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\NotNull()
      * @ORM\Column(type="string", length=255)
      */
     private $entity;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\NotNull()
      * @ORM\Column(type="string", length=255)
      */
     private $fieldName;

@@ -22,6 +22,7 @@ Encore
     .addEntry('js_dashboard', './assets/js/dashboard.js')
     .addEntry('home', './assets/js/home.js')
     .addEntry('login', './assets/js/login.js')
+    .addEntry('fields', './assets/js/fields.js')
 
     .addStyleEntry('style_dashboard', './assets/scss/dashboard.scss')
     .addStyleEntry('article', './assets/scss/article.scss')
@@ -33,10 +34,19 @@ Encore
     .addStyleEntry('editor', './assets/scss/editor.scss')
     .addStyleEntry('document', './assets/scss/document.scss')
 
+    .copyFiles([
+        {
+            from: './node_modules/ckeditor/', to: 'ckeditor/[path][name].[ext]', pattern: /\.(js|css)$/, includeSubdirectories: false,
+        },
+        { from: './node_modules/ckeditor/adapters', to: 'ckeditor/adapters/[path][name].[ext]' },
+        { from: './node_modules/ckeditor/lang', to: 'ckeditor/lang/[path][name].[ext]' },
+        { from: './node_modules/ckeditor/plugins', to: 'ckeditor/plugins/[path][name].[ext]' },
+        { from: './node_modules/ckeditor/skins', to: 'ckeditor/skins/[path][name].[ext]' },
+        { from: './assets/ckeditor', to: 'ckeditor/plugins/[path][name].[ext]' },
+    ])
 // .addEntry('page1', './assets/js/page1.js')
 // .addEntry('page2', './assets/js/page2.js')
 
-    .addEntry('fields', './assets/js/fields.js')
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 

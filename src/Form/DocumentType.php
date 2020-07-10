@@ -20,13 +20,14 @@ class DocumentType extends AbstractType
                 'required' => true,
             ])
             ->add('content', CKEditorType::class, [
+                'config_name' => 'doc_config',
                 'config' => array(
                     'toolbar' => 'Documents',
                     'forcePasteAsPlainText' => false,
                     'height' => '60vh',
                     'width' => '95%',
                     'contentsCss' => '/build/editor.css',
-                    'extraPlugins' => 'hcard, templates',
+                    'extraPlugins' => 'hcard, save',
                     'allowedContent' => true,
                     'requiredContent' => 'span[id](h-card); a(test)',
                 ),

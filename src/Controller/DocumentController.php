@@ -88,9 +88,9 @@ class DocumentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $originalFilename = $form->getData()->getFileName();
+            $originalFilename = $document->getFileName();
             // this is needed to safely include the file name as part of the URL
-            $safeFilename = $slugger->slug($originalFilename);
+            $safeFilename = $slugger->slug((string)$originalFilename);
             $newFilename = $safeFilename.'_'.uniqid().'.'.'html.twig';
             // updates the 'brochureFilename' property to store the PDF file name
             // instead of its contents
