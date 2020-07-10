@@ -8,8 +8,8 @@
         <table class="table">
             <thead class="bg-primary text-light">
             <tr>
-                <th scope="col">Document</th>
-                <th scope="col">Option</th>
+                <th scope="col" class="col-2">Document</th>
+                <th scope="col">Options</th>
             </tr>
             </thead>
             <tbody>
@@ -17,7 +17,7 @@
                 {% set doc = document.fileName|split('_', 2) %}
                 <tr>
                     <th scope="row">{{ doc.0 }}</th>
-                    <td></td>
+                    <td>{{ include('document/_delete_form.html.twig') }}</td>
                 </tr>
             {% endfor %}
             </tbody>
