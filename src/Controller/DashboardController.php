@@ -50,6 +50,10 @@ class DashboardController extends AbstractController
             $form = $this->createForm(ClientType::class, $person);
         }
         $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le profil a bien été modifié');
+        }
         return $this->render(
             'dashboard/profile.html.twig',
             ['form' => $form->createView(),]
