@@ -24,7 +24,7 @@ class Document
     private $fileName;
 
     /**
-     * @Assert\NotBlank()
+     * @ORM\Column(type="text")
      */
     private $content;
 

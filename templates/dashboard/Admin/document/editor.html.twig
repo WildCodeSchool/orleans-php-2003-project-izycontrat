@@ -3,8 +3,8 @@
 {% block title %}Créer un document{% endblock %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('document') }}
     {{ parent() }}
+    {{ encore_entry_link_tags('document') }}
 {% endblock %}
 
 {% block body %}
@@ -35,45 +35,14 @@
                                 <span>Retourner à la liste</span>
                             </a>
                         </li>
-                        {% if 'ROLE_ADMIN' in app.user.roles %}
+                        {% if is_granted('ROLE_ADMIN') %}
                             <li class="header-menu">
                                 <span>Champs de Publipostage</span>
                             </li>
-                            <div class="contacts">
-                                <ul id="contactList"></ul>
-                            </div>
-                            {% for person in persons %}
-                                {% if
-                                    person == 'id' or
-                                    person == 'user' or
-                                    person == 'gender' or
-                                    person == 'hasCompany' or
-                                    person == 'score' or
-                                    person == 'specialization'
-                                %}
-                                {% else %}
-                                <li class="text-light drag_element"><p>{{ person|trans }}
-                                        <a class="drag" href=""><span hidden>{{ '{{ person.' ~ person ~ ' }}' }}</span></a></p>
+                            {% for field in fields %}
+                                <li class="text-light drag_element"><p>{{ field.label }}
+                                        <a class="drag" href=""><span hidden>{{ '{{ ' ~ field.entity ~ '.' ~ field.fieldName ~ ' }}' }}</span></a></p>
                                 </li>
-                                {% endif %}
-                            {% endfor %}
-                            {% for user in users %}
-                                {% if
-                                    user == 'id' or
-                                    user == 'salt' or
-                                    user == 'profilePicture' or
-                                    user == 'articles' or
-                                    user == 'verified' or
-                                    user == 'isVerified' or
-                                    user == 'password' or
-                                    user == 'roles' or
-                                    user == 'username'
-                                %}
-                                {% else %}
-                                <li class="text-light drag_element"><p>{{ user|trans }}
-                                        <a class="drag" href=""><span hidden>{{ '{{ person.' ~ 'user.' ~ user ~ ' }}' }}</span></a></p>
-                                </li>
-                                {% endif %}
                             {% endfor %}
                         {% endif %}
                     </ul>

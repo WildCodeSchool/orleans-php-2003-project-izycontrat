@@ -8,7 +8,7 @@
 {% endblock %}
 {% block dashboard %}
 {% if app.user %}
-        {% set auth = 'ROLE_ADMIN' in app.user.roles ? 'Administrateur' : 'ROLE_LAWYER' in app.user.roles ? 'Avocat' : 'ROLE_CLIENT' in app.user.roles ? 'Entreprise' : 'Membre' %}
+        {% set auth = is_granted('ROLE_ADMIN') ? 'Administrateur' : is_granted('ROLE_LAWYER') ? 'Avocat' : is_granted('ROLE_CLIENT') ? 'Entreprise' : 'Membre' %}
 <div class="row page-wrapper chiller-theme">
     {% if auth is defined %}
         <nav id="sidebar" class="sidebar-wrapper">
@@ -39,17 +39,7 @@
                                 <span>Mon profil</span>
                             </a>
                         </li>
-                        {% if 'ROLE_ADMIN' not in app.user.roles and 'ROLE_LAWYER' not in app.user.roles and 'ROLE_CLIENT' not in app.user.roles %}
-                            <li class="header-menu">
-                                <span>Un projet à créer ?</span>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fas fa-project-diagram"> </i>
-                                    <span>Je crée une entreprise!</span>
-                                </a>
-                            </li>
-                        {% elseif 'ROLE_ADMIN' in app.user.roles %}
+                        {% if is_granted('ROLE_ADMIN') %}
                             <li class="header-menu">
                                 <span>Administration</span>
                             </li>
@@ -87,7 +77,7 @@
                                     </ul>
                                 </div>
                             </li>
-                        {% elseif 'ROLE_LAWYER' in app.user.roles %}
+                        {% elseif is_granted('ROLE_LAWYER') %}
                             <li class="header-menu">
                                 <span>Espace de travail</span>
                             </li>
@@ -118,7 +108,7 @@
                                     </ul>
                                 </div>
                             </li>
-                        {%  elseif 'ROLE_ADMIN' not in app.user.roles and 'ROLE_LAWYER' not in app.user.roles %}
+                        {%  elseif is_granted('ROLE_CLIENT') %}
                             <li class="header-menu">
                                 <span>Espace de travail</span>
                             </li>
@@ -148,6 +138,27 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+                        {% elseif is_granted('ROLE_USER') %}
+                            <li class="header-menu">
+                                <span>Un projet à créer ?</span>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <i class="fas fa-project-diagram"> </i>
+                                    <span>Je crée une entreprise!</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li class="header-menu">
+                                <span>Gestion des Champs</span>
+                            </li>
+                            <li>
+                                <a href="{{ path('field') }}">
+                                    <i class="far fa-plus-square"> </i>
+                                    <span>Ajouter un champ</span>
+                                </a>
                             </li>
                         {% endif %}
                     </ul>
