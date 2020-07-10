@@ -3,6 +3,23 @@ Izy Contrat est une startup créée par [Saliha AZOUGAGH](https://www.linkedin.c
 
 
 En premier lieu, soyez bien sûrs d'avoir installé **PHP 7.4** et d'avoir paramétré votre IDE pour l'utiliser.
+##Installation de PHP 7.4 on Ubuntu 18/16 :
+### Add PHP PPA Repository
+- sudo apt-get update
+- sudo apt -y install software-properties-common
+- sudo add-apt-repository ppa:ondrej/php
+- sudo apt-get update
+### Install PHP 7.4 on Ubuntu 18.04/19.04/16.04
+- sudo apt -y install php7.4 php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip}
+### Changez la version actuellement utilisé par votre Terminal
+- sudo update-alternatives --config php
+
+![](https://imgur.com/gKbTvKU.png)
+
+### Vous pouvez ensuite passer à l'installation du projet sur votre machine
+### Pour revenir ensuite à PHP 7.2 vous n'avez juste qu'a retaper la commande : 
+- sudo update-alternatives --config php
+### Et choisir la version 7.2.
 
 ## Requis :
 - PHP v^7.4
