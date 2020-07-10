@@ -7,6 +7,7 @@ use App\Entity\Person;
 use App\Entity\User;
 use App\Form\DocumentType;
 use App\Repository\DocumentRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -72,5 +73,24 @@ class DocumentController extends AbstractController
             'persons' => explode(',', $persons),
             'users' => explode(',', $user),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
+     * @param Request $request
+     * @param Document $document
+     * @return Response
+     */
+    public function delete(Request $request, Document $document): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $document->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($document);
+            $entityManager->flush();
+            $this->addFlash('danger', 'Le document a bien été supprimé');
+        }
+
+        return $this->redirectToRoute('document_home');
     }
 }
