@@ -26,7 +26,7 @@ class PersonFixtures extends Fixture implements DependentFixtureInterface
                 'Doe',
                 1,
                 '09 10 06 07 08',
-                '8 rue Louis Dupas'
+                '8 rue Louis Dupas 45000 Orléans'
             ]
         ],
         'Janine Doe' => [
@@ -35,7 +35,7 @@ class PersonFixtures extends Fixture implements DependentFixtureInterface
                 'Doe',
                 1,
                 '60 70 80 90 10',
-                '8 avenue Louis Dupat'
+                '8 avenue Louis Dupat 92000 Nanterre'
             ]
         ],
         'John Doe' => [
@@ -44,7 +44,7 @@ class PersonFixtures extends Fixture implements DependentFixtureInterface
                 'Doe',
                 0,
                 '10 09 08 07 06',
-                '8 impasse Luis Dupas'
+                '8 impasse Luis Dupas 10101 Romilly-sur-Seine'
             ]
         ]
     ];

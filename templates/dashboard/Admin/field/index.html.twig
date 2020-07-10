@@ -1,0 +1,31 @@
+{% extends '_layout.html.twig' %}
+
+{% block title %}Créer un document{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('document') }}
+{% endblock %}
+
+{% block body %}
+    <div class="page-content container-fluid col-10 col-lg-10">
+        <h2>Ajouter des Champs</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                {% form_theme entities 'bootstrap_4_layout.html.twig' %}
+                {{ form_start(entities, {'attr': {'id': 'entities'}}) }}
+                {{ form_widget(entities) }}
+                {{ form_row(entities.fieldName) }}
+                <button class="btn btn-secondary" form="entities">Ajouter aux Champs</button>
+                {{ form_end(entities) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('fields') }}
+{% endblock %}

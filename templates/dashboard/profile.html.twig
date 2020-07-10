@@ -3,7 +3,21 @@
 {% block title %}Mon profil{% endblock %}
 
 {% block body %}
-    <section class="page-content container-fluid col-12 col-lg-10">
+    <section class="page-content container-fluid col-10 col-lg-10 pb-4">
+        {% for category, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <h2>Modifier mon profil</h2>
+        <div class="">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
 
+            <button class="btn btn-primary offset-11">{{ button_label|default('Valider') }}</button>
+            {{ form_end(form) }}
+        </div>
     </section>
 {% endblock %}
