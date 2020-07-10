@@ -10,20 +10,13 @@
         <h2 class="col-10">Dashboard</h2>
         <h3 class="col-10">Profil</h3>
         <div class="profile">
-            <div class="avatar">
-                <img src="{{ user.profilePicture }}"
-                     alt="photo de {{ person.firstname }} {{ person.lastname }}">
+            <div>
+                <div>{{ person.firstname }} {{ person.lastname }}</div>
+                <div>{{ user.email }}</div>
             </div>
-            <div class="sub">
-                <div>
-                    <div>{{ person.firstname }} {{ person.lastname }}</div>
-                    <div>{{ user.email }}</div>
-                </div>
-                <div>
-                    <div>{{ person.phoneNumber }}</div>
-                    <div>{{ person.address }}</div>
-                </div>
-
+            <div>
+                <div>{{ person.phoneNumber }}</div>
+                <div>{{ person.address }}</div>
             </div>
         </div>
     </section>
