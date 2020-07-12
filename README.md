@@ -2,10 +2,10 @@
 Izy Contrat est une startup créée par [Saliha AZOUGAGH](https://www.linkedin.com/in/saliha-azougagh-a02108119/) qui permet de mettre en relation des créateurs d'entreprises avec des avocats spécialisés de manière simple et efficace.
 
 
-En premier lieu, soyez bien sûrs d'avoir installé **PHP 7.4** et d'avoir paramétré votre IDE pour l'utiliser.
+En premier lieu, soyez bien sûrs d'avoir installé **PHP 7.2** et d'avoir paramétré votre IDE pour l'utiliser.
 
 ## Requis :
-- PHP v^7.4
+- PHP v^7.2
 - NodeJs v^12
 - Yarn v^1.22
 - Composer v^1.10
