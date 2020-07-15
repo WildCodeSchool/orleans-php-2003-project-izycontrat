@@ -6,6 +6,7 @@ use App\Entity\Field;
 use App\Form\FieldType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Exception\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,6 +18,7 @@ class FieldController extends AbstractController
 {
     /**
      * @Route("/field", name="field", methods={"GET", "POST"})
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response

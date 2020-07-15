@@ -22,6 +22,7 @@ class DocumentController extends AbstractController
 {
     /**
      * @Route("/document", name="home")
+     * @IsGranted("ROLE_ADMIN")
      * @param DocumentRepository $documents
      * @return Response
      */
@@ -35,6 +36,7 @@ class DocumentController extends AbstractController
     /**
      * @Route("/document/new", name="new")
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @param SluggerInterface $slugger
      * @return Response
      */
@@ -72,6 +74,7 @@ class DocumentController extends AbstractController
     /**
      * @Route("/document/{id}/edit", name="edit")
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @param SluggerInterface $slugger
      * @param Document $document
      * @return Response
