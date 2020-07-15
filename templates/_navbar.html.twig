@@ -20,11 +20,16 @@
                 </a>
             </li>
             {% if app.user %}
-            <li class="nav-item">
-                <a class="nav-link" id="connexion" href="{{ path('dashboard_home') }}">
-                    Mon compte
-                </a>
-            </li>
+                <li class="dropdown pt-3 pr-3">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ app.user.username }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ path('dashboard_home') }}">Tableau de bord</a>
+                        <a class="dropdown-item" href="{{ path('dashboard_profile') }}">Mon profil</a>
+                        <a class="dropdown-item font-weight-bold text-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+                </li>
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link" id="connexion" href="" data-toggle="modal" data-target=".bd-example-modal-lg">

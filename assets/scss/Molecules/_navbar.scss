@@ -6,6 +6,22 @@ nav {
     font-family: $font-text;
 }
 
+.dropdown-menu{
+    position: relative;
+    background-color: $primary-darker;
+    color: $secondary-color;
+    text-align: center;
+    right: 0;
+}
+
+.dropdown-item{
+    color: $light-color;
+    &:hover{
+        background-color: $primary-darker;
+        color: $secondary-color;
+    }
+}
+
 .navbar {
     height: 80px;
     padding: 0;
