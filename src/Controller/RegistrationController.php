@@ -14,10 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
+/**
+ * @Route("/register", name="register_")
+ */
 class RegistrationController extends AbstractController
 {
     /**
-     * @Route("/register/user", name="user_register")
+     * @Route("/user", name="user")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param GuardAuthenticatorHandler $guardHandler
@@ -74,7 +77,7 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/register/lawyer", name="lawyer_register")
+     * @Route("/lawyer", name="lawyer")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param GuardAuthenticatorHandler $guardHandler

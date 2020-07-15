@@ -16,12 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
- * @Route(name="document_")
+ * @Route("/document", name="document_")
  */
 class DocumentController extends AbstractController
 {
     /**
-     * @Route("/document", name="home")
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/", name="home")
      * @param DocumentRepository $documents
      * @return Response
      */
@@ -33,8 +34,9 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/document/new", name="new")
+     * @Route("/new", name="new")
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @param SluggerInterface $slugger
      * @return Response
      */
@@ -70,8 +72,9 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/document/{id}/edit", name="edit")
+     * @Route("/{id}/edit", name="edit")
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @param SluggerInterface $slugger
      * @param Document $document
      * @return Response
