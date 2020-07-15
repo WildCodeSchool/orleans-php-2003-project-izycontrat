@@ -21,6 +21,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class DocumentController extends AbstractController
 {
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/", name="home")
      * @param DocumentRepository $documents
      * @return Response
@@ -35,6 +36,7 @@ class DocumentController extends AbstractController
     /**
      * @Route("/new", name="new")
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @param SluggerInterface $slugger
      * @return Response
      */
@@ -72,6 +74,7 @@ class DocumentController extends AbstractController
     /**
      * @Route("/{id}/edit", name="edit")
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @param SluggerInterface $slugger
      * @param Document $document
      * @return Response
