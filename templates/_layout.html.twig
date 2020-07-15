@@ -50,7 +50,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('app_notImplemented') }}">
+                                <a href="">
                                     <i class="fas fa-gavel"> </i>
                                     <span>Gestion des avocats</span>
                                 </a>
@@ -89,7 +89,7 @@
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="{{ path('app_notImplemented') }}">Jean Dupond</a>
+                                            <p>Pas de client</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -98,12 +98,11 @@
                                 <a href="#">
                                     <i class="fas fa-folder-open"> </i>
                                     <span>Dossiers en cours</span>
-                                    <span class="badge badge-pill badge-danger">1</span>
                                 </a>
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="{{ path('app_notImplemented') }}">Création SAS - Jean Dupond (04/06/2020)</a>
+                                            <p>Pas de dossier en cours</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -120,7 +119,7 @@
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="{{ path('app_notImplemented') }}">Document 1</a>
+                                            <p>Pas de document</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -129,12 +128,11 @@
                                 <a href="#">
                                     <i class="fas fa-folder-open"> </i>
                                     <span>Dossiers en cours</span>
-                                    <span class="badge badge-pill badge-danger">1</span>
                                 </a>
                                 <div class="sidebar-submenu">
                                     <ul>
                                         <li>
-                                            <a href="{{ path('app_notImplemented') }}">Création SAS (04/06/2020)</a>
+                                            <p>Pas de dossier en cours</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -144,7 +142,7 @@
                                 <span>Un projet à créer ?</span>
                             </li>
                             <li>
-                                <a href="{{ path('app_notImplemented') }}">
+                                <a href="">
                                     <i class="fas fa-project-diagram"> </i>
                                     <span>Je crée une entreprise!</span>
                                 </a>
@@ -167,6 +165,9 @@
             </div>
             <!-- sidebar-content  -->
             <div class="sidebar-footer">
+                <a href="{{ path('app_logout') }}">
+                    <i class="fa fa-power-off"> </i>
+                </a>
             </div>
         </nav>
     {% endif %}
