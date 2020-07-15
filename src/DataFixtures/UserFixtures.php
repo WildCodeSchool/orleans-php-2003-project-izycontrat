@@ -26,7 +26,7 @@ class UserFixtures extends Fixture
             'infos' => [
                 'janine.doe@gmail.com',
                 'https://g1dpicorivera.org/wp-content/uploads/2017/04/Diana-WEB.jpg',
-                ['ROLE_ADMIN']
+                ['ROLE_SUPER_ADMIN']
             ]
         ],
         'John Doe' => [
