@@ -9,6 +9,7 @@
     border-radius: $spacing-s;
     margin: 0 $spacing;
     justify-content: space-around;
+    word-break: break-all;
 }
 
 @media (max-width: 360px) {
