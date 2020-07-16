@@ -26,4 +26,11 @@ class HomeController extends AbstractController
             'partners' => $partners
         ]);
     }
+    /**
+     * @Route("/notImplemented", name="notImplemented")
+     */
+    public function notImplemented()
+    {
+        return $this->render('home/notImplemented.html.twig');
+    }
 }

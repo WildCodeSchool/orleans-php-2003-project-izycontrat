@@ -20,7 +20,7 @@ class UserType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => 'Mail',
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => 'louis.dupons@gmail.com',
@@ -31,22 +31,11 @@ class UserType extends AbstractType
                 'label' => 'Mot de passe',
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'mapped' => false,
+                'mapped' => true,
                 'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => '#Motdepasse01',
                 ),
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => 'En cochant cette case, je certifie avoir lu et accepté les '.
