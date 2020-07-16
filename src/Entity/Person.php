@@ -21,6 +21,7 @@ class Person
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
+     * @Assert\Valid()
      */
     private $user;
 
