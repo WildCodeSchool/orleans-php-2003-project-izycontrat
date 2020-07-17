@@ -17,7 +17,10 @@
                 {% set doc = document.fileName|split('_', 2) %}
                 <tr>
                     <th scope="row">{{ doc.0 }}</th>
-                    <td class="d-inline-flex flex-row"><a class="btn btn-primary" href="{{ path('document_edit', {'id': document.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                    <td class="d-inline-flex flex-row">
+                        <a class="btn btn-primary mr-3" href="{{ path('document_edit', {'id': document.id}) }}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
                         {{ include('dashboard/Admin/document/_delete_form.html.twig') }}</td>
                 </tr>
             {% endfor %}
