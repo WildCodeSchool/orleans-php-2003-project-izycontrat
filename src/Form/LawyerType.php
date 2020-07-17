@@ -53,7 +53,7 @@ class LawyerType extends AbstractType
                 ),
                 'required' => false,
             ])
-            ->add('address', TextareaType::class, [
+            ->add('address', TextType::class, [
                 'label' => 'Adresse',
                 'mapped' => true,
                 'empty_data' => null,
