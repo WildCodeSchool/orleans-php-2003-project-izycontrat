@@ -21,6 +21,7 @@ class Person
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
+     * @Assert\Valid()
      */
     private $user;
 
@@ -63,6 +64,7 @@ class Person
      * @ORM\Column(type="string", length=255)
      * @Assert\Type("string", message="Mauvais format de données")
      * @Assert\NotBlank(message="Le numéro de téléphone ne doit pas être vide")
+     * @Assert\Length(min = 10, max = 10)
      */
     private $phoneNumber;
 

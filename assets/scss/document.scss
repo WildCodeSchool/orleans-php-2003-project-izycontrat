@@ -2,6 +2,10 @@
 
 .container-fluid{
     margin: auto;
+
+    .btn{
+        margin: $spacing-l;
+    }
 }
 
 .page-content{
@@ -48,5 +52,3 @@
         z-index: 11;
     }
 }
-
-
