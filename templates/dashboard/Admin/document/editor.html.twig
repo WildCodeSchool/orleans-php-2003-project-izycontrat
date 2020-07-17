@@ -14,6 +14,8 @@
         {{ form_row(form.fileName) }}
         {{ form_row(form.content) }}
         {{ form_end(form) }}
+
+        <a class="btn btn-primary" href="javascript:void('Enregistrer')" title="Enregistrer" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_12_label" aria-describedby="cke_12_description" aria-haspopup="false" aria-disabled="false" onkeydown="return CKEDITOR.tools.callFunction(2,event);" onfocus="return CKEDITOR.tools.callFunction(3,event);" onclick="CKEDITOR.tools.callFunction(4,this);return false;"><span id="cke_12_label" class="cke_button_label cke_button__save_label" aria-hidden="false"></span><span id="cke_12_description" class="cke_button_label" aria-hidden="false"></span>Enregistrer</a>
     </section>
 {% endblock %}
 {% block dashboard %}
