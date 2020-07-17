@@ -11,12 +11,15 @@
         <h3 class="col-10">Profil</h3>
         <div class="profile">
             <div>
-                <div>{{ person.firstname }} {{ person.lastname }}</div>
+                <div class="top">{{ person.firstname }} {{ person.lastname }}</div>
                 <div>{{ user.email }}</div>
             </div>
             <div>
-                <div>{{ person.phoneNumber }}</div>
+                <div class="top">{{ person.phoneNumber }}</div>
                 <div>{{ person.address }}</div>
+            </div>
+            <div class="mid">
+                <div>{{ person.specialization }}</div>
             </div>
         </div>
     </section>
