@@ -5,10 +5,10 @@
     flex-direction: row;
     border: 1px solid #bea058;
     padding: $spacing;
-    width: 50%;
     border-radius: $spacing-s;
     margin: 0 $spacing;
     justify-content: space-around;
+    word-break: break-all;
 }
 
 @media (max-width: 360px) {
@@ -36,4 +36,13 @@
             margin: 0;
         }
     }
+}
+
+.top {
+    margin-bottom: $spacing;
+}
+
+.mid {
+    display: flex;
+    align-items: center;
 }

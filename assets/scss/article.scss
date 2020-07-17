@@ -1,5 +1,9 @@
 @import "dashboard";
 
+.custom-file-label:after{
+    content: 'Parcourir';
+}
+
 .article {
     margin: 90px 0 30px 0;
 }

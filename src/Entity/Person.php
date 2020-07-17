@@ -21,6 +21,7 @@ class Person
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
+     * @Assert\Valid()
      */
     private $user;
 
@@ -39,6 +40,10 @@ class Person
      * @ORM\Column(type="string", length=50)
      * @Assert\Type("string", message="Mauvais format de données")
      * @Assert\NotBlank(message="Le prénom ne doit pas être vide")
+     * @Assert\Regex(
+     * pattern = "/^[a-zA-Z0-9\-\_]+$/",
+     * match=true,
+     * message="Le prénom doit être dans un format valide.")
      * @Assert\Length(
      *      max = 50,
      *      maxMessage = "Le Prénom doit contenir au maximum {{ limit }} characters",
@@ -51,6 +56,10 @@ class Person
      * @ORM\Column(type="string", length=50)
      * @Assert\Type("string", message="Mauvais format de données")
      * @Assert\NotBlank(message="Le nom ne doit pas être vide")
+     * @Assert\Regex(
+     * pattern = "/^[a-zA-Z0-9\-\_]+$/",
+     * match=true,
+     * message="Le nom doit être dans un format valide.")
      * @Assert\Length(
      *      max = 50,
      *      maxMessage = "Le Nom doit contenir au maximum {{ limit }} characters",
@@ -63,6 +72,11 @@ class Person
      * @ORM\Column(type="string", length=255)
      * @Assert\Type("string", message="Mauvais format de données")
      * @Assert\NotBlank(message="Le numéro de téléphone ne doit pas être vide")
+     * @Assert\Regex(
+     * pattern = "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+     * match=true,
+     * message="Le numéro de téléphone doit être dans un format valide.")
+     * @Assert\Length(min = 10, max = 10)
      */
     private $phoneNumber;
 
