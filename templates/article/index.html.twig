@@ -40,17 +40,17 @@
                                 <div class="row my-2">
                                     <div class="col-md-10 col-sm-12">
 
-                                        <p class="mb-0">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
+                                        <p class="mt-5 mb-4">Le {{ article.createdAt|date("d/m/Y") }} écrit par <span
                                                     class="gold">{{ article.createdBy.email is defined ? article.createdBy.email }}</span>
                                         </p>
                                     </div>
                                     {% if is_granted('ROLE_ADMIN') %}
-                                        <div class="col-1">
+                                        <div class="mt-5 mr-4">
                                             <a href="{{ path('article_edit', {'id': article.id}) }}"
                                                class="btn btn-primary"><i
                                                         class="fas fa-pen"></i></a>
                                         </div>
-                                    <div class="col-1">
+                                    <div class="mt-5">
                                         {% else %}
                                         <div class="col-2 text-right">
                                         {% endif %}
