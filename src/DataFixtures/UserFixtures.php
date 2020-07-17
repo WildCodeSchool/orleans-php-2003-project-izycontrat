@@ -26,6 +26,15 @@ class UserFixtures extends Fixture
             'infos' => [
                 'janine.doe@gmail.com',
                 'https://g1dpicorivera.org/wp-content/uploads/2017/04/Diana-WEB.jpg',
+                ['ROLE_ADMIN']
+            ]
+        ],
+        'Jean Doe' => [
+            'infos' => [
+                'jean.doe@gmail.com',
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/' .
+                'John_Doe%2C_born_John_Nommensen_Duchac.jpg' .
+                '/125px-John_Doe%2C_born_John_Nommensen_Duchac.jpg',
                 ['ROLE_SUPER_ADMIN']
             ]
         ],
