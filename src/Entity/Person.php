@@ -64,6 +64,10 @@ class Person
      * @ORM\Column(type="string", length=255)
      * @Assert\Type("string", message="Mauvais format de données")
      * @Assert\NotBlank(message="Le numéro de téléphone ne doit pas être vide")
+     * @Assert\Regex(
+     * pattern = "/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/",
+     * match=true,
+     * message="Le numéro de téléphone doit être dans un format valide.")
      * @Assert\Length(min = 10, max = 10)
      */
     private $phoneNumber;
