@@ -38,6 +38,15 @@ class PersonFixtures extends Fixture implements DependentFixtureInterface
                 '8 avenue Louis Dupat 92000 Nanterre'
             ]
         ],
+        'Jean Doe' => [
+            'infos' => [
+                'Jean',
+                'Doe',
+                0,
+                '10 09 08 07 06',
+                '8 impasse Luis Dupas 10101 Romilly-sur-Seine'
+            ]
+        ],
         'John Doe' => [
             'infos' => [
                 'John',
