@@ -38,7 +38,6 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -47,10 +46,10 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\Regex(
-     * pattern = "/^(?=.*\d)(?=.*[A-Z])(?=.*[@#$%])(?!.*(.)\1{2}).*[a-z]/m",
+     * pattern = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\W]).{8,}$/m",
      * match=true,
      * message="Votre mot de passe doit comporter au moins huit caractères, dont des lettres majuscules et minuscules,
-     * un chiffre et un symbole.")
+     * un chiffre et un caractère spécial.")
      */
     private $password;
 
@@ -84,7 +83,7 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
