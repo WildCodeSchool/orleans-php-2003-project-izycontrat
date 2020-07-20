@@ -83,7 +83,6 @@ class Person
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Type("string", message="Mauvais format de données")
-     * @Assert\NotBlank(message="L'adresse ne doit pas être vide")
      * @Assert\Length(
      *      max = 255,
      *      maxMessage = "L'adresse doit contenir au maximum {{ limit }} characters",

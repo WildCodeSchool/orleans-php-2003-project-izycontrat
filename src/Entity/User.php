@@ -38,7 +38,6 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -84,7 +83,7 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
