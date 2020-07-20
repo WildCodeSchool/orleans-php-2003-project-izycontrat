@@ -38,7 +38,6 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="json")
      */
     private $roles = [];

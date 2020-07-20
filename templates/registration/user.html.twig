@@ -13,8 +13,6 @@
         {{ form_row(registrationForm.firstName) }}
         {{ form_row(registrationForm.lastName) }}
         {{ form_row(registrationForm.phoneNumber) }}
-        {{ form_row(registrationForm.address) }}
-        {{ form_row(registrationForm.country) }}
         {{ form_row(registrationForm.user.email) }}
         {{ form_row(registrationForm.user.password) }}
         {{ form_row(registrationForm.user.agreeTerms)|replace({'#CGU#': '<a class="text-secondary" href="">Conditions Générales d’Utilisation</a>'})|raw }}

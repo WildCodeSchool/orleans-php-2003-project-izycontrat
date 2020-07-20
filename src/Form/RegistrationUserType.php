@@ -24,7 +24,6 @@ class RegistrationUserType extends AbstractType
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
                 'mapped' => true,
-                'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => 'Louis',
                 ),
@@ -33,7 +32,6 @@ class RegistrationUserType extends AbstractType
             ->add('lastName', TextType::class, [
                 'label' => 'Nom',
                 'mapped' => true,
-                'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => 'Dupons',
                 ),
@@ -42,32 +40,10 @@ class RegistrationUserType extends AbstractType
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Téléphone',
                 'mapped' => true,
-                'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => '0X XX XX XX XX',
                 ),
                 'required'    => false,
-            ])
-            ->add('address', TextareaType::class, [
-                'label' => 'Adresse',
-                'mapped' => true,
-                'empty_data'  => null,
-                'attr' => array(
-                    'placeholder' => '15 rue de la patte d\'oie 78000 Versailles',
-                ),
-                'required'    => false,
-            ])
-            ->add('country', CountryType::class, [
-                'label' => 'Pays',
-                'mapped' => true,
-                'empty_data'  => null,
-                'preferred_choices' => array('FR'),
-                'required'    => true,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Le Pays ne doit pas être vide.',
-                    ]),
-                ],
             ])
             ->add(
                 $builder->create('user', UserType::class, ['by_reference' => true,])

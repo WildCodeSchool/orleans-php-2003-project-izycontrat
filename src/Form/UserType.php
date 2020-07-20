@@ -21,7 +21,6 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Mail',
                 'mapped' => true,
-                'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => 'louis.dupons@gmail.com',
                 ),
@@ -32,7 +31,6 @@ class UserType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => true,
-                'empty_data'  => null,
                 'attr' => array(
                     'placeholder' => '#Motdepasse01',
                 ),
